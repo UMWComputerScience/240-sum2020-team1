@@ -1,0 +1,1 @@
+class craftableItem extends item{}
