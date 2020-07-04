@@ -1,9 +1,14 @@
 
 import java.util.List;
 import java.util.Arrays;
-
+/**
+* a singleton commandFactory class. This is a class definiation and talks about
+* the class itself, not any particular method in the class.
+ */
 public class CommandFactory {
-
+/**
+* Constructs command class
+*/
     private static CommandFactory theInstance;
     public static List<String> MOVEMENT_COMMANDS = 
         Arrays.asList("n","w","e","s","u","d" );

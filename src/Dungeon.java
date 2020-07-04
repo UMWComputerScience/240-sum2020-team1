@@ -34,11 +34,16 @@ public class Dungeon {
     private String filename;
 
     Dungeon(String name, Room entry) {
+/**
+* constructor using a name and room. 
+*/
         init();
         this.filename = null;    // null indicates not hydrated from file.
         this.name = name;
         this.entry = entry;
         rooms = new Hashtable<String,Room>();
+	craftableItems = new Hashtable<String, Items>();
+
     }
 
     /**
@@ -123,6 +128,7 @@ public class Dungeon {
     private void init() {
         rooms = new Hashtable<String,Room>();
         items = new Hashtable<String,Item>();
+	craftableItems = new Hashtable<String, Item>();
     }
 
     /*
@@ -181,4 +187,13 @@ public class Dungeon {
         }
         return items.get(primaryItemName);
     }
+    public ArrayList<Items> checkRequirements(String requirements) throws noItemException{
+/** takes a string representing the name of an item, returns list of items in
+* the dungeons craftableItems table that item can be used to create.
+* @returns a list of craftable items, the supplied item can be used to create.
+*
+*/
+	ArrayList<Items> tempList = new ArrayList<Items>();
+	return tempList;
+	}
 }
