@@ -5,6 +5,8 @@ class nonPlayerCharacter {
 	ArrayList<Items> inventory;
 
 	public String say(){
+	/** main communication method for NPCs. Activated by the talkCommand, returns a string. 
+*/
 	}
 
 	public String takeItem(item item){
