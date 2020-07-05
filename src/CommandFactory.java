@@ -7,13 +7,16 @@ import java.util.Arrays;
  */
 public class CommandFactory {
 /**
-* Constructs command class
+* parent class for command type objects.
 */
     private static CommandFactory theInstance;
     public static List<String> MOVEMENT_COMMANDS = 
         Arrays.asList("n","w","e","s","u","d" );
 
     public static synchronized CommandFactory instance() {
+	/** constructor for command class. takes a string and instatiates a command
+	* sub-class objects.
+	*/
         if (theInstance == null) {
             theInstance = new CommandFactory();
         }
@@ -24,6 +27,8 @@ public class CommandFactory {
     }
 
     public Command parse(String command) {
+	/** parse method. Takes a string and instantiates the needed sub-class type. 
+*/
         String parts[] = command.split(" ");
         String verb = parts[0];
         String noun = parts.length >= 2 ? parts[1] : "";
