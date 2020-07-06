@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
-class nonPlayerCharacter {
+class NonPlayerCharacter {
 
 	String name;
 	Hashtable<String, String> messages;
@@ -9,6 +9,7 @@ class nonPlayerCharacter {
 	public String say(){
 	/** main communication method for NPCs. Activated by the talkCommand, returns a string. 
 */
+	    return null;
 	}
 
 	public String takeItem(Item item){
@@ -16,6 +17,7 @@ class nonPlayerCharacter {
 	* allows the player to give an item to the NPC. adds item to NPCs
 	*  inventory.
 	*/
+	    return "You took " + item.getPrimaryName();
 	}
 
 	public Item giveItem(){
@@ -23,5 +25,7 @@ class nonPlayerCharacter {
 	* Takes an item from the NPC's inventory and moves it to the
 	*  player's inventory.
 	*/
+	    Item item = new Item();
+	    return item;
 	}
 }

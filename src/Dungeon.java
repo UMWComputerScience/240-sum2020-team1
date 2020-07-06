@@ -41,8 +41,8 @@ public class Dungeon {
         this.filename = null;    // null indicates not hydrated from file.
         this.name = name;
         this.entry = entry;
-        rooms = new Hashtable<String,Room>();
-	craftableItems = new Hashtable<String, Items>();
+        Hashtable<String,Room> rooms = new Hashtable<String,Room>();
+	Hashtable<String,Item> craftableItems = new Hashtable<String, Item>();
 
     }
 
@@ -128,7 +128,7 @@ public class Dungeon {
     private void init() {
         rooms = new Hashtable<String,Room>();
         items = new Hashtable<String,Item>();
-	craftableItems = new Hashtable<String, Item>();
+	Hashtable<String,Item> craftableItems = new Hashtable<String, Item>();
     }
 
     /*
@@ -193,7 +193,7 @@ public class Dungeon {
 * @returns a list of craftable items, the supplied item can be used to create.
 *
 */
-	ArrayList<Items> tempList = new ArrayList<Items>();
+	ArrayList<Item> tempList = new ArrayList<Item>();
 	return tempList;
 	}
 }

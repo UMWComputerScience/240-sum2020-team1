@@ -2,6 +2,8 @@
 import java.util.Scanner;
 
 public class Exit {
+    public Exit(){
+    }
 
     class NoExitException extends Exception {}
 

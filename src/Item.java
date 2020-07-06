@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Item {
+    public Item(){
+    }
 /** Class for instantiating items that can be held in the GameState, NPC, Room, and GameState inventories. Items 
 * require a name to be created.
 */

@@ -19,7 +19,7 @@ class LockableExit extends Exit{
 	 * returns the boolean values of isLocked and isDestroyed
 	 */
 	public boolean getStatus(){
-
+	    return true;
 	}
 
 	/**

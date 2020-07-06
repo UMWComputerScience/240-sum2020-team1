@@ -9,6 +9,7 @@ class TalkCommand extends Command {
 	*<b style="color:red;">NEED TO REVIEW</b>
 	*/
 	public String execute() {
+		return "You did this.";
 	}
 
 }

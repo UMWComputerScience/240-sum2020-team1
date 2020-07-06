@@ -1,4 +1,4 @@
-class guard extends nonPlayerCharacter {
+class Guard extends NonPlayerCharacter {
 
 	public void unlockExit(){
 	/** the method that a guard type NPC uses to unlock a single exist. As the
