@@ -1,15 +1,17 @@
+import java.util.ArrayList;
+import java.util.Hashtable;
 class nonPlayerCharacter {
 
 	String name;
 	Hashtable<String, String> messages;
-	ArrayList<Items> inventory;
+	ArrayList<Item> inventory;
 
 	public String say(){
 	/** main communication method for NPCs. Activated by the talkCommand, returns a string. 
 */
 	}
 
-	public String takeItem(item item){
+	public String takeItem(Item item){
 	/**
 	* allows the player to give an item to the NPC. adds item to NPCs
 	*  inventory.
@@ -22,3 +24,4 @@ class nonPlayerCharacter {
 	*  player's inventory.
 	*/
 	}
+}

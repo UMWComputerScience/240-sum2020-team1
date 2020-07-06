@@ -1,8 +1,9 @@
-public static class NoItemException extends Exception {
-	public NoItemExceptionException(String item) 
+public class NoItemException extends Exception {
+	public void  NoItemExceptionException(String item) 
 	{
 	/** NoItemException thrown when an item is called and no such
 	* item found.
 	*/
-	System.out.println("No "+item+" found.";	}	
+	super(item);
+	System.out.println("No "+item+" found.");	}	
 	}

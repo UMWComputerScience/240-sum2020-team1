@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 import java.io.IOException;
@@ -187,7 +187,7 @@ public class Dungeon {
         }
         return items.get(primaryItemName);
     }
-    public ArrayList<Items> checkRequirements(String requirements) throws noItemException{
+    public ArrayList<Item> checkRequirements(String requirements) throws NoItemException{
 /** takes a string representing the name of an item, returns list of items in
 * the dungeons craftableItems table that item can be used to create.
 * @returns a list of craftable items, the supplied item can be used to create.

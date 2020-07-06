@@ -1,15 +1,14 @@
 class TalkCommand extends Command {
 	private String talkCommand;
 
-	TalkCommand(String talkCommand) {
-	/** constructor for talk command. Takes a string as it's primary argument.
+	/** provided a string, returns a TalkCommand type object. 
 	*/
+	TalkCommand(String talkCommand) {
 	}
-	public String execute() {
-	/** execute method for TalkCommand. 
+	/** execute method for TalkCommand.
 	*<b style="color:red;">NEED TO REVIEW</b>
 	*/
-
+	public String execute() {
 	}
 
 }
