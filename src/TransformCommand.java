@@ -1,5 +1,5 @@
 /**
- * This class is instantiated by ItemSpeccificCommand when
+ * Instantiated by ItemSpeccificCommand when
  * the input from the player to the interpreter is parsed
  * and read as a verb, which is specifit to an item, and
  * a noun which will be the item the player intends to
@@ -11,7 +11,7 @@ class TransformCommand extends Command {
 	private String noun;
 	
 	/**
-	 * The execute method calls get item on Gamestate to
+	 * Calls getItem on Gamestate to
 	 * manipulate the player's inventory. The item from
 	 * inventory is removed and replaced with the item that
 	 * the previouse item has been transformed into. A string is
