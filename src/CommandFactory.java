@@ -1,10 +1,6 @@
 
 import java.util.List;
 import java.util.Arrays;
-/**
-* a singleton commandFactory class. This is a class definiation and talks about
-* the class itself, not any particular method in the class.
- */
 public class CommandFactory {
 /**
 * parent class for command type objects.
@@ -14,9 +10,7 @@ public class CommandFactory {
         Arrays.asList("n","w","e","s","u","d" );
 
     public static synchronized CommandFactory instance() {
-	/** constructor for command class. takes a string and instatiates a command
-	* sub-class objects.
-	*/
+
         if (theInstance == null) {
             theInstance = new CommandFactory();
         }

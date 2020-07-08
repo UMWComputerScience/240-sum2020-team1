@@ -1,5 +1,5 @@
 import java.util.Array;
-/** returns a string to the terminal describing the players current health status.
+/** command object that returns a meggase describing the players current health status.
 **<b style="color:red;">NEED TO REVIEW</b>
 */
 
@@ -28,9 +28,10 @@ class HealthCommand extends Command {
 		}
 
 	public String execute() {
-/** gets the players current health and returns a string describing the relative condition of the players health.
+/** gets the players current health and returns a message describing the relative condition of the players health.
 * If the player's health is maxed out, it will instead return a message conserning the players hunger. 
-* will return a message from the 
+* @return message describing players health.
+* @Author Michael Cividanes
 */
 		}
 }
