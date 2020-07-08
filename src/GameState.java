@@ -7,8 +7,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
+/**
+ * Stores information about the current state of the dungeon.
+ * Includes the player's inventory, the current room, the dungeon,
+ * and the player's total weight.
+ * */
 public class GameState {
 
+	/**
+	 * Extends Exception and is thrown during hydration if the save file 
+	 * does not conform to what the program checks for.
+	 * */
     public static class IllegalSaveFormatException extends Exception {
         public IllegalSaveFormatException(String e) {
             super(e);
@@ -27,17 +36,21 @@ public class GameState {
     private ArrayList<Item> inventory;
     private Room adventurersCurrentRoom;
 
+    /**
+     * Singleton that instantiates one instance of GameState theInstance.*/
     static synchronized GameState instance() {
         if (theInstance == null) {
             theInstance = new GameState();
         }
         return theInstance;
     }
-
+	/**
+	 * Creates the inventory arrayList object.*/
     private GameState() {
         inventory = new ArrayList<Item>();
     }
-
+	/**
+	 * Returns the total weight of the items in the player's inventory.*/
     int getAdventurersCurrentWeight() {
         int total = 0;
         for (Item item : inventory) {
@@ -45,7 +58,11 @@ public class GameState {
         }
         return total;
     }
-
+	/**
+	 * Hydrate a previous save from a .sav file. 
+	 * Checks for format and if there is an error,
+	 * throws IllegaSaveFormatException and Dungeon.IllegalDungeonFormatException,
+	 * and FileNotFoundException.*/
     void restore(String filename) throws FileNotFoundException,
         IllegalSaveFormatException, Dungeon.IllegalDungeonFormatException {
 
@@ -85,7 +102,10 @@ public class GameState {
             }
         }
     }
-
+	/**
+	 * Persists the current state of a game when the player saves the game.
+	 * Writes the correct format to a .sav file.
+	 * Throws IOException.*/
     void store(String saveName) throws IOException {
         String filename = saveName + SAVE_FILE_EXTENSION;
         PrintWriter w = new PrintWriter(new FileWriter(filename));
@@ -102,12 +122,14 @@ public class GameState {
         }
         w.close();
     }
-
+	/**
+	 * Sets the current room to the entry of the dungeon at the beginning a game.*/
     void initialize(Dungeon dungeon) {
         this.dungeon = dungeon;
         adventurersCurrentRoom = dungeon.getEntry();
     }
-
+	/**
+	 * Returns an Arraylist with the names of each item in the player's inventory.*/
     ArrayList<String> getInventoryNames() {
         ArrayList<String> names = new ArrayList<String>();
         for (Item item : inventory) {
@@ -115,15 +137,18 @@ public class GameState {
         }
         return names;
     }
-
+	/**
+	 * Adds an Item to the player's inventory.*/
     void addToInventory(Item item) /* throws TooHeavyException */ {
         inventory.add(item);
     }
-
+	/**
+	 * Removes an Item from the player's inventory.*/
     void removeFromInventory(Item item) {
         inventory.remove(item);
     }
-
+	/**Returns an item from the current room or inventory.
+	 * Throws NoItemException if no item goes by that name.*/
     Item getItemInVicinityNamed(String name) throws Item.NoItemException {
 
         // First, check inventory.
@@ -142,7 +167,9 @@ public class GameState {
 
         throw new Item.NoItemException();
     }
-
+	/**
+	 * Returns an Item from the playe's inventory.
+	 * If no item is found, throws Item.NoItemException*/
     Item getItemFromInventoryNamed(String name) throws Item.NoItemException {
 
         for (Item item : inventory) {
@@ -152,15 +179,18 @@ public class GameState {
         }
         throw new Item.NoItemException();
     }
-
+	/**
+	 * Returns adventurersCurrentRoom*/
     Room getAdventurersCurrentRoom() {
         return adventurersCurrentRoom;
     }
-
+	/**
+	 * Sets the adventurersCurrentRoom to room.*/
     void setAdventurersCurrentRoom(Room room) {
         adventurersCurrentRoom = room;
     }
-
+	/**
+	 * Returns dungeon*/
     Dungeon getDungeon() {
         return dungeon;
     }
