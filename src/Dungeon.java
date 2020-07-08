@@ -6,6 +6,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 
+/**
+* creates a <tt>dungeon</tt> objectd. A dungeon is a grouping of (@link room}s and {@link exit}s. A dungeon 
+* may also have Non Player Characters, weapons, items and lockable exits.
+*
+*/
 public class Dungeon {
 
     public static class IllegalDungeonFormatException extends Exception {
@@ -35,7 +40,7 @@ public class Dungeon {
 
     Dungeon(String name, Room entry) {
 /**
-* constructor using a name and room. 
+* creates a Dungeon object and designates a room in that object as the 'entry' room. 
 */
         init();
         this.filename = null;    // null indicates not hydrated from file.

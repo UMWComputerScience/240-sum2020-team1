@@ -5,7 +5,8 @@ class InventoryCommand extends Command {
 
     InventoryCommand() {
     }
-
+/** method to display the inventory menu to the player. 
+*/
     public String execute() {
         ArrayList<String> names = GameState.instance().getInventoryNames();
         if (names.size() == 0) {

@@ -5,7 +5,7 @@
 class ScoreCommand extends Command {
 	private String score;
 
-	ScoreCommand(String score);
+	ScoreCommand(String score){
 	this.score = score;
 	}
 	
