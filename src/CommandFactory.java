@@ -20,9 +20,10 @@ public class CommandFactory {
     private CommandFactory() {
     }
 
-    public Command parse(String command) {
-	/** parse method. Takes a string and instantiates the needed sub-class type. 
+/**  Takes a string and instantiates the needed sub-class type.
 */
+    public Command parse(String command) {
+
         String parts[] = command.split(" ");
         String verb = parts[0];
         String noun = parts.length >= 2 ? parts[1] : "";

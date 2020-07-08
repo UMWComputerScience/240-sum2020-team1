@@ -26,13 +26,13 @@ class HealthCommand extends Command {
 			"You feel great! Ready to take on the world!"
 			}
 		}
-
-	public String execute() {
 /** gets the players current health and returns a message describing the relative condition of the players health.
-* If the player's health is maxed out, it will instead return a message conserning the players hunger. 
+* If the player's health is maxed out, it will instead return a message conserning the players hunger.
 * @return message describing players health.
 * @Author Michael Cividanes
 */
+
+	public String execute() {
 		}
 }
 	
