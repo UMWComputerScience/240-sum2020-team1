@@ -2,8 +2,8 @@
  * Extends Exit and can be manipulated by being able to be locked,
  * unlocked, or permanentaly destroyed. 
  *
- * the instance variables isLocked and isDestroyed are checked by 
- * the movement command to make sure the played doesn't move
+ * The instance variables isLocked and isDestroyed are checked by 
+ * the movement command to make sure the player doesn't move
  * through an unusable exit. 
  */
 class LockableExit extends Exit{
