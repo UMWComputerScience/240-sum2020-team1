@@ -1,6 +1,5 @@
 /**
- * A LockableExit is a type of exit (extends Exit)
- * that can be manipulated by being able to be locked,
+ * Extends Exit and can be manipulated by being able to be locked,
  * unlocked, or permanentaly destroyed. 
  *
  * the instance variables isLocked and isDestroyed are checked by 
