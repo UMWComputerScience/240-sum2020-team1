@@ -3,13 +3,14 @@ import java.util.Scanner;
 import java.util.Hashtable;
 import java.util.HashSet;
 import java.util.Set;
+/** Class for instantiating items that can be held in the GameState, NPC, Room, and GameState inventories. Items
+* require a name to be created.
+*/
 
 public class Item {
     public Item(){
     }
-/** Class for instantiating items that can be held in the GameState, NPC, Room, and GameState inventories. Items 
-* require a name to be created.
-*/
+
     static class NoItemException extends Exception {}
 
     private String primaryName;

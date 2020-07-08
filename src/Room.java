@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 
 public class Room {
 
-    class NoRoomException extends Exception {}
+//    class NoRoomException extends Exception {}
 
     static String CONTENTS_STARTER = "Contents: ";
 

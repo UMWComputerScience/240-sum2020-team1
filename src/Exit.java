@@ -54,12 +54,25 @@ public class Exit {
     // Common object initialization tasks.
     private void init() {
     }
-
+/** <span style="color:red;">NEED TO ADD JAVADOC!!!</span>
+*
+*/
     String describe() {
         return "You can go " + dir + " to " + dest.getTitle() + ".";
     }
+/** <span style="color:red;">NEED TO ADD JAVADOC!!!</span>
+*
+*/
 
     String getDir() { return dir; }
+/** <span style="color:red;">NEED TO ADD JAVADOC!!!</span>
+*
+*/
+
     Room getSrc() { return src; }
+/** <span style="color:red;">NEED TO ADD JAVADOC!!!</span>
+*
+*/
+
     Room getDest() { return dest; }
 }
