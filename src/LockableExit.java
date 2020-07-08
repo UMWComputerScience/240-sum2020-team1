@@ -1,10 +1,9 @@
 /**
  * Extends Exit and can be manipulated by being able to be locked,
  * unlocked, or permanentaly destroyed. 
- *
- * the instance variables isLocked and isDestroyed are checked by 
- * the movement command to make sure the played doesn't move
- * through an unusable exit. 
+ * 
+ * Once locked, an exit cannot be used unless it is unlocked again.
+ * Once destroyed, an exit cannot be used anymore, nor unlocked. 
  */
 class LockableExit extends Exit{
 	public boolean isLocked;
