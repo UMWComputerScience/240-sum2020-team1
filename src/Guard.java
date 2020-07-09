@@ -1,9 +1,14 @@
+/**
+ * A Guard behaves as a NonPlayableCharacter, with the addition of an ability
+ * to unlock a locked exit.
+ */
 class Guard extends NonPlayerCharacter {
 
+	/**
+	 * Unlocks a locked exit. Note that there is no return type as a Guard can 
+	 * unlock only onespecific exit per Guard object.
+	 */
 	public void unlockExit(){
-	/** the method that a guard type NPC uses to unlock a single exist. As the
-	* Guard type can only unlock a single exit, it returns nothing and require
-	* no parameter input. The method is intended. 
-	*/
+
 	}
 }
