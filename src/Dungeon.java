@@ -7,12 +7,13 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 
 /**
-* creates a <tt>dungeon</tt> objectd. A dungeon is a grouping of (@link room}s and {@link exit}s. A dungeon 
-* may also have Non Player Characters, weapons, items and lockable exits.
-*
+* A dungeon is a grouping of {@link room}s and their associated {@link exit}s. 
+* A dungeon may also have Non Player Characters, weapons, items and lockable exits.
 */
 public class Dungeon {
-
+	/**
+	 * Thrown during hydration when the program cannot read a file correctly
+	 * due to a format error.*/
     public static class IllegalDungeonFormatException extends Exception {
         public IllegalDungeonFormatException(String e) {
             super(e);
@@ -38,10 +39,10 @@ public class Dungeon {
     private Hashtable<String,Item> items;
     private String filename;
 
+    /**
+     * Creates a Dungeon object and designates a room in that object as the 'entry' room.
+     * */
     Dungeon(String name, Room entry) {
-/**
-* creates a Dungeon object and designates a room in that object as the 'entry' room. 
-*/
         init();
         this.filename = null;    // null indicates not hydrated from file.
         this.name = name;
@@ -52,7 +53,7 @@ public class Dungeon {
     }
 
     /**
-     * Read from the .zork filename passed, and instantiate a Dungeon object
+     * Reads from the .zork filename passed, and instantiate a Dungeon object
      * based on it.
      */
     public Dungeon(String filename) throws FileNotFoundException, 
@@ -62,8 +63,8 @@ public class Dungeon {
     }
 
     /**
-     * Read from the .zork filename passed, and instantiate a Dungeon object
-     * based on it, including (possibly) the items in their original locations.
+     * Instantiate a Dungeon object reading a passed .zork file,
+     * including any items in their original locations.
      */
     public Dungeon(String filename, boolean initState) 
         throws FileNotFoundException, IllegalDungeonFormatException {
@@ -130,15 +131,19 @@ public class Dungeon {
     
     // Common object initialization tasks, regardless of which constructor
     // is used.
+    /**
+     * Contains storage for rooms, items, and craftableItems for the dungeon.
+     * This ensures that every dungeon has an instantiated hashtable for
+     * these three objects.
+     */
     private void init() {
         rooms = new Hashtable<String,Room>();
         items = new Hashtable<String,Item>();
 	Hashtable<String,Item> craftableItems = new Hashtable<String, Item>();
     }
 
-    /*
-     * Store the current (changeable) state of this dungeon to the writer
-     * passed.
+    /**
+     * Stores the current state of this dungeon to a .sav file.
      */
     void storeState(PrintWriter w) throws IOException {
         w.println(FILENAME_LEADER + getFilename());
@@ -149,9 +154,10 @@ public class Dungeon {
         w.println(TOP_LEVEL_DELIM);
     }
 
-    /*
-     * Restore the (changeable) state of this dungeon to that reflected in the
-     * reader passed.
+    /**
+     * Restores the state of a dungeon through a read .sav file.
+     * Note that if the file has a format error, a GameState.IllegalSaveFormatException
+     * is thrown.
      */
     void restoreState(Scanner s) throws GameState.IllegalSaveFormatException {
 
@@ -176,14 +182,21 @@ public class Dungeon {
     public void add(Room room) { rooms.put(room.getTitle(),room); }
     public void add(Item item) { items.put(item.getPrimaryName(),item); }
 
+    /**
+     * Returns a room based on the room title is given.
+     */
     public Room getRoom(String roomTitle) {
         return rooms.get(roomTitle);
     }
 
-    /**
-     * Get the Item object whose primary name is passed. This has nothing to
+    /*
+     * Gets the Item object whose primary name is passed. This has nothing to
      * do with where the Adventurer might be, or what's in his/her inventory,
      * etc.
+     */
+    /**
+     * Returns an item based on the item name given. Note that if the
+     * item cannot be found, Item.NoItemException is thrown.
      */
     public Item getItem(String primaryItemName) throws Item.NoItemException {
         
@@ -192,8 +205,12 @@ public class Dungeon {
         }
         return items.get(primaryItemName);
     }
+    /**
+     * Takes the name of an item.
+     * Returns an ArrayList of two items used to craft an item.
+     */
     public ArrayList<Item> checkRequirements(String requirements) throws NoItemException{
-/** takes a string representing the name of an item, returns list of items in
+/* takes a string representing the name of an item, returns list of items in
 * the dungeons craftableItems table that item can be used to create.
 * @returns a list of craftable items, the supplied item can be used to create.
 *
