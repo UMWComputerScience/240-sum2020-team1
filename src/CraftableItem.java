@@ -1,17 +1,22 @@
 import java.util.Scanner;
+   /**
+    * CraftableItem represents an Item that can only be acquired through crafting. 
+    * The player will craft by combining two items, which returns the crafted item.
+    *
+    * Note that the combined items are removed from the player's inventory.
+    */
 class CraftableItem extends Item{
-/** method to remove associated ingrediant items with the desired item to be
-* crafted from the gameState inventory, and place  the desired craftableItem
-* into the gameState inventory. take the ingrediant items, return a crafted
+/** Removes the two ingrediant items associated with the desired item to be
+* crafted from the gameState inventory, and places the desired craftableItem
+* into the gameState inventory. Takes the ingrediant items and returns a crafted
 * item.
 */
-
 	public Item craftItem(){
 	    Item item = new Item();
 	  return item;
 	}
-/** returns true if the player inventory contains all the items in the supplied
-* arrayList. It returns false in all other cases.
+/** Returns true if the player inventory contains all two of the items in the supplied
+* recipe arrayList. Returns false in all other cases.
 */
 	public boolean checkPlayerInventory(){
 		return true;
