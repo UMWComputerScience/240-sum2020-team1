@@ -1,10 +1,17 @@
 
 import java.util.Scanner;
-
+/**
+ * An exit is used to transport the player from one room to another. An exit from one
+ * room has a corresponding exit in the next room in the oppisite direction, allowing
+ * the player to traverse between rooms as intended.
+ */
 public class Exit {
+
     public Exit(){
     }
-
+	/**
+	 * Thrown when the player uses an invalid exit.
+	 */
     class NoExitException extends Exception {}
 
     private String dir;
@@ -18,8 +25,7 @@ public class Exit {
         src.addExit(this);
     }
 
-    /** Given a Scanner object positioned at the beginning of an "exit" file
-        entry, read and return an Exit object representing it. 
+    /** Given a Scanner object, reads and returns an Exit object representing it. 
         @param d The dungeon that contains this exit (so that Room objects 
         may be obtained.)
         @throws NoExitException The reader object is not positioned at the
@@ -51,28 +57,30 @@ public class Exit {
         }
     }
 
-    // Common object initialization tasks.
+    /**
+     * Handles common initialization
+     */
     private void init() {
     }
-/** <span style="color:red;">NEED TO ADD JAVADOC!!!</span>
-*
-*/
+	/**
+	 * Returns a description containing an exit with it's
+	 * associated room destination.
+	 */
     String describe() {
         return "You can go " + dir + " to " + dest.getTitle() + ".";
     }
-/** <span style="color:red;">NEED TO ADD JAVADOC!!!</span>
-*
-*/
-
+	/**
+	 * Returns the direction of THIS exit.
+	 */
     String getDir() { return dir; }
-/** <span style="color:red;">NEED TO ADD JAVADOC!!!</span>
-*
-*/
-
+	/**
+	 * Returns the room which has THIS exit.
+	 */
     Room getSrc() { return src; }
-/** <span style="color:red;">NEED TO ADD JAVADOC!!!</span>
-*
-*/
 
+    /**
+     * Returns the room in which the player will be in
+     * after using THIS exit.
+     */
     Room getDest() { return dest; }
 }
