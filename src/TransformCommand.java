@@ -9,15 +9,15 @@
 class TransformCommand extends Command {
 	private String verb;
 	private String noun;
-	
-	/**
-	 * Calls getItem on Gamestate to
-	 * manipulate the player's inventory. The item from
-	 * inventory is removed and replaced with the item that
-	 * the previouse item has been transformed into. A string is
-	 * then output to the player, detailing that the item they
-	 * performed a command on has been transformed into a new
-	 * item.*/
+/**
+* Takes a string comprised of a very and a noun, uses the noun to check the player inventory
+* for the item identified by the noun. Will check bot the primary name nad the alias names 
+* of the noun. If the item is found, it will check if the item is capable of performing the
+* verb action. It will check the message for that action and look for conditions to change,
+* such as wounds, or teleportion. If the item is not found, returns a message saying 
+* "You don't have a [name of item]." If the item is found, but can not perform the indicated
+* verb, it returns a message stating that "[name of item] can't do that."
+*/
 	String execute(){
 
 	}	
