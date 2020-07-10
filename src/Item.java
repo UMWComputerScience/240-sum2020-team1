@@ -3,14 +3,18 @@ import java.util.Scanner;
 import java.util.Hashtable;
 import java.util.HashSet;
 import java.util.Set;
-/** Class for instantiating items that can be held in the GameState, NPC, Room, and GameState inventories. Items
-* require a name to be created.
-*/
-
+/** An Item is an object that can be moved between a room and the player's inventory,
+ * or directly added to the inventory through crafting or an incounter with an NPC.
+ *
+ * Note that an Item can also destroy an exit, transform into another item, or move
+ * the player to another room. 
+ */
 public class Item {
     public Item(){
     }
-
+	/**
+	 * Thrwon when an Item is not found with a provided name,
+	 */
     static class NoItemException extends Exception {}
 
     private String primaryName;
@@ -18,13 +22,11 @@ public class Item {
     private Hashtable<String,String> messages;
     private Set<String> aliases;
 
-
+    /**
+     * Creates an Item object by reading a .zork file.
+     */
     Item(Scanner s) throws NoItemException,
         Dungeon.IllegalDungeonFormatException {
-/** constructor for itme class. uses scanner to read .zork/.sav file into instatiation 
-* Items have a messages hashTable, which take string as the key, and string as value.
-* items also have an alias HashSet that take a String.
-*/
 
         messages = new Hashtable<String,String>();
         aliases = new HashSet<String>();
@@ -55,15 +57,17 @@ public class Item {
             verbLine = s.nextLine();
         }
     }
-
+	/**
+	 * Returns an integer representing the items weight
+	 */
     int getWeight() {
-/** returns an integer representing the items weight
-*/
         return weight;
     }
-
+	/**
+	 * Returns a true if the supplied string is found.
+	 */
     boolean goesBy(String name) {
-/** returns boolean if the supplied string is found in the items primaryName attribute or alias hashset.
+/* returns boolean if the supplied string is found in the items primaryName attribute or alias hashset.
  */
         if (this.primaryName.equals(name)) {
             return true;
@@ -75,18 +79,20 @@ public class Item {
         }
         return false;
     }
-
+	/**
+	 * returns the primary name of an Item.
+	 */
     String getPrimaryName() { return primaryName; }
-
+	/**
+	 * returns the corresponding string to supplied verb in ItemSpeccificCommand.
+	 */
     public String getMessageForVerb(String verb) {
-/** returns the string that corrosponds with the supplied verb in the ItemSpeccificCommand. 
-*/
         return messages.get(verb);
     }
-
+	/**
+	 * Returns an item's primary name.
+	 */
     public String toString() {
-/** returns item's primary name
-*/
         return primaryName;
     }
 }
