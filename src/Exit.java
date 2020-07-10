@@ -2,21 +2,22 @@
 import java.util.Scanner;
 /**
  * An exit is used to transport the player from one room to another. An exit from one
- * room has a corresponding exit in the next room in the oppisite direction, allowing
+ * room has a corresponding exit in the next room in the opposite direction, allowing
  * the player to traverse between rooms as intended.
  */
 public class Exit {
-
+/** empty constructor that takes no parameters.
+*/
     public Exit(){
     }
-	/**
-	 * Thrown when the player uses an invalid exit.
-	 */
-    class NoExitException extends Exception {}
 
     private String dir;
     private Room src, dest;
-
+/** constructor for instantianting exits manually. Needs to know the direction that the player can pass through the exit in, what room they are passing from, and what room they are passing to.
+* @param dir direction of travel for the exit.
+* @param src the source room for the individual exit
+* @param dest the destination room for this individual exit.
+*/
     Exit(String dir, Room src, Room dest) {
         init();
         this.dir = dir;
@@ -29,7 +30,7 @@ public class Exit {
         @param d The dungeon that contains this exit (so that Room objects 
         may be obtained.)
         @throws NoExitException The reader object is not positioned at the
-        start of an exit entry. A side effect of this is the reader's cursor
+        start of an exit entry in a .zork file. A side effect of this is the reader's cursor
         is now positioned one line past where it was.
         @throws IllegalDungeonFormatException A structural problem with the
         dungeon file itself, detected when trying to read this room.
