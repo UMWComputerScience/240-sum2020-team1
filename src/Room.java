@@ -3,7 +3,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+/**
+ * A room is a location that the player can navigate to and from using it's exits. Rooms can
+ * also hold items and NPCs/Guards.
+ *
+ * Note that a dungeon is composed entirely of rooms.
+ */
 public class Room {
 
 //    class NoRoomException extends Exception {}
@@ -20,7 +25,7 @@ public class Room {
         init();
         this.title = title;
     }
-
+	
     Room(Scanner s, Dungeon d) throws NoRoomException,
         Dungeon.IllegalDungeonFormatException {
 
@@ -78,7 +83,9 @@ public class Room {
         }
     }
 
-    // Common object initialization tasks.
+    /**
+     * Common object initialization tasks.
+     */
     private void init() {
         contents = new ArrayList<Item>();
         exits = new ArrayList<Exit>();
@@ -89,8 +96,8 @@ public class Room {
 
     void setDesc(String desc) { this.desc = desc; }
 
-    /*
-     * Store the current (changeable) state of this room to the writer
+    /**
+     * Stores the current state of this room to the writer
      * passed.
      */
     void storeState(PrintWriter w) throws IOException {
@@ -105,7 +112,9 @@ public class Room {
         }
         w.println(Dungeon.SECOND_LEVEL_DELIM);
     }
-
+	/**
+	 * Restores the state of this room through the passed scanner.
+	 */
     void restoreState(Scanner s, Dungeon d) throws 
         GameState.IllegalSaveFormatException {
 
@@ -130,11 +139,13 @@ public class Room {
             s.nextLine();  // Consume "---".
         }
     }
-
+	
     public String describe() {
         return describe(false);
     }
-
+	/**
+	 * Returns a string description of this room. This includes items,NPCs/Guards, and exits.
+	 */
     public String describe(boolean fullDesc) {
         String description;
         if (beenHere && !fullDesc) {
@@ -154,7 +165,9 @@ public class Room {
         beenHere = true;
         return description;
     }
-    
+    /**
+     * Returns the room associated with the specified exit.
+     */
     public Room leaveBy(String dir) {
         for (Exit exit : exits) {
             if (exit.getDir().equals(dir)) {
@@ -164,18 +177,30 @@ public class Room {
         return null;
     }
 
+    /**
+     * Adds an exit to this room.
+     */
     void addExit(Exit exit) {
         exits.add(exit);
     }
-
+	/**
+	 * Adds an item to this room.
+	 */
     void add(Item item) {
         contents.add(item);
     }
-
+	/**
+	 * Removes an item from this room.
+	 */
     void remove(Item item) {
         contents.remove(item);
     }
-
+	/**
+	 * Returns an item based on the given string name.
+	 *
+	 * Note that if the item is not found, Item.NoItemException
+	 * is thrown.
+	 */
     Item getItemNamed(String name) throws Item.NoItemException {
         for (Item item : contents) {
             if (item.goesBy(name)) {
@@ -184,7 +209,9 @@ public class Room {
         }
         throw new Item.NoItemException();
     }
-
+	/**
+	 * Returns the contents of this room, which would be items.
+	 */
     ArrayList<Item> getContents() {
         return contents;
     }
