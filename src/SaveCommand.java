@@ -11,6 +11,8 @@ class SaveCommand extends Command {
         } else {
             this.saveFilename = saveFilename;
         }
+	/**Given the name of a save file name, this constructor creates a new save file that is meant to save the player's current progress to that file.
+	**/
     }
 
     public String execute() {
@@ -23,5 +25,9 @@ class SaveCommand extends Command {
             e.printStackTrace();
             return "";
         }
+	/**Saves the player's current progress to a previously defined save file.
+	@throws Exception Could not create a save file.
+	@throws IllegalSaveFormatException Could not read a currently existing save file.
+	**/
     }
 }

@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 
 public class Interpreter {
+	/**This class displays everything the user sees on their screen when they run Zork III.
+	**/
 
     private static GameState state; // not strictly necessary; GameState is 
                                     // singleton
@@ -60,5 +62,7 @@ public class Interpreter {
         System.out.print("> ");
         return commandLine.nextLine();
     }
+    /**Reads the user's next line of input.
+    **/
 
 }

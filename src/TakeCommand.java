@@ -5,6 +5,9 @@ class TakeCommand extends Command {
 
     TakeCommand(String itemName) {
         this.itemName = itemName;
+	/**This constructor, given the name of an item, creates a new command meant to search for an item in the player's current room's inventory, and add it to the player's personal inventory.
+	@throws NoItemException The current Room has no Item of given name.
+	**/
     }
 
     public String execute() {
