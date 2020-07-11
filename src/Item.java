@@ -4,18 +4,16 @@ import java.util.Hashtable;
 import java.util.HashSet;
 import java.util.Set;
 /** An Item is an object that can be moved between a room and the player's inventory,
- * or directly added to the inventory through crafting or an incounter with an NPC.
+ * or directly added to the inventory through crafting or an encounter with an NPC.
  *
  * Note that an Item can also destroy an exit, transform into another item, or move
  * the player to another room. 
  */
 public class Item {
+    /**Empty, generic constructor that creates an Item
+    **/
     public Item(){
     }
-	/**
-	 * Thrwon when an Item is not found with a provided name,
-	 */
-    static class NoItemException extends Exception {}
 
     private String primaryName;
     private int weight;
@@ -23,7 +21,8 @@ public class Item {
     private Set<String> aliases;
 
     /**
-     * Creates an Item object by reading a .zork file.
+     * Creates an Item object by reading the contents of a .zork file.
+     * @throws NoItemException The .zork file does not have another Item to be read in.
      */
     Item(Scanner s) throws NoItemException,
         Dungeon.IllegalDungeonFormatException {
@@ -58,13 +57,13 @@ public class Item {
         }
     }
 	/**
-	 * Returns an integer representing the items weight
+	 * Returns an integer representing the item's weight.
 	 */
     int getWeight() {
         return weight;
     }
 	/**
-	 * Returns a true if the supplied string is found.
+	 * Returns true if the supplied string is found among this Item's aliases.  Returns false in all other cases.
 	 */
     boolean goesBy(String name) {
 /* returns boolean if the supplied string is found in the items primaryName attribute or alias hashset.
@@ -80,11 +79,11 @@ public class Item {
         return false;
     }
 	/**
-	 * returns the primary name of an Item.
+	 * Returns the primary name of an Item.
 	 */
     String getPrimaryName() { return primaryName; }
 	/**
-	 * returns the corresponding string to supplied verb in ItemSpeccificCommand.
+	 * Returns a message in response to a specified action.
 	 */
     public String getMessageForVerb(String verb) {
         return messages.get(verb);

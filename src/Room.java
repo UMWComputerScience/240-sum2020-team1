@@ -4,10 +4,8 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.io.PrintWriter;
 /**
- * A room is a location that the player can navigate to and from using it's exits. Rooms can
+ * A room is a location that the player can navigate to and from using its exits. Rooms can
  * also hold items and NPCs/Guards.
- *
- * Note that a dungeon is composed entirely of rooms.
  */
 public class Room {
 
@@ -20,12 +18,16 @@ public class Room {
     private boolean beenHere;
     private ArrayList<Item> contents;
     private ArrayList<Exit> exits;
-
+    /**Constructor that creates a single Room with a provided title.
+    **/
     Room(String title) {
         init();
         this.title = title;
     }
-	
+    /**Constructor that reads the contents of a file to create Rooms and add them to a supplied Dungeon.
+     * @throws NoRoomException The file does not have any Rooms available to be read to a Dungeon.
+     * @throws IllegalDungeonFormatException The file does not end in .zork.
+    **/
     Room(Scanner s, Dungeon d) throws NoRoomException,
         Dungeon.IllegalDungeonFormatException {
 
@@ -33,15 +35,14 @@ public class Room {
     }
 
     /** Given a Scanner object positioned at the beginning of a "room" file
-        entry, read and return a Room object representing it. 
+        entry, read the contents of that entry and create a Room object based on that information.
         @param d The containing {@link Dungeon} object, necessary to 
         retrieve {@link Item} objects.
-        @param initState should items listed for this room be added to it?
+        @param initState Ensures that the file is of the correct format.
         @throws NoRoomException The reader object is not positioned at the
         start of a room entry. A side effect of this is the reader's cursor
         is now positioned one line past where it was.
-        @throws IllegalDungeonFormatException A structural problem with the
-        dungeon file itself, detected when trying to read this room.
+        @throws IllegalDungeonFormatException A structural problem is found with the contents of the Dungeon file.
      */
     Room(Scanner s, Dungeon d, boolean initState) throws NoRoomException,
         Dungeon.IllegalDungeonFormatException {
@@ -84,21 +85,23 @@ public class Room {
     }
 
     /**
-     * Common object initialization tasks.
+     * Common object initialization tasks that include instantiating storage for items, exits, and the boolean value for whether or not the player had been in a Room (which, at Dungeon creation, is false in every case.)
      */
     private void init() {
         contents = new ArrayList<Item>();
         exits = new ArrayList<Exit>();
         beenHere = false;
     }
-
+    /**Returns the title of the Room.
+    **/
     String getTitle() { return title; }
-
+    /**Sets the description of a Room to the provided message.
+    **/
     void setDesc(String desc) { this.desc = desc; }
 
     /**
-     * Stores the current state of this room to the writer
-     * passed.
+     * Stores the current state of this room to a .sav file.
+     * @throws IOException The .sav file cannot be found.
      */
     void storeState(PrintWriter w) throws IOException {
         w.println(title + ":");
@@ -113,7 +116,7 @@ public class Room {
         w.println(Dungeon.SECOND_LEVEL_DELIM);
     }
 	/**
-	 * Restores the state of this room through the passed scanner.
+	 * Restores the state of this room through the passed scanner by reading a .sav file.
 	 */
     void restoreState(Scanner s, Dungeon d) throws 
         GameState.IllegalSaveFormatException {
@@ -139,13 +142,16 @@ public class Room {
             s.nextLine();  // Consume "---".
         }
     }
-	
+    /**Sets a false flag for other describe() method use.
+    **/
     public String describe() {
         return describe(false);
     }
-	/**
-	 * Returns a string description of this room. This includes items,NPCs/Guards, and exits.
-	 */
+    /**Returns a message describing this Room. If the player has been in the Room before, the message only includes the title, 
+     * the contents of the Room (including any NPCs or Guards), and the Exits.  If they have not been here before, 
+     * this message will inlcude the Room's title, the Room description, the contents of the Room, 
+     * any NPCs or Guards in the Room, and any Exits in the Room.
+    **/
     public String describe(boolean fullDesc) {
         String description;
         if (beenHere && !fullDesc) {
@@ -166,7 +172,7 @@ public class Room {
         return description;
     }
     /**
-     * Returns the room associated with the specified exit.
+     * Allows the player to leave their current Room and enter another Room which is joined by an Exit.
      */
     public Room leaveBy(String dir) {
         for (Exit exit : exits) {
@@ -184,22 +190,20 @@ public class Room {
         exits.add(exit);
     }
 	/**
-	 * Adds an item to this room.
+	 * Adds an item to this room's inventory.
 	 */
     void add(Item item) {
         contents.add(item);
     }
 	/**
-	 * Removes an item from this room.
+	 * Removes an item from this room's inventory.
 	 */
     void remove(Item item) {
         contents.remove(item);
     }
 	/**
-	 * Returns an item based on the given string name.
-	 *
-	 * Note that if the item is not found, Item.NoItemException
-	 * is thrown.
+	 * Returns an item based on a given name.
+	 * @throws NoItemException The item is not found.
 	 */
     Item getItemNamed(String name) throws Item.NoItemException {
         for (Item item : contents) {
@@ -210,7 +214,7 @@ public class Room {
         throw new Item.NoItemException();
     }
 	/**
-	 * Returns the contents of this room, which would be items.
+	 * Returns the contents of this room's inventory. This only returns items; this does not return NPCs/Guards or Exits.
 	 */
     ArrayList<Item> getContents() {
         return contents;
