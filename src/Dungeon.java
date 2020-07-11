@@ -194,11 +194,11 @@ public class Dungeon {
         return rooms.get(roomTitle);
     }
 
-    /*
-     * Gets the Item object whose primary name is passed. This has nothing to
-     * do with where the Adventurer might be, or what's in his/her inventory,
-     * etc.
-     */
+   // /*
+   //  * Gets the Item object whose primary name is passed. This has nothing to
+   //  * do with where the Adventurer might be, or what's in his/her inventory,
+   //  * etc.
+   //  */
     /**
      * Returns an item whose name matches the supplied item name.
      * @throws NoItemException if no item is found by the given name.
@@ -217,11 +217,6 @@ public class Dungeon {
      * @throws NoItemException if no item is found by the given name.
      */
     public ArrayList<Item> checkRequirements(String requirements) throws NoItemException{
-/* takes a string representing the name of an item, returns list of items in
-* the dungeons craftableItems table that item can be used to create.
-* @returns a list of craftable items, the supplied item can be used to create.
-*
-*/
 	ArrayList<Item> tempList = new ArrayList<Item>();
 	return tempList;
 	}
