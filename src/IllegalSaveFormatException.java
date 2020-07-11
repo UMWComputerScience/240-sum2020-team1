@@ -1,8 +1,10 @@
 
-/** exception to be thrown is an invalid or incompatible .sav file is detected.
+/** exception to be thrown if an invalid or incompatible .sav file is detected.
 */
 public static class IllegalSaveFormatException extends Exception {
-        public IllegalSaveFormatException(String e) {
+/**Declares exception.
+ * */
+	public IllegalSaveFormatException(String e) {
             super(e);
         }
     }

@@ -1,14 +1,14 @@
 
 import java.util.List;
 import java.util.Arrays;
+/**Creates command objects to allow the player to interact with the game.
+ */
 public class CommandFactory {
-/**
-* parent class for command type objects.
-*/
+
     private static CommandFactory theInstance;
     public static List<String> MOVEMENT_COMMANDS = 
         Arrays.asList("n","w","e","s","u","d" );
-
+	/**Creates a single instance of the command factory.*/
     public static synchronized CommandFactory instance() {
 
         if (theInstance == null) {
@@ -16,11 +16,11 @@ public class CommandFactory {
         }
         return theInstance;
     }
-
+	/**Empty constructor.*/
     private CommandFactory() {
     }
 
-/**  Takes a string and instantiates the needed sub-class type.
+/**  Takes a string and instantiates the needed sub-class object.
 */
     public Command parse(String command) {
 

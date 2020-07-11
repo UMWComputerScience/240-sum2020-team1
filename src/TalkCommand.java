@@ -1,10 +1,11 @@
-class TalkCommand extends Command {
 /** creates a talk command that is used to communicate with NPCs in the game.
 */
+
+class TalkCommand extends Command {
+
 	private String talkCommand;
 
-/** provided a string, returns a TalkCommand type object that is used to
-* interface with a NPC.
+/** Creates a comman that allows the player to talk to an NPC.
 */
 	TalkCommand(String talkCommand) {
 	}

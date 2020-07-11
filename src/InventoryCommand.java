@@ -1,11 +1,13 @@
 
 import java.util.ArrayList;
-
+/**Command object that allows the player to see their inventoy.
+ * */
 class InventoryCommand extends Command {
-
+/**Creates an inventory command.
+ * */
     InventoryCommand() {
     }
-/** method to display the inventory menu to the player. 
+/** Method to display the inventory menu to the player. 
 */
     public String execute() {
         ArrayList<String> names = GameState.instance().getInventoryNames();

@@ -1,15 +1,23 @@
-
+/**Creates a command to allow the player to pick up an item from the current
+room and place it in their inventory.*/
 class TakeCommand extends Command {
 
     private String itemName;
 
-    TakeCommand(String itemName) {
-        this.itemName = itemName;
-	/**This constructor, given the name of an item, creates a new command meant to search for an item in the player's current room's inventory, and add it to the player's personal inventory.
+	/**This constructor, given the name of an item, creates a new command meant to search for an item in the current room's inventory, and add it to the player's personal inventory.
 	@throws NoItemException The current Room has no Item of given name.
 	**/
-    }
+    TakeCommand(String itemName) {
+        this.itemName = itemName;
 
+
+
+    }
+	/**Checks the room inventory for an item who's primary name matches the supplied string. If found, it removes it from the current room's inventory to the player's inventory.
+	 * If such an item is not found, throws NoItemException.
+	 * If the weight of every item in the player's inventory and the weight of the item to be picked up exceeds the players maximum load capacity,
+	 * throws MaxLoadException.
+	 */
     public String execute() {
         if (itemName == null || itemName.trim().length() == 0) {
             return "Take what?\n";

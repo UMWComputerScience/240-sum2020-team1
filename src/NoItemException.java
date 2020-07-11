@@ -2,6 +2,8 @@
 */
 
 public class NoItemException extends Exception {
+/**Displays a message letting the player know that no item is found.
+ * */
 	public NoItemException(String item) 
 	{
 	    super(item);

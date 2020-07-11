@@ -1,9 +1,9 @@
 
 import java.util.Scanner;
 
-
+/**The primary interface between the player and the game. Reads input from the keyboard as words and sentances that will be interpreted as commands.*/
 public class Interpreter {
-	/**This class displays everything the user sees on their screen when they run Zork III.
+	/*This class displays everything the user sees on their screen when they run Zork III.
 	**/
 
     private static GameState state; // not strictly necessary; GameState is 
@@ -11,7 +11,7 @@ public class Interpreter {
 
     public static String USAGE_MSG = 
         "Usage: Interpreter zorkFile.zork|saveFile.sav.";
-
+/**This is the main input for the game. Reads input from the player as words and commands that let the player interact with the game.*/
     public static void main(String args[]) {
 
         if (args.length < 1) {
@@ -56,13 +56,14 @@ public class Interpreter {
             e.printStackTrace(); 
         }
     }
-
+/**Reads the user's next line of input.
+ * */
     private static String promptUser(Scanner commandLine) {
 
         System.out.print("> ");
         return commandLine.nextLine();
     }
-    /**Reads the user's next line of input.
+    /*Reads the user's next line of input.
     **/
 
 }

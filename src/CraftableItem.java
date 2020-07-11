@@ -7,8 +7,8 @@ import java.util.Scanner;
     */
 class CraftableItem extends Item{
 /** Removes the two ingrediant items associated with the desired item to be
-* crafted from the gameState inventory, and places the desired craftableItem
-* into the gameState inventory. Takes the ingrediant items and returns a crafted
+* crafted from the player's inventory, and places the desired craftableItem
+* into the player's inventory. Takes the ingrediant items and returns a crafted
 * item.
 */
 	public Item craftItem(){
@@ -16,7 +16,7 @@ class CraftableItem extends Item{
 	  return item;
 	}
 /** Returns true if the player inventory contains all two of the items in the supplied
-* recipe arrayList. Returns false in all other cases.
+* recipe list. Returns false in all other cases.
 */
 	public boolean checkPlayerInventory(){
 		return true;

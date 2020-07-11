@@ -10,42 +10,30 @@ class LockableExit extends Exit{
 	public boolean isDestroyed;
 	
 	/**
-	 * checks the status of an exit, therefore isLocked and
-	 * isDestroyed are checked by the moveCommand class to
-	 * see if the exit can be used.
-	 *
-	 * returns the boolean values of isLocked and isDestroyed
+	 * Checks the status of an exit to see of it can be
+	 * currently used.
 	 */
 	public boolean getStatus(){
 	    return true;
 	}
 
 	/**
-	 * changes the isLocked boolean value to true
-	 *
-	 * is called by the Room class when a new CloseRoomCommand
-	 * is instantiated.
-	 * */
+	 * Changes the condition of an exit to be locked.
+	 * Note that this prevents the user from usimg this exit.*/
 	public void lockExit(){
 
 	}
 
 	/**
-	 * changes the isLocked boolean value to false
-	 *
-	 * is called by the Room class when a new OpenRoomCommand
-	 * is instantiated.
-	 * */
+	 * Changes the condition of an exit to be unlocked.
+	 * Note that this allows the user to use this exit.*/
 	public void unlockExit(){
 
 	}
 	
 	/**
-	 * changes the isDestroyed boolean value to true
-	 * 
-	 * is called by the Room class when a new CloseRoomCommand
-	 * is instantiated.
-	 * */
+	 * Changes the condition of an exit to be destroyed. 
+	 * Note that this exit can no longer be used once destroyed.*/
 	public void destroyExit(){
 
 	}

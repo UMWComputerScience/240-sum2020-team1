@@ -1,8 +1,8 @@
-/** exception to be thrown if a speccificed NonPlayerCharacter is called for,
+/** exception to be thrown if a specificed NonPlayerCharacter is called for,
 * but no such NonPlayerCharacter is found in the current room.
 */
 public class NoNPCPresentException extends Exception {
-/** returns a message stating that there is noone named that in the current room.
+/** returns a message stating that there is no one with that name in the current room.
 */
         public NoNPCPresentException(String name)
         {

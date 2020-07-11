@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 /**
  * Stores information about the current state of the dungeon.
  * Includes the player's inventory, the current room, the dungeon,
- * and the player's total weight.
+ * and the total weight of the items in player's inventory.
  * */
 public class GameState {
 
@@ -45,7 +45,7 @@ public class GameState {
         return theInstance;
     }
 	/**
-	 * Creates the inventory arrayList object.*/
+	 * Creates the inventory storage.*/
     private GameState() {
         inventory = new ArrayList<Item>();
     }
@@ -61,8 +61,11 @@ public class GameState {
 	/**
 	 * Hydrate a previous save from a .sav file. 
 	 * Checks for format and if there is an error,
-	 * throws IllegaSaveFormatException and Dungeon.IllegalDungeonFormatException,
-	 * and FileNotFoundException.*/
+	 * If the format of the supplied file does not match the
+	 * intended format, throws IllegalSaveFormatException.
+	 * If a file does not exist in the intended location, throws FileNotFoundException.
+	 * If the supplied file does not end in '.zork', throws 
+	 * Dungeon.IllegalDungeonFormatException.*/
     void restore(String filename) throws FileNotFoundException,
         IllegalSaveFormatException, Dungeon.IllegalDungeonFormatException {
 
@@ -103,9 +106,8 @@ public class GameState {
         }
     }
 	/**
-	 * Persists the current state of a game when the player saves the game.
-	 * Writes the correct format to a .sav file.
-	 * Throws IOException.*/
+	 * Writes the current state of a game to a .sav file.
+	 * Throws IOException if file is unable to be written.*/
     void store(String saveName) throws IOException {
         String filename = saveName + SAVE_FILE_EXTENSION;
         PrintWriter w = new PrintWriter(new FileWriter(filename));
@@ -123,13 +125,13 @@ public class GameState {
         w.close();
     }
 	/**
-	 * Sets the current room to the entry of the dungeon at the beginning a game.*/
+	 * Ensures that the player's current room is the entry room at the beginning of the game.*/
     void initialize(Dungeon dungeon) {
         this.dungeon = dungeon;
         adventurersCurrentRoom = dungeon.getEntry();
     }
 	/**
-	 * Returns an Arraylist with the names of each item in the player's inventory.*/
+	 * Returns a list of the names of each item in the player's inventory.*/
     ArrayList<String> getInventoryNames() {
         ArrayList<String> names = new ArrayList<String>();
         for (Item item : inventory) {
@@ -148,6 +150,8 @@ public class GameState {
         inventory.remove(item);
     }
 	/**Returns an item from the current room or inventory.
+	 * Note that the player's inventory is checked before the
+	 * room's inventory.
 	 * Throws NoItemException if no item goes by that name.*/
     Item getItemInVicinityNamed(String name) throws Item.NoItemException {
 
@@ -168,8 +172,9 @@ public class GameState {
         throw new Item.NoItemException();
     }
 	/**
-	 * Returns an Item from the playe's inventory.
-	 * If no item is found, throws Item.NoItemException*/
+	 * Returns an Item from the player's inventory.
+	 * Note that the item's primar name is checked before it's alias names.
+	 * If no item is found by it's name, throws Item.NoItemException*/
     Item getItemFromInventoryNamed(String name) throws Item.NoItemException {
 
         for (Item item : inventory) {
@@ -180,12 +185,12 @@ public class GameState {
         throw new Item.NoItemException();
     }
 	/**
-	 * Returns adventurersCurrentRoom*/
+	 * Returns the room that the adventurer is currently in.*/
     Room getAdventurersCurrentRoom() {
         return adventurersCurrentRoom;
     }
 	/**
-	 * Sets the adventurersCurrentRoom to room.*/
+	 * Sets the adventurers current room to the present room.*/
     void setAdventurersCurrentRoom(Room room) {
         adventurersCurrentRoom = room;
     }
