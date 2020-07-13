@@ -170,8 +170,8 @@ public class Dungeon {
         // Note: the filename has already been read at this point.
         
         if (!s.nextLine().equals(ROOM_STATES_MARKER)) {
-            throw new IllegalSaveFormatException("No '" +
-                ROOM_STATES_MARKER + "' after dungeon filename in save file.");
+            throw new IllegalSaveFormatException();
+//	System.out.println("No '" +ROOM_STATES_MARKER + "' after dungeon filename in save file.");
         }
 
         String roomName = s.nextLine();
