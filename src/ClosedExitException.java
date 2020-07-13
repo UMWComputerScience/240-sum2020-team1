@@ -3,9 +3,9 @@
 */
 
 public class ClosedExitException extends Exception {
-        public NoItemException(String exit)
-        {
-            super(exit);
+        public ClosedExitException(String e){
+            super(e);
         //super(item);
-        System.out.println("ClosedExitException.");       }
-       }
+        System.out.println("ClosedExitException.");       
+	}
+}

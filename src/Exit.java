@@ -36,7 +36,7 @@ public class Exit {
         dungeon file itself, detected when trying to read this room.
      */
     Exit(Scanner s, Dungeon d) throws NoExitException,
-        Dungeon.IllegalDungeonFormatException {
+       IllegalDungeonFormatException {
 
         init();
         String srcTitle = s.nextLine();
@@ -53,7 +53,7 @@ public class Exit {
 
         // throw away delimiter
         if (!s.nextLine().equals(Dungeon.SECOND_LEVEL_DELIM)) {
-            throw new Dungeon.IllegalDungeonFormatException("No '" +
+            throw new IllegalDungeonFormatException("No '" +
                 Dungeon.SECOND_LEVEL_DELIM + "' after exit.");
         }
     }

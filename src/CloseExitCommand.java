@@ -16,6 +16,7 @@ class CloseExitCommand extends Command {
 	* If an exit is destroyed, returns a message detailing that the exit is destroyed.
 	*/
 	public String execute(){
+	return "Close exit command";
 	}
 
 }

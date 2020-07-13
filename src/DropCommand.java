@@ -27,7 +27,7 @@ class DropCommand extends Command {
             GameState.instance().removeFromInventory(theItem);
             GameState.instance().getAdventurersCurrentRoom().add(theItem);
             return theItem.getPrimaryName() + " dropped.\n";
-        } catch (Item.NoItemException e) {
+        } catch (NoItemException e) {
             return "You don't have a " + itemName + ".\n";
         }
 	/*An item, who name is given to this method via constructor, is meant to be dropped from the player's inventory and placed into the current Room's current item list.

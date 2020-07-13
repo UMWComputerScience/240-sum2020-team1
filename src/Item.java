@@ -25,7 +25,7 @@ public class Item {
      * @throws NoItemException The .zork file does not have another Item to be read in.
      */
     Item(Scanner s) throws NoItemException,
-        Dungeon.IllegalDungeonFormatException {
+       IllegalDungeonFormatException {
 
         messages = new Hashtable<String,String>();
         aliases = new HashSet<String>();
@@ -47,7 +47,7 @@ public class Item {
         String verbLine = s.nextLine();
         while (!verbLine.equals(Dungeon.SECOND_LEVEL_DELIM)) {
             if (verbLine.equals(Dungeon.TOP_LEVEL_DELIM)) {
-                throw new Dungeon.IllegalDungeonFormatException("No '" +
+                throw new IllegalDungeonFormatException("No '" +
                     Dungeon.SECOND_LEVEL_DELIM + "' after item.");
             }
             String[] verbParts = verbLine.split(":");

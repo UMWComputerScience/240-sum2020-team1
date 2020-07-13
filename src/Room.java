@@ -29,7 +29,7 @@ public class Room {
      * @throws IllegalDungeonFormatException The file does not end in .zork.
     **/
     Room(Scanner s, Dungeon d) throws NoRoomException,
-        Dungeon.IllegalDungeonFormatException {
+        IllegalDungeonFormatException {
 
         this(s, d, true);
     }
@@ -45,13 +45,13 @@ public class Room {
         @throws IllegalDungeonFormatException A structural problem is found with the contents of the Dungeon file.
      */
     Room(Scanner s, Dungeon d, boolean initState) throws NoRoomException,
-        Dungeon.IllegalDungeonFormatException {
+	IllegalDungeonFormatException {
 
         init();
         title = s.nextLine();
         desc = "";
         if (title.equals(Dungeon.TOP_LEVEL_DELIM)) {
-            throw new NoRoomException();
+            throw new NoRoomException("No more rooms in file" );
         }
         
         String lineOfDesc = s.nextLine();
@@ -66,8 +66,8 @@ public class Room {
                         if (initState) {
                             add(d.getItem(itemName));
                         }
-                    } catch (Item.NoItemException e) {
-                        throw new Dungeon.IllegalDungeonFormatException(
+                    } catch (NoItemException e) {
+                        throw new IllegalDungeonFormatException(
                             "No such item '" + itemName + "'");
                     }
                 }
@@ -79,7 +79,7 @@ public class Room {
 
         // throw away delimiter
         if (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM)) {
-            throw new Dungeon.IllegalDungeonFormatException("No '" +
+            throw new IllegalDungeonFormatException("No '" +
                 Dungeon.SECOND_LEVEL_DELIM + "' after room.");
         }
     }
@@ -134,7 +134,7 @@ public class Room {
             for (String itemName : itemNames) {
                 try {
                     add(d.getItem(itemName));
-                } catch (Item.NoItemException e) {
+                } catch (NoItemException e) {
                     throw new GameState.IllegalSaveFormatException(
                         "No such item '" + itemName + "'");
                 }
@@ -205,13 +205,13 @@ public class Room {
 	 * Returns an item based on a given name.
 	 * @throws NoItemException The item is not found.
 	 */
-    Item getItemNamed(String name) throws Item.NoItemException {
+    Item getItemNamed(String name) throws NoItemException {
         for (Item item : contents) {
             if (item.goesBy(name)) {
                 return item;
             }
         }
-        throw new Item.NoItemException();
+        throw new NoItemException();
     }
 	/**
 	 * Returns the contents of this room's inventory. This only returns items; this does not return NPCs/Guards or Exits.

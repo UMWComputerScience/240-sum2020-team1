@@ -20,7 +20,7 @@ class ItemSpecificCommand extends Command {
         Item itemReferredTo = null;
         try {
             itemReferredTo = GameState.instance().getItemInVicinityNamed(noun);
-        } catch (Item.NoItemException e) {
+        } catch (NoItemException e) {
             return "There's no " + noun + " here.";
         }
         

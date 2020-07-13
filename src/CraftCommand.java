@@ -13,7 +13,7 @@ class craftCommand extends Command {
 //		return "Craft what?\n";
 //		}
 //	try(){
-		
+	return "Craft Command";	
 	}
 
 }

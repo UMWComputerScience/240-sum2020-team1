@@ -67,7 +67,7 @@ public class GameState {
 	 * If the supplied file does not end in '.zork', throws 
 	 * Dungeon.IllegalDungeonFormatException.*/
     void restore(String filename) throws FileNotFoundException,
-        IllegalSaveFormatException, Dungeon.IllegalDungeonFormatException {
+        IllegalSaveFormatException, IllegalDungeonFormatException {
 
         Scanner s = new Scanner(new FileReader(filename));
 
@@ -98,7 +98,7 @@ public class GameState {
             for (String itemName : inventoryItems) {
                 try {
                     addToInventory(dungeon.getItem(itemName));
-                } catch (Item.NoItemException e) {
+                } catch (NoItemException e) {
                     throw new IllegalSaveFormatException("No such item '" +
                         itemName + "'");
                 }
@@ -153,7 +153,7 @@ public class GameState {
 	 * Note that the player's inventory is checked before the
 	 * room's inventory.
 	 * Throws NoItemException if no item goes by that name.*/
-    Item getItemInVicinityNamed(String name) throws Item.NoItemException {
+    Item getItemInVicinityNamed(String name) throws NoItemException {
 
         // First, check inventory.
         for (Item item : inventory) {
@@ -169,20 +169,20 @@ public class GameState {
             }
         }
 
-        throw new Item.NoItemException();
+        throw new NoItemException();
     }
 	/**
 	 * Returns an Item from the player's inventory.
 	 * Note that the item's primar name is checked before it's alias names.
 	 * If no item is found by it's name, throws Item.NoItemException*/
-    Item getItemFromInventoryNamed(String name) throws Item.NoItemException {
+    Item getItemFromInventoryNamed(String name) throws NoItemException {
 
         for (Item item : inventory) {
             if (item.goesBy(name)) {
                 return item;
             }
         }
-        throw new Item.NoItemException();
+        throw new NoItemException();
     }
 	/**
 	 * Returns the room that the adventurer is currently in.*/

@@ -18,7 +18,7 @@ public class Dungeon {
         public IllegalDungeonFormatException(String e) {
             super(e);
         }*/
-    }
+   
 
     // Variables relating to both dungeon file and game state storage.
     public static String TOP_LEVEL_DELIM = "===";
@@ -51,6 +51,14 @@ public class Dungeon {
 	Hashtable<String,Item> craftableItems = new Hashtable<String, Item>();
 
     }
+//	/** Exception to be thrown if an invalid or incompatible .zork file is detected
+//	* when loading a save game or starting a new game.
+//	*/
+//  class IllegalDungeonFormatException extends Exception {
+//      public void IIllegalDungeonFormatException(String e) {
+//            super(e);
+//        }
+//    }
 
     /**
      * Reads from the .zork filename passed, and creates a Dungeon 
@@ -98,7 +106,7 @@ public class Dungeon {
             while (true) {
                 add(new Item(s));
             }
-        } catch (Item.NoItemException e) {  /* end of items */ }
+        } catch (NoItemException e) {  /* end of items */ }
 
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
@@ -115,7 +123,7 @@ public class Dungeon {
             while (true) {
                 add(new Room(s, this, initState));
             }
-        } catch (Room.NoRoomException e) {  /* end of rooms */ }
+        } catch (NoRoomException e) {  /* end of rooms */ }
 
         // Throw away Exits starter.
         if (!s.nextLine().equals(EXITS_MARKER)) {
@@ -128,7 +136,7 @@ public class Dungeon {
             while (true) {
                 Exit exit = new Exit(s, this);
             }
-        } catch (Exit.NoExitException e) {  /* end of exits */ }
+        } catch (NoExitException e) {  /* end of exits */ }
 
         s.close();
     }
@@ -159,21 +167,27 @@ public class Dungeon {
      * Restores the state of a dungeon through a read .sav file.
      * @throws IllegalSaveFormatException if the file has a format error.
      */
-    void restoreState(Scanner s) throws GameState.IllegalSaveFormatException {
+    void restoreState(Scanner s) throws IllegalSaveFormatException, NoRoomException {
 
         // Note: the filename has already been read at this point.
         
         if (!s.nextLine().equals(ROOM_STATES_MARKER)) {
-            throw new GameState.IllegalSaveFormatException("No '" +
+            throw new IllegalSaveFormatException("No '" +
                 ROOM_STATES_MARKER + "' after dungeon filename in save file.");
         }
 
         String roomName = s.nextLine();
-        while (!roomName.equals(TOP_LEVEL_DELIM)) {
-            getRoom(roomName.substring(0,roomName.length()-1)).
-                restoreState(s, this);
-            roomName = s.nextLine();
-        }
+	try{
+	        while (!roomName.equals(TOP_LEVEL_DELIM)){
+		try{
+	       	    getRoom(roomName.substring(0,roomName.length()-1)).
+		    restoreState(s, this);
+ 	            roomName = s.nextLine();
+			}
+		catch(IllegalSaveFormatException SavFor){}
+        	}
+	}
+	catch(NoRoomException r){}
     }
 /**Returns the entry room of a dungeon.*/
     public Room getEntry() { return entry; }
@@ -193,20 +207,14 @@ public class Dungeon {
     public Room getRoom(String roomTitle) throws NoRoomException {
         return rooms.get(roomTitle);
     }
-
-   // /*
-   //  * Gets the Item object whose primary name is passed. This has nothing to
-   //  * do with where the Adventurer might be, or what's in his/her inventory,
-   //  * etc.
-   //  */
     /**
      * Returns an item whose name matches the supplied item name.
      * @throws NoItemException if no item is found by the given name.
      */
-    public Item getItem(String primaryItemName) throws Item.NoItemException {
+    public Item getItem(String primaryItemName) throws NoItemException {
         
         if (items.get(primaryItemName) == null) {
-            throw new Item.NoItemException();
+            throw new NoItemException();
         }
         return items.get(primaryItemName);
     }
@@ -221,3 +229,5 @@ public class Dungeon {
 	return tempList;
 	}
 }
+
+

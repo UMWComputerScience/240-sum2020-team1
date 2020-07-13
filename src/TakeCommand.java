@@ -33,13 +33,13 @@ class TakeCommand extends Command {
             GameState.instance().addToInventory(theItem);
             currentRoom.remove(theItem);
             return theItem.getPrimaryName() + " taken.\n";
-        } catch (Item.NoItemException e) {
+        } catch (NoItemException e) {
             // Check and see if we have this already. If no exception is
             // thrown from the line below, then we do.
             try {
                 GameState.instance().getItemFromInventoryNamed(itemName);
                 return "You already have the " + itemName + ".\n";
-            } catch (Item.NoItemException e2) {
+            } catch (NoItemException e2) {
                 return "There's no " + itemName + " here.\n";
             }
         }
