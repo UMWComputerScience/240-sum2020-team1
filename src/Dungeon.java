@@ -18,8 +18,6 @@ public class Dungeon {
         public IllegalDungeonFormatException(String e) {
             super(e);
         }*/
-   
-
     // Variables relating to both dungeon file and game state storage.
     public static String TOP_LEVEL_DELIM = "===";
     public static String SECOND_LEVEL_DELIM = "---";
