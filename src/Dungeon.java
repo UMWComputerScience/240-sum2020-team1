@@ -167,23 +167,27 @@ public class Dungeon {
      */
     void restoreState(Scanner s) throws IllegalSaveFormatException, NoRoomException {
 
-        // Note: the filename has already been read at this point.
-        
-        if (!s.nextLine().equals(ROOM_STATES_MARKER)) {
-            throw new IllegalSaveFormatException();
+        // Note: the filename has already been read at this point.    
+//        if (!s.nextLine().equals(ROOM_STATES_MARKER)) {
+//            throw new IllegalSaveFormatException();
 //	System.out.println("No '" +ROOM_STATES_MARKER + "' after dungeon filename in save file.");
-        }
+//        }
+
+        try{
+            if (!s.nextLine().equals(ROOM_STATES_MARKER)) {
+                throw new IllegalSaveFormatException();
+	    }
+	}
+	catch(IllegalSaveFormatException e){
+	    System.out.println("No'" + ROOM_STATES_MARKER + "'after dungeon filename in save file.");
+	}
 
         String roomName = s.nextLine();
 	try{
 	        while (!roomName.equals(TOP_LEVEL_DELIM)){
-		try{
-	       	    getRoom(roomName.substring(0,roomName.length()-1)).
-		    restoreState(s, this);
+	       	    	getRoom(roomName.substring(0,roomName.length()-1)).restoreState(s, this);
  	            roomName = s.nextLine();
-			}
-		catch(IllegalSaveFormatException SavFor){}
-        	}
+		}
 	}
 	catch(NoRoomException r){}
     }
@@ -210,11 +214,14 @@ public class Dungeon {
      * @throws NoItemException if no item is found by the given name.
      */
     public Item getItem(String primaryItemName) throws NoItemException {
-        
-        if (items.get(primaryItemName) == null) {
-            throw new NoItemException();
-        }
-        return items.get(primaryItemName);
+       try{ 
+           if (items.get(primaryItemName) == null) {
+               throw new NoItemException();
+           }
+       }
+       catch(NoItemException e){
+       }
+       return items.get(primaryItemName);
     }
     /**
      * Takes the name of an item that the player has indicated they want to craft.
