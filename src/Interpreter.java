@@ -8,13 +8,13 @@ public class Interpreter {
 
     private static GameState state; // not strictly necessary; GameState is 
                                     // singleton
-
-    public static String USAGE_MSG = 
+	
+  public static String USAGE_MSG = 
         "Usage: Interpreter zorkFile.zork|saveFile.sav.";
 /**This is the main input for the game. Reads input from the player as words and commands that let the player interact with the game.*/
     public static void main(String args[]) {
-
-        if (args.length < 1) {
+	boolean test = true;
+	        if (args.length < 1) {
             System.err.println(USAGE_MSG);
             System.exit(1);
         }
@@ -32,6 +32,7 @@ public class Interpreter {
                 state.restore(args[0]);
                 System.out.println("\nWelcome back to " + 
                     state.getDungeon().getName() + "!");
+		//testMethod(true);
             } else {
                 System.err.println(USAGE_MSG);
                 System.exit(2);

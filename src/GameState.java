@@ -200,6 +200,9 @@ public class GameState {
     Dungeon getDungeon() {
         return dungeon;
     }
+    void wound(int w){
+	this.health = this.health - w;
+	}
 
     int getHealth(){
 	    return this.health;
