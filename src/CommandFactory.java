@@ -46,7 +46,7 @@ public class CommandFactory {
 		return new HealthCommand(GameState.instance().getHealth());	
 	}
 	if(verb.equals("score")){
-		return new ScoreCommand(10);
+		return new ScoreCommand();
 	}
 	if(verb.equals("wound"){
 		System.out.println("How bad should I hurt you?");
