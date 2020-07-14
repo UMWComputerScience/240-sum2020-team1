@@ -65,7 +65,7 @@ public class Dungeon {
      * @throws FileNotFoundException if the .zork file does not exist.
      */
     public Dungeon(String filename) throws FileNotFoundException, 
-        IllegalDungeonFormatException {
+        IllegalDungeonFormatException, NoRoomException {
 
         this(filename, true);
     }
@@ -77,7 +77,7 @@ public class Dungeon {
      * @throws FileNotFoundException if the .zork file does not exist.
      */
     public Dungeon(String filename, boolean initState) 
-        throws FileNotFoundException, IllegalDungeonFormatException {
+        throws FileNotFoundException, IllegalDungeonFormatException, NoRoomException {
 
         init();
         this.filename = filename;
@@ -165,7 +165,7 @@ public class Dungeon {
      * Restores the state of a dungeon through a read .sav file.
      * @throws IllegalSaveFormatException if the file has a format error.
      */
-    void restoreState(Scanner s) throws IllegalSaveFormatException, NoRoomException {
+    void restoreState(Scanner s) throws  NoRoomException {
 
         // Note: the filename has already been read at this point.    
 //        if (!s.nextLine().equals(ROOM_STATES_MARKER)) {
@@ -185,8 +185,11 @@ public class Dungeon {
         String roomName = s.nextLine();
 	try{
 	        while (!roomName.equals(TOP_LEVEL_DELIM)){
+			try{
 	       	    	getRoom(roomName.substring(0,roomName.length()-1)).restoreState(s, this);
  	            roomName = s.nextLine();
+			}
+			catch(IllegalSaveFormatException e){}
 		}
 	}
 	catch(NoRoomException r){}

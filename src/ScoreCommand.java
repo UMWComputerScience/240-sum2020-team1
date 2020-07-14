@@ -16,6 +16,7 @@ class ScoreCommand extends Command {
 	/**This method checks the score and displays a short message to the player which varies depending on how high or low the score is.
 	*/
 	public String execute() {
+	return "does this work";
 	}
 }
 

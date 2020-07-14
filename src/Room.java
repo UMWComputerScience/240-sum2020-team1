@@ -119,12 +119,16 @@ public class Room {
 	 * Restores the state of this room through the passed scanner by reading a .sav file.
 	 */
     void restoreState(Scanner s, Dungeon d) throws 
-        GameState.IllegalSaveFormatException {
-
-        String line = s.nextLine();
+        IllegalSaveFormatException {
+	String line = s.nextLine();
+	try{
         if (!line.startsWith("beenHere")) {
-            throw new GameState.IllegalSaveFormatException("No beenHere.");
+            throw new IllegalSaveFormatException();
         }
+	}
+	catch(IllegalSaveFormatException e){
+		System.out.println("No beenHere.");
+	}
         beenHere = Boolean.valueOf(line.substring(line.indexOf("=")+1));
 
         line = s.nextLine();
@@ -134,14 +138,16 @@ public class Room {
             for (String itemName : itemNames) {
                 try {
                     add(d.getItem(itemName));
+		    if(d.getItem(itemName) == null){
+			throw new NoItemException();
+		    }
                 } catch (NoItemException e) {
-                    throw new GameState.IllegalSaveFormatException(
-                        "No such item '" + itemName + "'");
-                }
-            }
+                    System.out.println("No such item " + itemName + ".");
+		}
+	    }
             s.nextLine();  // Consume "---".
-        }
-    }
+	}
+	}
     /**Sets a false flag for other describe() method use.
     **/
     public String describe() {

@@ -36,7 +36,7 @@ public class Exit {
         dungeon file itself, detected when trying to read this room.
      */
     Exit(Scanner s, Dungeon d) throws NoExitException,
-       IllegalDungeonFormatException {
+       IllegalDungeonFormatException, NoRoomException {
 
         init();
         String srcTitle = s.nextLine();

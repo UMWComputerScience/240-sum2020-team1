@@ -24,7 +24,8 @@ class HealthCommand extends Command {
 */
 
 	public String execute() {
-		}
+	return "does this work";	
+	}
 }
 	
 

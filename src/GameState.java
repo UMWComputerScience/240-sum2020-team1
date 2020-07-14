@@ -67,7 +67,7 @@ public class GameState {
 	 * If the supplied file does not end in '.zork', throws 
 	 * Dungeon.IllegalDungeonFormatException.*/
     void restore(String filename) throws FileNotFoundException,
-        IllegalSaveFormatException, IllegalDungeonFormatException {
+        IllegalSaveFormatException, IllegalDungeonFormatException, NoRoomException {
 
         Scanner s = new Scanner(new FileReader(filename));
 
@@ -84,7 +84,7 @@ public class GameState {
         }
 
         dungeon = new Dungeon(dungeonFileLine.substring(
-            Dungeon.FILENAME_LEADER.length()), false);
+        Dungeon.FILENAME_LEADER.length()), false);
         dungeon.restoreState(s);
 
         s.nextLine();  // Throw away "Adventurer:".
