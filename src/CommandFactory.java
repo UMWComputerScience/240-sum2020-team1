@@ -46,7 +46,7 @@ public class CommandFactory {
 		return new HealthCommand(GameState.instance().getHealth());	
 	}
 	if(verb.equals("score")){
-		return new ScoreCommand(10);
+		return new ScoreCommand();
 	}
         if (MOVEMENT_COMMANDS.contains(verb)) {
             return new MovementCommand(verb);

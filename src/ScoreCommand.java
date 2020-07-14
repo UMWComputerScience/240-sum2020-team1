@@ -3,13 +3,13 @@
 */
 
 class ScoreCommand extends Command {
-	private String score;
-	private String [] ranks = {"noob","intermediate","experienced","master"}
+	//private int score;
+	private String [] ranks = {"noob","intermediate","experienced","master"};
 	/**
 	 * The constructor generates a commant that will check the player's score.
 	 */
-	ScoreCommand(String score){
-	this.score = score;
+	ScoreCommand(){
+	
 	/*Given a string resembling the player's score, this constructor generates a command that is meant to check the score and display a short message to the player which varies depending on how high or low the score is.
 	**/
 	}
@@ -18,19 +18,21 @@ class ScoreCommand extends Command {
 	*/
 	public String execute() {
 	String rank ="";
-	if (Gamestate.getScore <= 5){
+	int Score = GameState.instance().getScore();
+	if (Score <= 5){
 		rank = ranks[0];
 	}
-	if (Gamestate.getScore <= 10){
+	if (Score <= 10 && Score >= 6){
 		rank = ranks[1];
 	}
-	if (Gamestate.getScore <= 15){
+	if (Score <= 15 && Score >= 11){
 		rank = ranks[2];
 	}
-	if (Gamestate.getScore <= 20){
+	if (Score <= 20 && Score >= 16){
 		rank = ranks[3];
 	}
-	String scoreString = "You have accumulated " + GameState.instance().getScore() + " points. This gives you a rank of " + rank + ".";
+	
+	String scoreString = "You have accumulated " + GameState.instance().getScore() + " points. This gives you a rank of " + rank + "." + "\n";
 	return scoreString;
 	}
 }
