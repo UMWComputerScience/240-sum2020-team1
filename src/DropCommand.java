@@ -21,25 +21,24 @@ class DropCommand extends Command {
     public String execute() {
 	Room currentRoom = GameState.instance().getAdventurersCurrentRoom();
 	ArrayList<Item> playerInventory = GameState.instance().getInventory();
-        if (itemName == null || itemName.trim().length() == 0) {
+	ArrayList<Item> itemsToDrop = new ArrayList<Item>();
+	GameState.instance().getInventory().forEach(i -> itemsToDrop.add(i));
+        System.out.println("Player inventoy size:"+GameState.instance().getInventory().size());
+	if (itemName == null || itemName.trim().length() == 0) {
             return "Drop what?\n";
         }
 	else if(itemName.equals("all")){
-		for(int i = 0;i< playerInventory.size();i++){
-			Item tubi = playerInventory.get(i);
+		for(int i = 0;i<GameState.instance().getInventory().size();i++){
+			Item tubi = GameState.instance().getInventory().get(i);
+			System.out.println("Current Index: "+i);
+			System.out.println("Player Inventory size: "+GameState.instance().getInventory().size());
 			System.out.println("Dropping the "+tubi.getPrimaryName()+" to the floor.\n");	
-//			System.out.println("You drop the "+tubi.getPrimaryName()+" on the floor.\n")y;
 			GameState.instance().getInventory().remove(tubi);		
-		  	currentRoom.add(tubi);	
+		  	GameState.instance().getAdventurersCurrentRoom().add(tubi);	
+			System.out.println("Player inventory side: "+GameState.instance().getInventory().size());
+			
 			}
-//		for(Item i:allItem){
-//			GameState.instance().removeFromInventory(i);
-//			GameState.instance().getAdventurersCurrentRoom().add(i);
-//			System.out.println("You dropped the "+i.getPrimaryName()+" on the floor.\n");	
-
-		}
-//	}
-		
+	}		
 	else{
 	        try {
         	    Item theItem = GameState.instance().getItemFromInventoryNamed(
