@@ -43,8 +43,10 @@ public class CommandFactory {
             return new InventoryCommand();
         }
 	if (verb.equals("health")){
-		return new HealthCommand(GameState.instance().getHealth());
-	
+		return new HealthCommand(GameState.instance().getHealth());	
+	}
+	if(verb.equals("score")){
+		return new ScoreCommand(10);
 	}
         if (MOVEMENT_COMMANDS.contains(verb)) {
             return new MovementCommand(verb);
