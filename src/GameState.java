@@ -35,6 +35,7 @@ public class GameState {
     private Dungeon dungeon;
     private ArrayList<Item> inventory;
     private Room adventurersCurrentRoom;
+    private int health = 12;
 
     /**
      * Singleton that instantiates one instance of GameState theInstance.*/
@@ -199,5 +200,9 @@ public class GameState {
     Dungeon getDungeon() {
         return dungeon;
     }
+
+    int getHealth(){
+	    return this.health;
+	}
 
 }

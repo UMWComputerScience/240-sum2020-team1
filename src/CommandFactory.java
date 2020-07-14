@@ -43,7 +43,7 @@ public class CommandFactory {
             return new InventoryCommand();
         }
 	if (verb.equals("health")){
-		return new HealthCommand(12);
+		return new HealthCommand(GameState.instance().getHealth());
 	
 	}
         if (MOVEMENT_COMMANDS.contains(verb)) {

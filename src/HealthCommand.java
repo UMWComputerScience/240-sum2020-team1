@@ -24,7 +24,7 @@ class HealthCommand extends Command {
 */
 
 	public String execute() {
-	return healthMessages[this.health];	
+	return healthMessages[this.health] + "\n";	
 	}
 }
 	
