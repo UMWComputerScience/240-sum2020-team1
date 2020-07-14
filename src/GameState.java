@@ -210,5 +210,7 @@ public class GameState {
     int getScore() {
 		return this.score;
 	}
-
+    ArrayList<Item> getInventory(){
+		return this.inventory;
+	}
 }

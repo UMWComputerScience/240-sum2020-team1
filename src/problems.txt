@@ -1,0 +1,6 @@
+things to address that were discovered in testing:
+
+DropCommand.java:
+	What happens if you "drop all" and are carrying nothing?
+
+	At present, when doing "drop all" it does not go through all items in GameState inventor, only dropping the first item.
