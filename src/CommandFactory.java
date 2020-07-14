@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 import java.util.List;
 import java.util.Arrays;
 /**Creates command objects to allow the player to interact with the game.
@@ -43,8 +43,16 @@ public class CommandFactory {
             return new InventoryCommand();
         }
 	if (verb.equals("health")){
-		return new HealthCommand(12);
-	
+		return new HealthCommand(GameState.instance().getHealth());	
+	}
+	if(verb.equals("score")){
+		return new ScoreCommand();
+	}
+	if(verb.equals("wound")){
+		System.out.println("How bad should I hurt you?");
+		Scanner s1 = new Scanner(System.in);
+		int smirnoff = s1.nextInt();
+		return new WoundCommand(smirnoff);
 	}
         if (MOVEMENT_COMMANDS.contains(verb)) {
             return new MovementCommand(verb);

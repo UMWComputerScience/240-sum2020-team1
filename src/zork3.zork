@@ -26,9 +26,19 @@ donut
 7
 eat:You feel mildly guilt-ridden.
 ---
+microwaveBurrito
+2
+---
+pizza,pie
+10
+---
+WingGundam,Gundam,Mecha
+1
+---
 ===
 Rooms:
 Rotunda
+Contents: WingGundam,pizza
 You are in a beautiful round entry chamber, with tall white pillars that
 seemingly reach to the skies. There is an elevator here.
 ---
