@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**Creates a command to allow the player to pick up an item from the current
 room and place it in their inventory.*/
 class TakeCommand extends Command {
@@ -22,7 +23,16 @@ class TakeCommand extends Command {
         if (itemName == null || itemName.trim().length() == 0) {
             return "Take what?\n";
         }
-        try {
+	else if(itemName.equals("all")){
+		ArrayList<Item> allItem = GameState.instance().getAdventurersCurrentRoom().getContents();
+		for(Item i:allItem){
+			System.out.println(i.getPrimaryName());
+			GameState.instance().addToInventory(i);
+		}
+		return "You picked up everything in the room.\n";
+	}
+	else{
+	try {
             Room currentRoom = 
                 GameState.instance().getAdventurersCurrentRoom();
             Item theItem = currentRoom.getItemNamed(itemName);
@@ -43,5 +53,7 @@ class TakeCommand extends Command {
                 return "There's no " + itemName + " here.\n";
             }
         }
+	//return "else block";
+	}
     }
 }
