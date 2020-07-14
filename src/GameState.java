@@ -36,7 +36,7 @@ public class GameState {
     private ArrayList<Item> inventory;
     private Room adventurersCurrentRoom;
     private int health = 12;
-
+    private int score = 0;
     /**
      * Singleton that instantiates one instance of GameState theInstance.*/
     static synchronized GameState instance() {
@@ -203,6 +203,9 @@ public class GameState {
 
     int getHealth(){
 	    return this.health;
+	}
+    int getScore() {
+		return this.score;
 	}
 
 }
