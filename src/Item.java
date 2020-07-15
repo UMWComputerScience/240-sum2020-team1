@@ -116,6 +116,9 @@ public class Item {
         return primaryName;
     }
     public void callEvent(String [] c){
-
+	    for(int i;i<c.length();i++){
+		singleEvent = c[i];
+		EventFactory.instance().parse(singleEvent).callEvent();
+	    }
     }
 }
