@@ -26,11 +26,11 @@ public class Item {
      */
     Item(Scanner s) throws NoItemException,
        IllegalDungeonFormatException {
-
-        messages = new Hashtable<String,String>();
+	//messages hashtable changed to have an ItemEvent as the value
+        messages = new Hashtable<String,ItemEvent>();
         aliases = new HashSet<String>();
 
-        // Read item name.
+       // Read item name.
         String names[] = s.nextLine().split(",");
         if (names[0].equals(Dungeon.TOP_LEVEL_DELIM)) {
             throw new NoItemException();
@@ -51,8 +51,27 @@ public class Item {
                     Dungeon.SECOND_LEVEL_DELIM + "' after item.");
             }
             String[] verbParts = verbLine.split(":");
-            messages.put(verbParts[0],verbParts[1]);
-            
+	   private int istart = verbParts[0].indexOf("[");
+	   private int iend = verbParts[0].indexOf("}");
+	   System.out.println("Istart:"+istart);
+	   System.out.println("Iend:"+iend);
+	   String verb = "";
+	   String message = "";
+	   String command = "";
+	   if(istart == -1 && iend == -1){
+	   	command = "==no command==";
+		verb = verbParts[0];
+		message = verbParts[1];
+	 } 
+	   else{
+		command = s1.substring(istart+1,iend);
+		verb = s1.substring(0, istart);
+		message= verbParts[1];
+		}
+
+		}
+		ItemEvent creatEvent = new ItemEvent(message,command);
+            messages.put(verbParts[0],createEvent)d;
             verbLine = s.nextLine();
         }
     }
