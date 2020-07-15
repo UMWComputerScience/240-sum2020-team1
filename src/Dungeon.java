@@ -80,7 +80,7 @@ public class Dungeon {
      */
     public Dungeon(String filename, boolean initState) 
         throws FileNotFoundException, IllegalDungeonFormatException, NoRoomException {
-
+	ArrayList<String> listOfRooms = new ArrayList<String>();
         init();
         this.filename = filename;
 
