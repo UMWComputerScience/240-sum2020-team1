@@ -7,6 +7,11 @@ class DisappearEvent extends Event{
     
     String callEvent(){
 	GameState state = GameState.instance();
-	state.removeFromInventory(state.getItemFromInventoryNamed(itemName));
+	try{
+	    state.removeFromInventory(state.getItemFromInventoryNamed(itemName));
+	}
+	catch(NoItemException e){
+	}
+	return "";
     }
 }

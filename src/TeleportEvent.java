@@ -3,8 +3,10 @@ import java.util.Hashtable;
 import java.util.Enumeration;
 class TeleportEvent extends Event{
 private Dungeon d;
+private String g;
 
-    TeleportEvent(){
+    TeleportEvent(String g){
+	this.g = g;
 	this.d = GameState.instance().getDungeon();
     }
     

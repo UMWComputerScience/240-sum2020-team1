@@ -46,5 +46,6 @@ class EventFactory {
         if (eventType.contains("win")) {
             return new WinEvent(eventType);
         }
+	return new UnknownEvent(eventType);
     }
 }
