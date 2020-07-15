@@ -1,17 +1,4 @@
 things to address that were discovered in testing:
-eat: pizza
-	- returns a NullPointerException.
-	* need to check the ItemSpeccificCommand class. I added a 'eat' option to the pizza in the zork file and it works fine now. If the ItemSpeccificCommand is passed a verb that the item doesn't have, it should respond with something like "You can [verb] to [item]."
-
-	[question] should items with the 'eat' verb be removed from inventory when they are eaten?
-
-score command:
-	- at present there does not appear to be any accumulation of points for score. 
-
-
-take all command:
-	- return an IndexOutOfBoundsException: Source does not fit the dest.
-
 events:
 	win - should end the game with a "You win!" style message.
 	die - sets the players health to 0, ends the game. displays a "You have died" Message.
