@@ -8,9 +8,12 @@ public class ItemEvent{
 	
 	private String message;
 	private String command;
-	
+	ItemEvent(String m, String c){
+		this.message = m;
+		this.command =c;
+	}	
 	ItemEvent(String s) throws IllegalDungeonFormatException {
-		String names[] = s.NextLine().split(":");
+//		String names[] = s.NextLine().split(":");
 	}
 
 	String getMessage(){

@@ -69,12 +69,11 @@ public class Item {
 		message= verbParts[1];
 		}
 
-		}
-		ItemEvent creatEvent = new ItemEvent(message,command);
+	    ItemEvent createEvent = new ItemEvent(message,command);
             messages.put(verbParts[0],createEvent);
             verbLine = s.nextLine();
         }
-    
+   } 
 	/**
 	 * Returns an integer representing the item's weight.
 	 */
