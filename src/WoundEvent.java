@@ -4,12 +4,12 @@ class WoundEvent extends Event{
 	WoundEvent(String amountOfWound){
             int openParan = amountOfWound.indexOf("(");
 	    int closeParan = amountOfWound.indexOf(")");
-     	    String commandValue= amountOfWound.substring(openParan,closeParan);
-	    this.amountOfWound =Integer.parseInt(commandValue);
+     	    String commandValue= amountOfWound.substring(openParan + 1,closeParan);
+	    this.amountOfWound = Integer.parseInt(commandValue);
 	}
 
 	String callEvent(){
 	    GameState.instance().wound(amountOfWound);
-	    return "You got oofed";
+	    return "You took " + amountOfWound + " points of damage!";
 	}
 }
