@@ -12,6 +12,11 @@ class DisappearEvent extends Event{
 	}
 	catch(NoItemException e){
 	}
-	return "";
+	try{
+	    state.getAdventurersCurrentRoom().remove(state.getItemInVicinityNamed(itemName));
+	}
+	catch(NoItemException e){
+	}
+	return "Your " + itemName + " has disappeared from existence!";
     }
 }

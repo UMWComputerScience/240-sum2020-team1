@@ -6,6 +6,6 @@ class UnknownEvent extends Event{
 	}
 
 	String callEvent(){
-		return"";
+		return "Sorry, I don't understand " + blahblahblah + ".";
 	}
 }

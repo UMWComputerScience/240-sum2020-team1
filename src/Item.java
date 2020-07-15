@@ -69,7 +69,9 @@ public class Item {
 		message= verbParts[1];
 		}
 
-	    ItemEvent createEvent = new ItemEvent(message,command);
+	   String [] commands = command.split(",");
+	   
+	    ItemEvent createEvent = new ItemEvent(message,commands);
             messages.put(verbParts[0],createEvent);
             verbLine = s.nextLine();
         }
@@ -112,5 +114,11 @@ public class Item {
 	 */
     public String toString() {
         return primaryName;
+    }
+    public void callEvent(String [] c){
+	    for(int i;i<c.length();i++){
+		singleEvent = c[i];
+		EventFactory.instance().parse(singleEvent).callEvent();
+	    }
     }
 }

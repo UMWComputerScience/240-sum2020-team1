@@ -123,6 +123,7 @@ public class Dungeon {
             // Instantiate and add other rooms.
             while (true) {
                 add(new Room(s, this, initState));
+		
             }
         } catch (NoRoomException e) {  /* end of rooms */ }
 
