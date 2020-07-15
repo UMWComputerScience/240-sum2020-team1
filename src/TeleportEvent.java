@@ -1,8 +1,10 @@
 import java.util.*;
 class TeleportEvent extends Event{
 private Dungeon d;
+private String g;
 
-    TeleportEvent(){
+    TeleportEvent(String g){
+	this.g = g;
 	this.d = GameState.instance().getDungeon();
     }
     
