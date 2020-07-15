@@ -5,7 +5,7 @@ class ScoreEvent extends Event{
 
 	ScoreEvent(String s){
 		String [] splitS = s.split("(");
-		String unparsedNum = splits[1];
+		String unparsedNum = splitS[1];
 		String [] splitNum = unparsedNum.split(")");
 		String tempScoreVal = splitNum[0];
 		int tempIntScoreVal = Integer.parseInt(tempScoreVal);
