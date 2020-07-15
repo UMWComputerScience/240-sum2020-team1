@@ -1,12 +1,12 @@
 class ScoreEvent extends Event{
-	private int value;
+	private String value;
 
-	ScoreEvent(int value){
+	ScoreEvent(String value){
 		this.value = value;
 	}
 
 	String callEvent(){
-		GameState.instance().increaseScore(value);
+		GameState.instance().increaseScore(Integer.parseInt(value));
 		return "";
 	}
 }

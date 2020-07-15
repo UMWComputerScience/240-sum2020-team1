@@ -3,10 +3,10 @@ class TransformEvent extends Event{
 	String itemTransformedName;
 	Dungeon d;
 	
-	TransformEvent(String itemName, String itemTransformedName, Dungeon d){
+	TransformEvent(String itemName, String itemTransformedName){
 	    this.itemName = itemName;
 	    this.itemTransformedName = itemTransformedName;
-	    this.d = d;
+	    this.d = GameState.instance().getDungeon();
 	}
 	String callEvent(){
 	    GameState state = GameState.instance();
