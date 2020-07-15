@@ -37,8 +37,12 @@ public class CommandFactory {
             return new TakeCommand(noun);
         }
         if (verb.equals("drop")) {
+		if (noun.equals("all")) {
+		return new DropAllCommand();
+		} else {
             return new DropCommand(noun);
         }
+	}
         if (verb.equals("i") || verb.equals("inventory")) {
             return new InventoryCommand();
         }
