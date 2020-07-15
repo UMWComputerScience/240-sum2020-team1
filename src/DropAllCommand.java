@@ -7,11 +7,15 @@ class DropAllCommand extends Command {
     DropAllCommand() {
     }
 
-    public String execute() throws NoItemException {
-	try{GameState.instance().getInventory().size() == 0;
+    public String execute(){
+	try{
+		if(GameState.instance().getInventory().size() == 0){
+			throw new NoItemException();
+		}
+	}
 	// if (GameState.instance().getInventory().size() == 0) {
 //            return "You're not carrying anything.\n";
-        }catch (NoItemException nie){
+	catch (NoItemException e){
 	return "You are not carrying anything";
 	}
         Room currentRoom = 
@@ -22,7 +26,11 @@ class DropAllCommand extends Command {
         for (Item item: new ArrayList<Item>(
                 GameState.instance().getInventory())) {
             currentRoom.add(item);
+	    try{
             GameState.instance().removeFromInventory(item);
+	    }
+	    catch(NoItemException e){
+	    }
             retVal += item.getPrimaryName() + " dropped.\n";
         }
 
