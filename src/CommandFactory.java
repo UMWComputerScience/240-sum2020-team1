@@ -34,7 +34,8 @@ public class CommandFactory {
             return new SaveCommand(noun);
         }
         if (verb.equals("take")) {
-            return new TakeCommand(noun);
+		if(noun.equals("all")) {return new TakeAllCommand();}
+		else{return new TakeCommand(noun);}
         }
         if (verb.equals("drop")) {
 		if (noun.equals("all")) {
