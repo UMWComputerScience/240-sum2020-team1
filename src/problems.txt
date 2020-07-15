@@ -3,6 +3,7 @@ eat: pizza
 	- returns a NullPointerException.
 	* need to check the ItemSpeccificCommand class. I added a 'eat' option to the pizza in the zork file and it works fine now. If the ItemSpeccificCommand is passed a verb that the item doesn't have, it should respond with something like "You can [verb] to [item]."
 
+	- also, the eat command not appear to remove the item form inventory.
 	[question] should items with the 'eat' verb be removed from inventory when they are eaten?
 
 score command:
