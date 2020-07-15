@@ -29,7 +29,7 @@ class EventFactory {
             return new DropEvent(eventType);
         }
         if (eventType.contains("teleport")) {
-            return new TeleportEvent();
+            return new TeleportEvent(eventType);
         }
         if (eventType.contains("disappear")) {
             return new DisappearEvent(eventType);

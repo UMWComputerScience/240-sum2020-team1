@@ -11,8 +11,12 @@ class TransformEvent extends Event{
 	}
 	String callEvent(){
 	    GameState state = GameState.instance();
+	    try{
 	    state.removeFromInventory(state.getItemFromInventoryNamed(itemName));
 	    state.addToInventory(d.getItemList().get(itemTransformedName));
+	    }
+	    catch(NoItemException e){
+	    }
 	    return "";
 	}
 }
