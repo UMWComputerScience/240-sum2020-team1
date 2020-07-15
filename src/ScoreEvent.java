@@ -9,7 +9,7 @@ class ScoreEvent extends Event{
 		String [] splitNum = unparsedNum.split(")");
 		String tempScoreVal = splitNum[0];
 		int tempIntScoreVal = Integer.parseInt(tempScoreVal);
-		this.scoreVal = tempIntScoreVal;	
+		this.scoreVal = tempIntScoreVal;
 	}
 
 	String callEvent(){
