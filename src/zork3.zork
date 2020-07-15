@@ -26,19 +26,29 @@ donut
 7
 eat:You feel mildly guilt-ridden.
 ---
-microwaveBurrito
+microwaveBurrito,burrito
 2
+eat[Wound(2)]:You feel somewhat norished... but you can already feel the after effects coming on.
 ---
 pizza,pie
 10
+eat:You feel full... and a little gassy.
 ---
-WingGundam,Gundam,Mecha
+WingGundam,Gundam,Mechai,gundam,mecha
 1
+---
+OptimusPrimeToy,transformer,mecha
+2
+examine:Ah the fond memories of watching transformers on the tv...
+---
+zaku,mecha
+2
+examine:its green... and it's ugly.
 ---
 ===
 Rooms:
 Rotunda
-Contents: WingGundam,pizza
+Contents: WingGundam,pizza,microwaveBurrito,zaku,OptimusPrimeToy
 You are in a beautiful round entry chamber, with tall white pillars that
 seemingly reach to the skies. There is an elevator here.
 ---

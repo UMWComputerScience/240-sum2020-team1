@@ -52,7 +52,7 @@ public class Item {
             }
            String[] verbParts = verbLine.split(":");
 	   int istart = verbParts[0].indexOf("[");
-	   int iend = verbParts[0].indexOf("}");
+	   int iend = verbParts[0].indexOf("]");
 	   System.out.println("Istart:"+istart);
 	   System.out.println("Iend:"+iend);
 	   String verb = "";
