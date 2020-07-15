@@ -25,6 +25,7 @@ class ItemSpecificCommand extends Command {
         }
         
         String msg = itemReferredTo.getMessageForVerb(verb);
+	GameState.instance().increaseScore(2);
         return (msg == null ? 
             "Sorry, you can't " + verb + " the " + noun + "." : msg) + "\n";
     }

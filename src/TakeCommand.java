@@ -32,6 +32,7 @@ class TakeCommand extends Command {
 			GameState.instance().getAdventurersCurrentRoom().remove(i);
 			GameState.instance().addToInventory(i);
 		}
+		GameState.instance().increaseScore(2);
 		return "You picked up everything in the room.\n";
 	}
 	else{
