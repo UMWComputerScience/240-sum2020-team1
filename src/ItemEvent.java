@@ -7,8 +7,8 @@ public class ItemEvent{
 	}
 	
 	private String message;
-	private String command;
-	ItemEvent(String m, String c){
+	private String [] command;
+	ItemEvent(String m, Striing [] c){
 		this.message = m;
 		this.command =c;
 	}	
@@ -19,7 +19,7 @@ public class ItemEvent{
 	String getMessage(){
 	return this.message;}
 	
-	String getCommand(){
+	String [] getCommand(){
 	return this.command;
 	}
 
