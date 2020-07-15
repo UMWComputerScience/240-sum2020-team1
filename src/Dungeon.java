@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 /**
 * A dungeon is a grouping of {@link room}s and their associated {@link exit}s. 
@@ -36,6 +37,7 @@ public class Dungeon {
     private Hashtable<String,Room> rooms;
     private Hashtable<String,Item> items;
     private String filename;
+    private ArrayList<String> listOfRooms;
 
     /**
      * Creates a Dungeon object and designates a room in that object as the 'entry' room.
@@ -116,6 +118,7 @@ public class Dungeon {
             // Instantiate and add first room (the entry).
             entry = new Room(s, this, initState);
             add(entry);
+	    listOfRooms.add(entry.getTitle());
 
             // Instantiate and add other rooms.
             while (true) {
@@ -229,6 +232,9 @@ public class Dungeon {
     public Hashtable<String,Room> getRoomsList(){
 	    return rooms;
     }
+    public ArrayList<String> getRoomList(){
+	return listOfRooms;
+	}
     public Hashtable<String,Item> getItemList(){
 	    return items;
     }
