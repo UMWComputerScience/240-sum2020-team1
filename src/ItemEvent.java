@@ -8,7 +8,7 @@ public class ItemEvent{
 	
 	private String message;
 	private String [] command;
-	ItemEvent(String m, Striing [] c){
+	ItemEvent(String m, String [] c){
 		this.message = m;
 		this.command =c;
 	}	
