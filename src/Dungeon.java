@@ -226,6 +226,12 @@ public class Dungeon {
        }
        return items.get(primaryItemName);
     }
+    public Hashtable<String,Room> getRoomsList(){
+	    return rooms;
+    }
+    public Hashtable<String,Item> getItemList(){
+	    return items;
+    }
     /**
      * Takes the name of an item that the player has indicated they want to craft.
      * Chechs the player's inventory to see if the player has the two items.

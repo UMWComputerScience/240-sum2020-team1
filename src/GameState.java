@@ -207,9 +207,15 @@ public class GameState {
     int getHealth(){
 	    return this.health;
 	}
+    int setHealth(int num){
+	    this.health = num;
+    }
     int getScore() {
 		return this.score;
 	}
+    void increaseScore(int value){
+	    instance().score = instance().score + value;
+    }
     ArrayList<Item> getInventory(){
 		return this.inventory;
 	}
