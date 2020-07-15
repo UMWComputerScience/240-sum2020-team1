@@ -12,4 +12,7 @@ score command:
 take all command:
 	- return an IndexOutOfBoundsException: Source does not fit the dest.
 
-
+events:
+	win - should end the game with a "You win!" style message.
+	die - sets the players health to 0, ends the game. displays a "You have died" Message.
+	
