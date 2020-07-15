@@ -117,7 +117,7 @@ public class Item {
     }
     public void callEvent(String [] c){
 	    for(int i;i<c.length();i++){
-		singleEvent = c[i];
+		String singleEvent = c[i];
 		EventFactory.instance().parse(singleEvent).callEvent();
 	    }
     }
