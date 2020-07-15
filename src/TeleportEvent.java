@@ -13,11 +13,7 @@ private String g;
     String callEvent(){	
 	GameState state = GameState.instance();
 	ArrayList<String> ListOfRooms = GameState.instance().getDungeon().getRoomList();
-	//for(int i = 0; i < ListOfRooms.size(); i++){
-	//	ListOfRooms.add(roomNames.nextElement().getRoomName().getTitle());	
-	//}
-	//Collections.shuffle(ListOfRooms);
-	Hashtable<String,Room> b = new Hashtable<String,Room>();
+	Hashtable<String,Room> b;
 	b = d.getRoomsList();
 	Enumeration enu = b.keys();
 	Hashtable<Integer,Room> c = new Hashtable<Integer,Room>();
@@ -29,14 +25,13 @@ private String g;
 	Collections.shuffle(intList);
 	intList.toArray(intArray);
 	int i = 0;
-	while(enu.hasMoreElements()){
-		Room r = enu.nextElement();
-		c.put(intArray[i], r);
+	Set<String> keys = b.keySet();
+	for(String key: keys){
+		c.put(intArray[i], b.get(key));
 		i++;
 	}
 	Random rand = new Random();
 	int index = rand.nextInt(c.size() + 0) - 0;
-	//Room randomRoom = state.getDungeon().getRoom(ListOfRooms.get(index));
 	state.setAdventurersCurrentRoom(c.get(index));
 	return "";
     }
