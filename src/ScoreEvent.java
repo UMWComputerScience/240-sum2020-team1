@@ -14,6 +14,6 @@ class ScoreEvent extends Event{
 
 	String callEvent(){
 		GameState.instance().increaseScore(scoreVal);
-		return "";		
+		return "";
 	}
 }
