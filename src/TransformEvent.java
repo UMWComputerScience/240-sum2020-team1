@@ -3,9 +3,10 @@ class TransformEvent extends Event{
 	String itemTransformedName;
 	Dungeon d;
 	
-	TransformEvent(String itemName, String itemTransformedName){
-	    this.itemName = itemName;
-	    this.itemTransformedName = itemTransformedName;
+	TransformEvent(String combinedName){
+	    String result[] = combinedName.split(",");
+	    this.itemName = result[0];
+	    this.itemTransformedName = result[1];
 	    this.d = GameState.instance().getDungeon();
 	}
 	String callEvent(){

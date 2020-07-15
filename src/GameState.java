@@ -207,7 +207,7 @@ public class GameState {
     int getHealth(){
 	    return this.health;
 	}
-    int setHealth(int num){
+    void setHealth(int num){
 	    this.health = num;
     }
     int getScore() {
