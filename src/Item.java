@@ -50,9 +50,9 @@ public class Item {
                 throw new IllegalDungeonFormatException("No '" +
                     Dungeon.SECOND_LEVEL_DELIM + "' after item.");
             }
-            String[] verbParts = verbLine.split(":");
-	   private int istart = verbParts[0].indexOf("[");
-	   private int iend = verbParts[0].indexOf("}");
+           String[] verbParts = verbLine.split(":");
+	   int istart = verbParts[0].indexOf("[");
+	   int iend = verbParts[0].indexOf("}");
 	   System.out.println("Istart:"+istart);
 	   System.out.println("Iend:"+iend);
 	   String verb = "";
@@ -71,14 +71,14 @@ public class Item {
 
 		}
 		ItemEvent creatEvent = new ItemEvent(message,command);
-            messages.put(verbParts[0],createEvent)d;
+            messages.put(verbParts[0],createEvent);
             verbLine = s.nextLine();
         }
     }
 	/**
 	 * Returns an integer representing the item's weight.
 	 */
-    int getWeight() {
+    int getWeight(){
         return weight;
     }
 	/**
