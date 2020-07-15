@@ -11,6 +11,14 @@ public class ItemEvent{
 	
 	ItemEvent(String s) throws IllegalDungeonFormatException {
 		String names[] = s.NextLine().split(":");
-		if (names[0].
 	}
+
+	String getMessage(){
+	return this.message;}
+	
+	String getCommand(){
+	return this.command;
+	}
+
+
 }

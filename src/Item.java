@@ -17,7 +17,7 @@ public class Item {
 
     private String primaryName;
     private int weight;
-    private Hashtable<String,String> messages;
+    private Hashtable<String,ItemEvent> messages;
     private Set<String> aliases;
 
     /**
@@ -64,8 +64,8 @@ public class Item {
 		message = verbParts[1];
 	 } 
 	   else{
-		command = s1.substring(istart+1,iend);
-		verb = s1.substring(0, istart);
+		command = verbParts[0].substring(istart+1,iend);
+		verb = verbParts[0].substring(0, istart);
 		message= verbParts[1];
 		}
 
@@ -74,7 +74,7 @@ public class Item {
             messages.put(verbParts[0],createEvent);
             verbLine = s.nextLine();
         }
-    }
+    
 	/**
 	 * Returns an integer representing the item's weight.
 	 */
@@ -105,7 +105,8 @@ public class Item {
 	 * Returns a message in response to a specified action.
 	 */
     public String getMessageForVerb(String verb) {
-        return messages.get(verb);
+        
+	return messages.get(verb).getMessage();
     }
 	/**
 	 * Returns an item's primary name.
