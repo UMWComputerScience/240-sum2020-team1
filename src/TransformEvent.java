@@ -8,7 +8,7 @@ class TransformEvent extends Event{
 	    this.itemTransformedName = itemTransformedName;
 	    this.d = d;
 	}
-	String execute(){
+	String callEvent(){
 	    GameState state = GameState.instance();
 	    state.removeFromInventory(state.getItemFromInventoryNamed(itemName));
 	    state.addToInventory(d.getItemList().get(itemTransformedName));

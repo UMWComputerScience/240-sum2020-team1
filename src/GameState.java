@@ -147,7 +147,7 @@ public class GameState {
     }
 	/**
 	 * Removes an Item from the player's inventory.*/
-    void removeFromInventory(Item item) {
+    void removeFromInventory(Item item) throws NoItemException{
         inventory.remove(item);
     }
 	/**Returns an item from the current room or inventory.
