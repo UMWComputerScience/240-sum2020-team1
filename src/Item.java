@@ -17,7 +17,7 @@ public class Item {
 
     private String primaryName;
     private int weight;
-    private Hashtable<String,String> messages;
+    private Hashtable<String,ItemEvent> messages;
     private Set<String> aliases;
 
     /**
@@ -26,11 +26,11 @@ public class Item {
      */
     Item(Scanner s) throws NoItemException,
        IllegalDungeonFormatException {
-
-        messages = new Hashtable<String,String>();
+	//messages hashtable changed to have an ItemEvent as the value
+        messages = new Hashtable<String,ItemEvent>();
         aliases = new HashSet<String>();
 
-        // Read item name.
+       // Read item name.
         String names[] = s.nextLine().split(",");
         if (names[0].equals(Dungeon.TOP_LEVEL_DELIM)) {
             throw new NoItemException();
@@ -50,16 +50,35 @@ public class Item {
                 throw new IllegalDungeonFormatException("No '" +
                     Dungeon.SECOND_LEVEL_DELIM + "' after item.");
             }
-            String[] verbParts = verbLine.split(":");
-            messages.put(verbParts[0],verbParts[1]);
-            
+           String[] verbParts = verbLine.split(":");
+	   int istart = verbParts[0].indexOf("[");
+	   int iend = verbParts[0].indexOf("}");
+	   System.out.println("Istart:"+istart);
+	   System.out.println("Iend:"+iend);
+	   String verb = "";
+	   String message = "";
+	   String command = "";
+	   if(istart == -1 && iend == -1){
+	   	command = "==no command==";
+		verb = verbParts[0];
+		message = verbParts[1];
+	 } 
+	   else{
+		command = verbParts[0].substring(istart+1,iend);
+		verb = verbParts[0].substring(0, istart);
+		message= verbParts[1];
+		}
+
+		}
+		ItemEvent creatEvent = new ItemEvent(message,command);
+            messages.put(verbParts[0],createEvent);
             verbLine = s.nextLine();
         }
-    }
+    
 	/**
 	 * Returns an integer representing the item's weight.
 	 */
-    int getWeight() {
+    int getWeight(){
         return weight;
     }
 	/**
@@ -86,7 +105,8 @@ public class Item {
 	 * Returns a message in response to a specified action.
 	 */
     public String getMessageForVerb(String verb) {
-        return messages.get(verb);
+        
+	return messages.get(verb).getMessage();
     }
 	/**
 	 * Returns an item's primary name.
