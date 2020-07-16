@@ -27,15 +27,19 @@ class ItemSpecificCommand extends Command {
         } catch (NoItemException e) {
             return "There's no " + noun + " here.";
         }
+	try{
         if(itemReferredTo.getCommand(this.verb)[0].equals("==no command==")){
-		System.out.println("there is no command here");
+		//System.out.println("there is no command here");
 	}else{
-		System.out.println("there is a command here");
+		//System.out.println("there is a command here");
 		String[] commands = itemReferredTo.getCommand(this.verb);
 		itemReferredTo.callEvent(commands);
 	}
-
-        String msg = itemReferredTo.getMessageForVerb(verb);
+	}
+	catch(NullPointerException npe){
+		return "Sorry, you can't " + verb + " the " + noun + "." + "\n";
+	}
+	String msg = itemReferredTo.getMessageForVerb(verb);
 	//EventFactory.instance().parse(verb);
 	
 	//GameState.instance().increaseScore(2);			
@@ -47,6 +51,7 @@ class ItemSpecificCommand extends Command {
 		}
 		catch(NoItemException nie){}
 	}
+	
         return (msg == null ? 
             "Sorry, you can't " + verb + " the " + noun + "." : msg) + "\n";
     
