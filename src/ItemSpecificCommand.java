@@ -27,12 +27,17 @@ class ItemSpecificCommand extends Command {
         } catch (NoItemException e) {
             return "There's no " + noun + " here.";
         }
-        
+        if(itemReferredTo.getCommand(this.verb)[0].equals("==no command==")){
+		System.out.println("there is no command here");
+	}else{
+		System.out.println("there is a command here");
+		itemReferredTo.callEvent(itemReferredTo.getCommand(this.verb));
+	}
 
         String msg = itemReferredTo.getMessageForVerb(verb);
 	//EventFactory.instance().parse(verb);
 	
-	GameState.instance().increaseScore(2);			
+	//GameState.instance().increaseScore(2);			
 	if(EAT_COMMANDS.contains(verb)){
 		try{
 		Item itemToRemove = GameState.instance().getItemInVicinityNamed(noun);
