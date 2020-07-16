@@ -150,10 +150,10 @@ public class Item {
 	 */
     public String toString() {
         return primaryName;}
-    public void callEvent(String[] c){
+    public void callEvent(String[] c, String item){
 	    for(int i = 0;i<c.length;i++){
 		String singleEvent = c[i];
-		EventFactory.instance().parse(singleEvent).callEvent();
+		EventFactory.instance().parse(singleEvent,item).callEvent();
 	    }
 	}
     public String[] getCommand(String verb){

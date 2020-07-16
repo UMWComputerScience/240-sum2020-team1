@@ -18,9 +18,12 @@ class EventFactory {
     private EventFactory(){
     }
 
-    Event parse(String eventType){
+    Event parse(String eventType, String item){
 
 	eventType = eventType.toLowerCase();
+	if(GameState.instance().getTest()==true){
+	System.out.println("Event type: "+eventType);
+}
         if (eventType.contains("wound")){	
             return new WoundEvent(eventType);
         }
@@ -31,7 +34,11 @@ class EventFactory {
             return new TeleportEvent(eventType);
         }
         if (eventType.contains("disappear")) {
-            return new DisappearEvent(eventType);
+		if(GameState.instance().getTest()==true){
+		System.out.println("Event "+eventType+" called");
+}		String eventArgs = eventType+":"+item;
+            return new DisappearEvent(eventArgs);
+	
         }
         if (eventType.contains("score")) {
             return new ScoreEvent(eventType);

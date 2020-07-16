@@ -33,7 +33,7 @@ class ItemSpecificCommand extends Command {
 	}else{
 		//System.out.println("there is a command here");
 		String[] commands = itemReferredTo.getCommand(this.verb);
-		itemReferredTo.callEvent(commands);
+		itemReferredTo.callEvent(commands, this.noun);
 	}
 	}
 	catch(NullPointerException npe){
