@@ -36,8 +36,9 @@ public class Item {
             throw new NoItemException();
         }
        this.primaryName = names[0];
+	if(GameState.instance().test){	
 	System.out.println("PrimaryName: "+primaryName);
-	System.out.println("names[0] :"+names[0]);
+	System.out.println("names[0] :"+names[0]);}
 	
 
         for (int i=1; i<names.length; i++) {
