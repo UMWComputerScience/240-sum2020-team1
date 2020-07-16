@@ -8,6 +8,6 @@ class WoundCommand extends Command{
 
 	public String execute(){
 		GameState.instance().wound(wounds);
-		return "You have been hurt";
+		return "You have been hurt\n";
 	}
 }	
