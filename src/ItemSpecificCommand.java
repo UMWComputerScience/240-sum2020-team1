@@ -28,7 +28,10 @@ class ItemSpecificCommand extends Command {
             return "There's no " + noun + " here.";
         }
         
+
         String msg = itemReferredTo.getMessageForVerb(verb);
+	//EventFactory.instance().parse(verb);
+	
 	GameState.instance().increaseScore(2);			
 	if(EAT_COMMANDS.contains(verb)){
 		try{
