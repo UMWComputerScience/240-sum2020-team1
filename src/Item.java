@@ -149,8 +149,7 @@ public class Item {
 	 * Returns an item's primary name.
 	 */
     public String toString() {
-        return primaryName;
-    }
+        return primaryName;}
     public void callEvent(String[] c){
 	    for(int i = 0;i<c.length;i++){
 		String singleEvent = c[i];

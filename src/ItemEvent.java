@@ -19,7 +19,7 @@ public class ItemEvent{
 	String getMessage(){
 	return this.message;}
 	
-	String [] getCommand(){
+	String[] getCommand(){
 	return this.command;
 	}
 
