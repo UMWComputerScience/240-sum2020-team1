@@ -155,5 +155,8 @@ public class Item {
 		String singleEvent = c[i];
 		EventFactory.instance().parse(singleEvent).callEvent();
 	    }
-    }
+	}
+    public String[] getCommand(String verb){
+	return this.messages.get(verb).getCommand();
+	}
 }
