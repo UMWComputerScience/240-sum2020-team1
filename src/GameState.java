@@ -222,5 +222,6 @@ public class GameState {
 	}
     void returnToStart(){
 	GameState.instance().setAdventurersCurrentRoom(GameState.instance().getDungeon().getEntry());
+	GameState.instance().setHealth(12);
     }
 }
