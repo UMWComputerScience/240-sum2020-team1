@@ -4,4 +4,8 @@ events:
 	die - sets the players health to 0, ends the game. displays a "You have died" Message.
 
 gamestate test condition
+
+we do still get a "No such room" message when loading a new game.
+
+
 	

@@ -31,7 +31,8 @@ class ItemSpecificCommand extends Command {
 		System.out.println("there is no command here");
 	}else{
 		System.out.println("there is a command here");
-		itemReferredTo.callEvent(itemReferredTo.getCommand(this.verb));
+		String[] commands = itemReferredTo.getCommand(this.verb);
+		itemReferredTo.callEvent(commands);
 	}
 
         String msg = itemReferredTo.getMessageForVerb(verb);
