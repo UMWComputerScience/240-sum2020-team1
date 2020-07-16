@@ -21,8 +21,7 @@ class EventFactory {
     Event parse(String eventType){
 
 	eventType = eventType.toLowerCase();
-        if (eventType.contains("wound")){
-		
+        if (eventType.contains("wound")){	
             return new WoundEvent(eventType);
         }
         if (eventType.contains("drop")) {
