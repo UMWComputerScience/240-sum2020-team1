@@ -220,4 +220,7 @@ public class GameState {
     ArrayList<Item> getInventory(){
 		return this.inventory;
 	}
+    void returnToStart(){
+	GameState.instance().setAdventurersCurrentRoom(GameState.instance().getDungeon().getEntry());
+    }
 }
