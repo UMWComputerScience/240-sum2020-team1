@@ -62,34 +62,48 @@ public class Item {
 	   String verb = "";
 	   String message = "";
 	   String command = "";
+	   String currentLine = "";
+	   //String g = s.nextLine();
 	   if(istart == -1 && iend == -1){
 	   	command = "==no command==";
 		verb = verbParts[0];
 		message = verbParts[1];
-	 } 
+		String g = s.nextLine();
+		while(!g.contains(":") && !g.equals(Dungeon.SECOND_LEVEL_DELIM)){
+			message += " " + g;
+			g = s.nextLine();
+		}
+		currentLine = g;
+	   } 
 	   else{
 		command = verbParts[0].substring(istart+1,iend);
 		verb = verbParts[0].substring(0, istart);
 		message= verbParts[1];
+		String g = s.nextLine();
+		while(!g.contains(":") && !g.equals(Dungeon.SECOND_LEVEL_DELIM)){
+			message += " " + g;
+			g = s.nextLine();
 		}
-	    int y = 0;
-	    String g = s.nextLine();
-	    while(y == 0){
-	    	if(!g.contains(":")){
-			    message = message + g;
-			    g = s.nextLine();
-	    	}
-	    	else{
-			    verbLine = s.nextLine();
-			    y = 1;
-		    }
-	    }
+		currentLine = g;
+	   }
+	    //int y = 0;
+	    //verbLine = s.nextLine();
+	    //while(y == 0){
+	  //  	if(!verbLine.contains(":")){
+	//		    message = message + verbLine;
+	//		    verbLine = s.nextLine();
+	    //	}
+	  //  	else{
+	//		    verbLine = s.nextLine();
+	//		    y = 1;
+	//	    }
+	    //}
 	    System.out.println(message);
 	    String[] commands = command.split(",");
 	   
 	    ItemEvent createEvent = new ItemEvent(message,commands);	
             messages.put(verb,createEvent);
-            //verbLine = s.nextLine();
+            verbLine = currentLine;
         }
    } 
 	/**

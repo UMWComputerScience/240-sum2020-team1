@@ -2,7 +2,7 @@ Westeros
 Zork++
 ===
 Items:
-dragonglass,glass
+dragonglass,glass4
 4
 break[Wound(1)]:Ouch! The glass cuts your hand.
 wield:There's no one here to wield it against.
