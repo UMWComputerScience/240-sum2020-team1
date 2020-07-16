@@ -72,12 +72,24 @@ public class Item {
 		verb = verbParts[0].substring(0, istart);
 		message= verbParts[1];
 		}
-
-	   String[] commands = command.split(",");
+	    int y = 0;
+	    String g = s.nextLine();
+	    while(y == 0){
+	    	if(!g.contains(":")){
+			    message = message + g;
+			    g = s.nextLine();
+	    	}
+	    	else{
+			    verbLine = s.nextLine();
+			    y = 1;
+		    }
+	    }
+	    System.out.println(message);
+	    String[] commands = command.split(",");
 	   
 	    ItemEvent createEvent = new ItemEvent(message,commands);	
             messages.put(verb,createEvent);
-            verbLine = s.nextLine();
+            //verbLine = s.nextLine();
         }
    } 
 	/**
