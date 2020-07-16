@@ -12,28 +12,36 @@ private String g;
     
     String callEvent(){	
 	GameState state = GameState.instance();
-	ArrayList<String> ListOfRooms = GameState.instance().getDungeon().getRoomList();
-	Hashtable<String,Room> b;
-	b = d.getRoomsList();
-	Enumeration enu = b.keys();
-	Hashtable<Integer,Room> c = new Hashtable<Integer,Room>();
-	Integer[] intArray;
-	for(int i = 0; i < intArray.length; i++){
-		intArray[i] = i;
+//	ArrayList<String> ListOfRooms = GameState.instance().getDungeon().getRoomList();
+//	Hashtable<String,Room> b;
+//	b = d.getRoomsList();
+//	Enumeration enu = b.keys();
+//	Hashtable<Integer,Room> c = new Hashtable<Integer,Room>();
+//	int[] intArray = new int[c.size() ];
+//	for(int i = 0; i < intArray.length; i++){
+//		intArray[i] = i;
+//	}
+//	List<Integer> intList = Arrays.asList(intArray);
+//	Collections.shuffle(intList);
+//	intList.toArray(intArray);
+//	int i = 0;
+//	Set<String> keys = b.keySet();
+//	for(String key: keys){
+//		c.put(intArray[i], b.get(key));
+//		i++;
+//	}
+//	Random rand = new Random();
+//	int index = rand.nextInt(c.size());
+	try{
+	String roomName = "WinterFell";
+	Room newRoom = state.getDungeon().getRoom(roomName);
+	state.setAdventurersCurrentRoom(newRoom);
+	return "*POOF!* You have been teleported to the "+roomName+" room.";
 	}
-	List<Integer> intList = Arrays.asList(intArray);
-	Collections.shuffle(intList);
-	intList.toArray(intArray);
-	int i = 0;
-	Set<String> keys = b.keySet();
-	for(String key: keys){
-		c.put(intArray[i], b.get(key));
-		i++;
-	}
-	Random rand = new Random();
-	int index = rand.nextInt(c.size() + 0) - 0;
-	state.setAdventurersCurrentRoom(c.get(index));
-	return "";
+	catch (NoRoomException nre){
+	return "Um... where?";
     }
+}
+
 }
 

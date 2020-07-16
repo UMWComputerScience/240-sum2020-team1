@@ -35,14 +35,18 @@ public class Item {
         if (names[0].equals(Dungeon.TOP_LEVEL_DELIM)) {
             throw new NoItemException();
         }
-        primaryName = names[0];
+       this.primaryName = names[0];
+	System.out.println("PrimaryName: "+primaryName);
+	System.out.println("names[0] :"+names[0]);
+	
+
         for (int i=1; i<names.length; i++) {
             aliases.add(names[i]);
         }
 
         // Read item weight.
         weight = Integer.valueOf(s.nextLine());
-
+	System.out.println("weight: "+weight);
         // Read and parse verbs lines, as long as there are more.
         String verbLine = s.nextLine();
         while (!verbLine.equals(Dungeon.SECOND_LEVEL_DELIM)) {
@@ -69,10 +73,10 @@ public class Item {
 		message= verbParts[1];
 		}
 
-	   String [] commands = command.split(",");
+	   String[] commands = command.split(",");
 	   
-	    ItemEvent createEvent = new ItemEvent(message,commands);
-            messages.put(verbParts[0],createEvent);
+	    ItemEvent createEvent = new ItemEvent(message,commands);	
+            messages.put(verb,createEvent);
             verbLine = s.nextLine();
         }
    } 
@@ -101,7 +105,7 @@ public class Item {
 	/**
 	 * Returns the primary name of an Item.
 	 */
-    String getPrimaryName() { return primaryName; }
+    String getPrimaryName() { return this.primaryName; }
 	/**
 	 * Returns a message in response to a specified action.
 	 */
@@ -115,8 +119,8 @@ public class Item {
     public String toString() {
         return primaryName;
     }
-    public void callEvent(String [] c){
-	    for(int i;i<c.length();i++){
+    public void callEvent(String[] c){
+	    for(int i = 0;i<c.length;i++){
 		String singleEvent = c[i];
 		EventFactory.instance().parse(singleEvent).callEvent();
 	    }

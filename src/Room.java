@@ -165,8 +165,9 @@ public class Room {
         } else {
             description = title + "\n" + desc;
         }
-        for (Item item : contents) {
-            description += "\nThere is a " + item.getPrimaryName() + " here.";
+        for(Item item : contents) {
+         description += "\nThere is a " + item.getPrimaryName() + " here.";
+//	 description += "\nthere is a something or other here.";
         }
         if (contents.size() > 0) { description += "\n"; }
         if (!beenHere || fullDesc) {
