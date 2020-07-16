@@ -50,6 +50,7 @@ public class GameState {
     private GameState() {
         inventory = new ArrayList<Item>();
     }
+    public boolean getTest(){ return test;}
 	/**
 	 * Returns the total weight of the items in the player's inventory.*/
     int getAdventurersCurrentWeight() {

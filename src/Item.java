@@ -36,10 +36,11 @@ public class Item {
             throw new NoItemException();
         }
        this.primaryName = names[0];
-	if(GameState.instance().test){	
+	if(GameState.instance().getTest()==true){	
+	System.out.println("Test Value: "+GameState.instance().getTest());
 	System.out.println("PrimaryName: "+primaryName);
 	System.out.println("names[0] :"+names[0]);}
-	
+
 
         for (int i=1; i<names.length; i++) {
             aliases.add(names[i]);
@@ -47,7 +48,9 @@ public class Item {
 
         // Read item weight.
         weight = Integer.valueOf(s.nextLine());
-	System.out.println("weight: "+weight);
+	if(GameState.instance().getTest() == true){
+	System.out.println("weight: "+weight);}
+	
         // Read and parse verbs lines, as long as there are more.
         String verbLine = s.nextLine();
         while (!verbLine.equals(Dungeon.SECOND_LEVEL_DELIM)) {
@@ -99,7 +102,9 @@ public class Item {
 	//		    y = 1;
 	//	    }
 	    //}
+	    if(GameState.instance().getTest()==true){
 	    System.out.println(message);
+		}
 	    String[] commands = command.split(",");
 	   
 	    ItemEvent createEvent = new ItemEvent(message,commands);	
@@ -136,14 +141,9 @@ public class Item {
 	/**
 	 * Returns a message in response to a specified action.
 	 */
-    public String getMessageForVerb(String verb){
-	    try{
-	    return messages.get(verb).getMessage();
-	    }
-	    catch(NullPointerException e){
-	    return "Sorry, you can't " + verb + " the " + primaryName + ".";
-	    }
-
+    public String getMessageForVerb(String verb) {
+        
+	return messages.get(verb).getMessage();
     }
 	/**
 	 * Returns an item's primary name.
