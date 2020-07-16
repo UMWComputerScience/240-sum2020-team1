@@ -136,9 +136,14 @@ public class Item {
 	/**
 	 * Returns a message in response to a specified action.
 	 */
-    public String getMessageForVerb(String verb) {
-        
-	return messages.get(verb).getMessage();
+    public String getMessageForVerb(String verb){
+	    try{
+	    return messages.get(verb).getMessage();
+	    }
+	    catch(NullPointerException e){
+	    return "Sorry, you can't " + verb + " the " + primaryName + ".";
+	    }
+
     }
 	/**
 	 * Returns an item's primary name.
