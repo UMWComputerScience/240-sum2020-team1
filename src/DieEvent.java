@@ -5,10 +5,14 @@ private String deathMessage;
 	deathMessage = "You done goofed. Play better next time, l00s3r";
 	this.deathMessage = deathMessage;
     }
-
+    public String getDeathMessage(){
+	    return deathMessage;
+    }
+	
+	
     String callEvent(){
 	GameState.instance().setHealth(0);
-	System.out.println(deathMessage);
+	//System.out.println(deathMessage);
 	//int invSize = GameState.instance().getInventory().size();
 	//for(int i = 0; i<invSize;i++){
 //		Item thing = GameState.instance().getInventory().get(i);
@@ -24,6 +28,6 @@ private String deathMessage;
 //	GameState.instance().returnToStart();
 //	System.exit(0);
 	//return "";
-	return deathMessage;
+	return "";
     }
 }

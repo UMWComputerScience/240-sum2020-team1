@@ -221,6 +221,8 @@ public class GameState {
 		return this.inventory;
 	}
     void returnToStart(){
+	System.out.println("You kinda stopped living, Darth Davies has returned your soul to your body and sent you back to the start.");
+	CommandFactory.instance().parse("drop all");
 	GameState.instance().setAdventurersCurrentRoom(GameState.instance().getDungeon().getEntry());
 	GameState.instance().setHealth(12);
     }

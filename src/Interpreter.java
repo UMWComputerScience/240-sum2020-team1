@@ -44,8 +44,8 @@ public class Interpreter {
             command = promptUser(commandLine);
 
             while (!command.equals("q")) {
-
-                System.out.print(
+		
+    		    System.out.print(
                     CommandFactory.instance().parse(command).execute());
 
                 command = promptUser(commandLine);
@@ -60,7 +60,10 @@ public class Interpreter {
 /**Reads the user's next line of input.
  * */
     private static String promptUser(Scanner commandLine) {
-
+	
+	if(GameState.instance().getHealth() == 0){
+		GameState.instance().returnToStart();		
+	}
         System.out.print("> ");
         return commandLine.nextLine();
     }
