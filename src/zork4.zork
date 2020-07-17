@@ -2,7 +2,7 @@ Westeros
 Zork++
 ===
 Items:
-dragonglass,glass4
+dragonglass,glass
 4
 break[Wound(1)]:Ouch! The glass cuts your hand.
 wield:There's no one here to wield it against.
@@ -61,7 +61,7 @@ sitOn[Win]:Hail to the Queen!
 ===
 Rooms:
 Winterfell
-Contents: dagger
+Contents: dagger,WhiteDragonEgg,dragonglass
 You stand within a huge castle complex spanning several acres, consisting of
 two massive walls and a village located just outside. Banners featuring the
 head of a direwolf are flapping in the chilly breeze.

@@ -33,8 +33,15 @@ private String g;
 //	Random rand = new Random();
 //	int index = rand.nextInt(c.size());
 	try{
+		if(GameState.instance().getTest()==true){
+		System.out.println("Entering try block");}
 	String roomName = "WinterFell";
+		if(GameState.instance().getTest()==true){
+		System.out.println("Room Name:"+roomName);}
 	Room newRoom = state.getDungeon().getRoom(roomName);
+		if(GameState.instance().getTest()==true){
+		System.out.println("New Room:"+newRoom.getTitle());}
+	
 	state.setAdventurersCurrentRoom(newRoom);
 	return "*POOF!* You have been teleported to the "+roomName+" room.";
 	}

@@ -30,7 +30,7 @@ public class GameState {
     static String ADVENTURER_MARKER = "Adventurer:";
     static String CURRENT_ROOM_LEADER = "Current room: ";
     static String INVENTORY_LEADER = "Inventory: ";
-    static boolean test = false;
+    static boolean test = true;
     private static GameState theInstance;
     private Dungeon dungeon;
     private ArrayList<Item> inventory;

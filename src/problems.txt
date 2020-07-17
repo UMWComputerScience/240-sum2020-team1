@@ -3,4 +3,9 @@ we still get a "No such room" message when loading a new game.
 
 sitOn.... do we want to change it?
 on death, inventory should be removed and dropped in room. (Drei)
+transform event (with white dragon) does not transform or remove the egg.
 
+Still working on the teleport event. It is now causing 2 issues:
+1- it doesn't actually move you
+2- it says you can't throw an item when you can actually throw it
+	example: dragonglass

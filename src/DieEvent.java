@@ -15,22 +15,13 @@ private String deathMessage;
 	if(GameState.instance().getTest()==true){
 	System.out.println(deathMessage);
 	}
-	int invSize = GameState.instance().getInventory().size();
-         for(int i = 0; i<invSize;i++){
-		Item thing = GameState.instance().getInventory().get(i);
-		try{
-		GameState.instance().removeFromInventory(thing);
+	for(int i = 0;i<GameState.instance().getInventory().size();i++){
+		Item t = GameState.instance().getInventory().get(i);
+		GameState.instance().getInventory().remove(t);
+		GameState.instance().getAdventurersCurrentRoom().add(t);
 		}
-		catch (NoItemException n){}
-	}
 	GameState.instance().setHealth(0);
-//	String firstRoom = GameState.instance().getDungeon().getEntry().getTitle();
-//	System.out.println("The magical fairy Stephan comes fluttering by and takes pity on you.");
-//	System.out.println(" \"I shall resurrect you and return you to the start of this dungeon.\" ");
-//	System.out.println("With a wave of his magic wand your vision turns white and a moment later you return to consiousness, looking at the inside of the "+firstRoom+".");
-//	GameState.instance().returnToStart();
-//	System.exit(0);
-	//return "";
+
 	return "";
     }
 }
