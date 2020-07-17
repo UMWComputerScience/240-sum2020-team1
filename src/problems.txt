@@ -9,3 +9,99 @@ Still working on the teleport event. It is now causing 2 issues:
 1- it doesn't actually move you
 2- it says you can't throw an item when you can actually throw it
 	example: dragonglass
+
+idea: incorporate a 'help' command that gives players an overview of availible commands.
+	example:  help
+		Zork++ is a text based adventure game where you interact with the system by typing various commands into the system.
+		MOVING IN THE WORLD:
+		each room or chamber in a dungeron has a selection of availible directions you can move. The first time you enter 
+		a room these will be listed out for you along with the description of the room:
+		Example: 
+			Winterfell
+			You stand within a huge castle complex spanning several acres, consisting of two massive walls and a village			    located just outside. Banners featuring the head of a direwold are flagging in the chilly breeze.
+
+			You can go s to North Kingroad.
+			You can go n to The Wall.
+
+		In the Winterfell room, you can move north (n) or south(s).
+
+		To move in the desired direction type the letter listed for that direction.
+
+		INTERACTING WITH THE WORLD:
+		While moving around the world is important, you will also need to interact with it. As of version 0.1b, you do this
+		by interacting with items that are scattered through out the world. When you enter a room the items in that room 
+		will be listed out.
+		Example:
+			Winterfell
+			There is a dagger here.
+			There is a WhiteDragonEgg here.
+			There is a dragonglass here.
+
+		You can add these items to your personal inventory by taking them. 
+		You can take each item individually by the typing the 'take' command followed by the name of the item.
+		Example:
+			take dagger
+		This will take the dagger, placing it in your personal inventory and removing it from the room.
+		You can also try to take all of the items at one time by typing 'take all'. This will attempt to add all of the
+		items in the room to your inventory. Remember, you can only carry so much at a given time. If the total weight of 
+		all of the items plus the items in your inventory already exceeds your maximum carrying capacity, you will get a
+		warning about this:
+		Example:
+			> take all
+			Your load is too heavy to take all that stuff.
+		
+		You can also remove an item from your inventory and put it in your current room by using the 'drop' command 
+		followed by the name of the item you wish to drop, or 'all' to empty your inventory.
+		Example:
+			>drop all
+			zaku dropped
+			pizza dropped
+			WingGundam dropped
+			microwaveBurrito dropped
+		
+		It's helpful to know how much something weighs. For this reason there is the 'weight' command. Simply type 'weight'
+		followed by the name of the item.
+		Example:
+			> weight StarWarsToy
+			> the StarWarsToy weighs 5 pounds.
+
+		Most items have additional actions associated with them. You can throw a dagger, crush an empty can, and eat a 
+		dounut for instance. 
+		To perform a given action, simply type the action followed by the item name.
+		Example:
+			> eat pizza
+			> you feel full... and a little gassy.
+
+		However, not all items have all the same actions. You can't eat a dagger or wear a broadsword
+		afterall. 
+		Knowing what you can do with each item can be problematic as the actual action may not be obvious or you get used
+		to only performing certain actions that you may not think that a certain action is availible (Kicking a bomb for
+		instance). To help with this, there is the 'options' command. This will list the availible actions for a given item.
+	        Simply type "options" followed by the name of the item.			
+		Example:
+			>options DrPepper
+			> You can perform the following actions on the DrPepper:
+			> kick,shake,drink
+		
+		Some items will be known by multiple names. A DrPepper may also be known as 'soda' or 'can'. This can be a benefit
+                because it is easier to type one of these other names instead of the items main name (Typing "glass" is a lot easier
+                and faster then "WhiteDragonGlassGoblet" for instance.) 
+		To find the availible alternate names a given item, you can use the 'alias' command followed by the name of the 
+		given item;
+		Example:
+			>alias OptimusPrimeToy
+			> the OptimusPrimeToy is also known by the following aliases:
+			>  Transformer,transformertoy,mechatoy
+		
+		
+
+		
+
+
+      incorporate an item "options" command that will list out what verbs the item in question has.
+		Example: options dagger
+			You can perform the following actions for this item:
+			-throw
+			-examin
+
+
