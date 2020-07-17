@@ -93,20 +93,47 @@ public class GameState {
         String currentRoomLine = s.nextLine();
         adventurersCurrentRoom = dungeon.getRoom(
             currentRoomLine.substring(CURRENT_ROOM_LEADER.length()));
-        if (s.hasNext()) {
-            String inventoryList = s.nextLine().substring(
-                INVENTORY_LEADER.length());
-            String[] inventoryItems = inventoryList.split(",");
-            for (String itemName : inventoryItems) {
-                try {
-                    addToInventory(dungeon.getItem(itemName));
-                } catch (NoItemException e) {
-                    throw new IllegalSaveFormatException("No such item '" +
-                        itemName + "'");
-                }
-            }
-        }
-    }
+        while (s.hasNext()) {
+		String nextLineCheck = s.nextLine();
+		if( nextLineCheck.contains(INVENTORY_LEADER)){
+			if(GameState.instance().getTest()==true){
+			System.out.println(INVENTORY_LEADER.length());
+			}
+//            String inventoryList = s.nextLine().substring(INVENTORY_LEADER.length());
+		String inventoryList = nextLineCheck.substring(INVENTORY_LEADER.length());
+	            String[] inventoryItems = inventoryList.split(",");
+        	    if(GameState.instance().getTest()==true){
+		     System.out.println("entering inventory loop");
+			}	    
+		for (String itemName : inventoryItems) {
+                	try {
+	                    addToInventory(dungeon.getItem(itemName));
+        	        } catch (NoItemException e) {
+                	    throw new IllegalSaveFormatException("No such item '" +
+                        	itemName + "'");
+                		}
+        	    	}
+ 	       	}
+		if( nextLineCheck.contains("health:")){
+		String[] healthLine = nextLineCheck.split(":");
+		if(GameState.instance().getTest()==true){
+		System.out.println("HealthLine[0]: - "+healthLine[0]);
+		System.out.println("HealthLine[1]: - "+healthLine[1]);
+		}
+		int healthValue = Integer.parseInt(healthLine[1]);
+		GameState.instance().setHealth(healthValue);
+		}
+		if( nextLineCheck.contains("score: ")){
+			String[] scoreLine = nextLineCheck.split(": ");
+			int scoreValue = Integer.parseInt(scoreLine[1]);
+			if(GameState.instance().getTest()==true){
+			System.out.println("Scoreline[0]: "+scoreLine[0]);
+			System.out.println("ScoreLine[1]: "+scoreLine[1]);
+			}
+			GameState.instance().setScore(scoreValue);
+		}
+	}    
+}
 	/**
 	 * Writes the current state of a game to a .sav file.
 	 * Throws IOException if file is unable to be written.*/
@@ -125,6 +152,7 @@ public class GameState {
             w.println(inventory.get(inventory.size()-1).getPrimaryName());
         }
 	w.println("health:"+GameState.instance().getHealth());
+	w.println("score: "+GameState.instance().getScore());
         w.close();
     }
 	/**
@@ -214,6 +242,9 @@ public class GameState {
     }
     int getScore() {
 		return this.score;
+	}
+    void setScore(int i){
+		this.score = i;
 	}
     void increaseScore(int value){
 	    instance().score = instance().score + value;

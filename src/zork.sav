@@ -2,7 +2,7 @@ Zork III save data
 Dungeon file: zork4.zork
 Room states:
 South Kingsroad:
-beenHere=false
+beenHere=true
 ---
 East River Road:
 beenHere=false
@@ -11,17 +11,17 @@ Moat Cailin:
 beenHere=false
 ---
 North Kingsroad:
-beenHere=false
+beenHere=true
 ---
 King's Landing:
-beenHere=false
-Contents: wildfire,SapphireNecklace,IronThrone
+beenHere=true
+Contents: IronThrone
 ---
 Bloody Gate:
 beenHere=false
 ---
 Crossroads Inn:
-beenHere=false
+beenHere=true
 ---
 Mountains of the Moon:
 beenHere=false
@@ -33,7 +33,7 @@ West River Road:
 beenHere=false
 ---
 Harrenhal:
-beenHere=false
+beenHere=true
 ---
 The Eyrie:
 beenHere=false
@@ -61,5 +61,7 @@ beenHere=false
 ---
 ===
 Adventurer:
-Current room: Winterfell
-health:12
+Current room: King's Landing
+Inventory: wildfire,SapphireNecklace
+health:10
+score: 5
