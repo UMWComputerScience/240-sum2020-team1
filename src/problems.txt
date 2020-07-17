@@ -26,6 +26,22 @@ idea: incorporate a 'help' command that gives players an overview of availible c
 		In the Winterfell room, you can move north (n) or south(s).
 
 		To move in the desired direction type the letter listed for that direction.
+		Example:
+			> n
+		
+		If you visit a room that you have previouslly been in, the game will only display the name of the room instead of
+ 		the full description and the list of exits. If you need to see the list of exits, or want to re-read the full 
+		description of the room, you can use the "look" command in the room you want to see this information from.
+		Example:
+			Rotunda
+			> look
+
+			Rotunda
+			You are in a beutiful round entry chamber, with tall white pillars that seemingly reach to the skies. There
+			is an elevator here.
+			
+			You can go u to the Rotunda balcony.
+			You can go d to the Basement hallway.
 
 		INTERACTING WITH THE WORLD:
 		While moving around the world is important, you will also need to interact with it. As of version 0.1b, you do this
@@ -94,14 +110,13 @@ idea: incorporate a 'help' command that gives players an overview of availible c
 			>  Transformer,transformertoy,mechatoy
 		
 		
-
-		
-
-
-      incorporate an item "options" command that will list out what verbs the item in question has.
-		Example: options dagger
-			You can perform the following actions for this item:
-			-throw
-			-examin
-
-
+		As you can see there is a lot of information and commands associated with items. Would be nice if there was a
+		way to get all of this informaiton at once right? Oh... wait there is. The "info" command. Just like the options,
+		alias and weight commands, simply type "info" followed by the name of the item you want info on. 
+		Example:
+			> info DrPepper
+			> You can perform the following actions on the DrPepper:
+			> kick,shake,drink
+			> the DrPepper weighs 10 pounds
+			> the DrPepper is also known by the following aliases:
+			> can, soda

@@ -1,0 +1,106 @@
+Create classes-
+	NonPlayerCharacter class
+	Guard class
+	CraftableItem
+	LockableExit
+	destroyedExitException
+
+actions-
+	NonPlayerCharacters:
+		1- do they show up in the room when you enter/use look command?
+		Example:
+			Rotunda
+			You are in a beutiful round entry chamber, with tall white pillars that seemingly reach to
+			the skies. There is an elevator here.
+			
+			There is a pizza here.
+			There is a microwaveBurrito here.
+			There is a zaku here.
+			
+			There is an Old-Man here.
+			
+		2- can you talk to them and have a pre-programmed response?
+		Example:
+			>Talk Old-Man
+			Yes the Old-Man can be communicated with.
+
+		Explination:
+			the "Old Man" is the name of the NPC in question.
+			the "Yes the Old Man can be communicated with." is a simple print statement used to verify 
+			that the "Talk to" command is returning a response. It is NOT a response drawn from the NPC's 			     messages HashTable.
+		3- Can the NPC return a response from their messages hashtable?
+			Each NPC has a HashTable with a topic<string> has the key, and a response<string> as the
+			value. 
+			example:
+			+-------------------+---------------------------------------------------------------------+
+			| KEY(topic)<string>| VALUE(response)<string>                                             |
+			+-------------------+---------------------------------------------------------------------+
+			|default            | "Yes, I am the old man. I've been around and seen a thing or two you|
+                        |                   |  young wipper snapper. I've been across the crystal mountains, and  |
+                        |                   | seen the burning sands. Even made some good trade deals.            | 
+                        +-------------------+---------------------------------------------------------------------+
+			|crystal mountains  | "Beutiful those mountains are. Legends say the Soul gem, the largest|
+                        |                   |  diamond ever seen by human eyes is hidden on those snow capped     |
+                        |                   | mountains. I went looking for it as a kid myself. Nearly died due to|
+                        |                   | the cold. Also the Ursa Polars almost got me."                      |
+                        +-------------------+---------------------------------------------------------------------+
+                        |burning sands      | "The burning sands... horrible horrible place. Blinding sun, burning|
+                        |                   | heat, practically no water to speak of, massive hoards of Fire      |
+                        |                   | Scorpions, detestable vulture wasps... bagh. If it weren't for the  |
+                        |                   | chances of recovering treasures from lost convoys I would never have|
+                        |                   | ventured into those cursed lands. Never!"                           |
+                        +-------------------+---------------------------------------------------------------------+
+                        |Soul gem           | "The Soul Gem? Oh my word, the legends on that. A Crystal diamond   |
+                        |                   | the size of a Vorrik helm and crystal clear. Hmmm, if the legends   |
+                        |                   | are true, it's worth a score of King's Ransoms!"                    |
+                        +-------------------+---------------------------------------------------------------------+
+                        |Fire Scorpions     |"Horrible devil spawn those things. Individually they are a dangerous|
+                        |                   | annoyance, but you'll never encounter a single fire scorpion. They  |
+                        |                   | always congregate in hoards of hundreds. Their stingers can pierce  |
+                        |                   | thin armor and their venom make you feel like you're on fire and    |
+                        |                   | while you're screaming and flailing in response to feeling your skin|
+                        |                   | burn off, the gods cursed critters are crawling all over you cutting|
+                        |                   | into your body, taking out hunks! If we could eliminate all of those|
+                        |                   | creepy bars it would be godly work to do so!"                       |
+                        +-------------------+---------------------------------------------------------------------+
+                        |notknown           |"Huh? What? I don't know anything about that."                       |
+                        +-------------------+---------------------------------------------------------------------+
+
+			If you use the "talk" command, and do not indicate a topic, the NPC should respond with
+			the "default" value.
+
+			Example:
+			>talk Old-Man
+			The Old-man responds: "Yes, I am the old man. I've been around and seen a thing or two you
+                        young wipper snapper. I've been across the crystal mountains, and seen the burning sands.
+                        Even made some good trade deals."
+		
+			you can also talk to an NPC about a given topic by appending "about" followed by a topic to
+			the talk command with the topic being surrounds by double quotes, or single quotes.
+			Example:
+			>talk Old-man about 'fire scorpions'
+			The Old-man responds: "Horrible devil spawn those things. Individually they are a dangerous 
+                        annoyance, but you'll never encounter a single fire scorpion. They always congregate in
+                        hoards of hundreds. Their stingers can pierce thin armor and their venom make you feel like 
+                        you're on fire and while you're screaming and flailing in response to feeling your skin burn
+                        off, the gods cursed critters are crawling all over you cutting into your body, taking out 
+                        hunks! If we could eliminate all of those creepy bars it would be godly work to do so!" 
+			
+	
+			>talk Old-man about "fire scorpions"
+			The Old-man responds: "Horrible devil spawn those things. Individually they are a dangerous 
+                        annoyance, but you'll never encounter a single fire scorpion. They always congregate in 
+                        hoards of hundreds. Their stingers can pierce thin armor and their venom make you feel like 
+                        you're on fire and while you're screaming and flailing in response to feeling your skin burn
+                        off, the gods cursed critters are crawling all over you cutting into your body, taking out 
+                        hunks! If we could eliminate all of those creepy bars it would be godly work to do so!" 
+
+			If you supply a topic that is not a key in the NPCs hashtable, the response will be the 
+			'nonknown' value.
+			Example:
+			>talk Old-man about "Sea scorpions"
+			The Old-man responds: "Huh? what? I don't know anything about that."
+
+
+			
+		the "talk to" command will return the response
