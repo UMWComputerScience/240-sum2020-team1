@@ -11,16 +11,19 @@ private String deathMessage;
 	
 	
     String callEvent(){
+//	GameState.instance().setHealth(0);
+	if(GameState.instance().getTest()==true){
+	System.out.println(deathMessage);
+	}
+	int invSize = GameState.instance().getInventory().size();
+         for(int i = 0; i<invSize;i++){
+		Item thing = GameState.instance().getInventory().get(i);
+		try{
+		GameState.instance().removeFromInventory(thing);
+		}
+		catch (NoItemException n){}
+	}
 	GameState.instance().setHealth(0);
-	//System.out.println(deathMessage);
-	//int invSize = GameState.instance().getInventory().size();
-	//for(int i = 0; i<invSize;i++){
-//		Item thing = GameState.instance().getInventory().get(i);
-//		try{
-//		GameState.instance().removeFromInventory(thing);
-//		}
-//		catch (NoItemException n){}
-//	}
 //	String firstRoom = GameState.instance().getDungeon().getEntry().getTitle();
 //	System.out.println("The magical fairy Stephan comes fluttering by and takes pity on you.");
 //	System.out.println(" \"I shall resurrect you and return you to the start of this dungeon.\" ");

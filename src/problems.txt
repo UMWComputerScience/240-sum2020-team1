@@ -2,3 +2,5 @@ things to address that were discovered in testing:
 we still get a "No such room" message when loading a new game.
 
 sitOn.... do we want to change it?
+on death, inventory should be removed and dropped in room. (Drei)
+
