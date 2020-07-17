@@ -62,6 +62,12 @@ public class CommandFactory {
         if (MOVEMENT_COMMANDS.contains(verb)) {
             return new MovementCommand(verb);
         }
+	if(verb.equals("rooms")){
+		if(GameState.instance().getTest()==true){
+			System.out.println("Executing rooms command");
+		}
+		return new RoomListCommand(GameState.instance().getDungeon().getRoomList());
+}
         if (parts.length == 2) {
             return new ItemSpecificCommand(verb, noun);
         }

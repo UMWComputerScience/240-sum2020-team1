@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.Enumeration;
-
 /**
 * A dungeon is a grouping of {@link room}s and their associated {@link exit}s. 
 * A dungeon may also have Non Player Characters, weapons, items and lockable exits.
@@ -49,7 +48,6 @@ public class Dungeon {
         this.entry = entry;
         Hashtable<String,Room> rooms = new Hashtable<String,Room>();
 	Hashtable<String,Item> craftableItems = new Hashtable<String, Item>();
-
     }
 //	/** Exception to be thrown if an invalid or incompatible .zork file is detected
 //	* when loading a save game or starting a new game.
@@ -233,7 +231,20 @@ public class Dungeon {
     public Hashtable<String,Room> getRoomsList(){
 	    return rooms;
     }
-    public ArrayList<String> getRoomList(){
+    public String[] getRoomList(){
+	String[] listOfRooms = new String[getRoomsList().size()];
+	ArrayList<String> tempRoomNames = new ArrayList<String>();
+	Enumeration<String> roomKeys = getRoomsList().keys();
+	while(roomKeys.hasMoreElements()){
+		String roomName = roomKeys.nextElement();
+		if(GameState.instance().getTest()==true){
+		System.out.println("current room:"+roomName);}
+		tempRoomNames.add(roomName);
+	}
+	for(int i = 0;i<tempRoomNames.size();i++){
+		listOfRooms[i]=tempRoomNames.get(i);
+	}
+
 	return listOfRooms;
 	}
     public Hashtable<String,Item> getItemList(){
