@@ -256,7 +256,7 @@ public class GameState {
 	System.out.println("********************************************************************");
 	System.out.println(" You kinda stopped living.");
 	System.out.println(" Through some act of surpreme unviersal irony, the magical fairy,\n Darth Davies, has taken pitty on you.");
-	System.out.println(" With a wave of their magic wand, he has returned your soul to your\n body and sent you to the start of the dungeon.\n Try not to do something stupid this time.");
+	System.out.println(" With a wave of his magic wand, he has returned your soul to your\n body and sent you to the start of the dungeon.\n Try not to do something stupid this time.");
 	CommandFactory.instance().parse("drop all");
 	GameState.instance().setAdventurersCurrentRoom(GameState.instance().getDungeon().getEntry());
 	GameState.instance().setHealth(12);
