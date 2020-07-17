@@ -54,7 +54,7 @@ public class CommandFactory {
 		return new ScoreCommand();
 	}
 	if(verb.equals("wound")){
-		System.out.println("How bad should I hurt you?");
+		System.out.println("How bad should I hurt you?\n");
 		Scanner s1 = new Scanner(System.in);
 		int smirnoff = s1.nextInt();
 		return new WoundCommand(smirnoff);

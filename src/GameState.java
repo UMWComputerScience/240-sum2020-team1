@@ -30,7 +30,7 @@ public class GameState {
     static String ADVENTURER_MARKER = "Adventurer:";
     static String CURRENT_ROOM_LEADER = "Current room: ";
     static String INVENTORY_LEADER = "Inventory: ";
-    static boolean test = true;
+    static boolean test;
     private static GameState theInstance;
     private Dungeon dungeon;
     private ArrayList<Item> inventory;
@@ -49,8 +49,14 @@ public class GameState {
 	 * Creates the inventory storage.*/
     private GameState() {
         inventory = new ArrayList<Item>();
+	test = false;
     }
-    public boolean getTest(){ return test;}
+/**returns the value of the test value. Used for determing if a value should be shown on the console cor debugging purposes.
+*/
+    public boolean getTest(){ return test;} 
+	/** turns on or off debugging print statements allowing the coder to check output of various elements during operation
+*/
+    public void setTest(boolean b){ this.test = b;}
 	/**
 	 * Returns the total weight of the items in the player's inventory.*/
     int getAdventurersCurrentWeight() {

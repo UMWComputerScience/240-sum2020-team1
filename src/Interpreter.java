@@ -24,6 +24,12 @@ public class Interpreter {
 
         try {
             state = GameState.instance();
+	    if(args.length == 2){
+		    if (args[1].equals("t")){
+			GameState.instance().setTest(true);}
+	   	 else {
+			GameState.instance().setTest(false);}
+		}
             if (args[0].endsWith(".zork")) {
                 state.initialize(new Dungeon(args[0]));
                 System.out.println("\nWelcome to " + 
