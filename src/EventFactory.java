@@ -19,7 +19,9 @@ class EventFactory {
     }
 
     Event parse(String eventType, String item){
-
+	if(GameState.instance().getTest()){
+		System.out.println(eventType + ":" + item);
+	}
 //	eventType = eventType.toLowerCase();
 	eventType = eventType;
 	if(GameState.instance().getTest()==true){
@@ -29,7 +31,7 @@ class EventFactory {
             return new WoundEvent(eventType);
         }
         if (eventType.contains("Drop")) {
-            return new DropEvent(eventType);
+            return new DropEvent(item);
         }
         if (eventType.contains("Teleport")) {
             return new TeleportEvent(eventType);
