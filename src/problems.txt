@@ -127,5 +127,4 @@ Apon death, item drop behavior has issues:
 	after picking up the dragonglass and the bastardsword from the wall, heading south 6 times to kings landing and picking up the necklace before
 	dying by lighting the wildfire results in:
 		a dragonglass in your inventory apon respawn at winterfall
-		a duplicate dragonglass and a dragon egg that was not in your inventory prior to death in the winterfall room.
 		the necklace and bastardsword are correctly placed in kings landing where you died.
