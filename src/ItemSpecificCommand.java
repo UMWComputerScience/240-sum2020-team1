@@ -25,7 +25,7 @@ class ItemSpecificCommand extends Command {
         try {
             itemReferredTo = GameState.instance().getItemInVicinityNamed(noun);
         } catch (NoItemException e) {
-            return "There's no " + noun + " here.";
+            return "There's no " + noun + " here.\n";
         }
 	try{
         if(itemReferredTo.getCommand(this.verb)[0].equals("==no command==")){
