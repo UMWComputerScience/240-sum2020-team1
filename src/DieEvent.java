@@ -15,8 +15,8 @@ private String deathMessage;
 	if(GameState.instance().getTest()==true){
 	System.out.println(deathMessage);
 	}
-	for(int i = 0;i<GameState.instance().getInventory().size();i++){
-		Item t = GameState.instance().getInventory().get(i);
+	while(0<GameState.instance().getInventory().size()){
+		Item t = GameState.instance().getInventory().get(0);
 		GameState.instance().getInventory().remove(t);
 		GameState.instance().getAdventurersCurrentRoom().add(t);
 		}
