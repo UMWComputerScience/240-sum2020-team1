@@ -128,3 +128,5 @@ Apon death, item drop behavior has issues:
 	dying by lighting the wildfire results in:
 		a dragonglass in your inventory apon respawn at winterfall
 		the necklace and bastardsword are correctly placed in kings landing where you died.
+
+	after dying with the whitedragonegg in pentos, there was only one whitedragonegg instead of two apon return to pentos.
