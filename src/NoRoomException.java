@@ -9,5 +9,6 @@ public class NoRoomException extends Exception {
         {
             super(room);
         //super(item);
-        System.out.println("No such room");       }
-        } 
+        //System.out.println("No such room");       }
+        }
+}
