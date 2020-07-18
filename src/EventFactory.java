@@ -25,16 +25,16 @@ class EventFactory {
 	if(GameState.instance().getTest()==true){
 	System.out.println("Event type: "+eventType);
 }
-        if (eventType.contains("wound")){	
+        if (eventType.contains("Wound")){	
             return new WoundEvent(eventType);
         }
-        if (eventType.contains("drop")) {
+        if (eventType.contains("Drop")) {
             return new DropEvent(eventType);
         }
-        if (eventType.contains("teleport")) {
+        if (eventType.contains("Teleport")) {
             return new TeleportEvent(eventType);
         }
-        if (eventType.contains("disappear")) {
+        if (eventType.contains("Disappear")) {
 		String eventArgs = eventType+":"+item;
 		if(GameState.instance().getTest()==true){
 		System.out.println("Event- "+eventType+" called");
@@ -44,17 +44,20 @@ class EventFactory {
             return new DisappearEvent(eventArgs);
 	
         }
-        if (eventType.contains("score")) {
+        if (eventType.contains("Score")) {
             return new ScoreEvent(eventType);
         }
-        if (eventType.contains("die")) {
+        if (eventType.contains("Die")) {
             return new DieEvent(eventType);
         }
         if (eventType.contains("Transform")) {
+		if(GameState.instance().getTest()==true){
 		System.out.println("Test line");
-            return new TransformEvent(eventType);
+		}
+		String eventArgs = eventType+":"+item;
+            return new TransformEvent(eventArgs);
         }
-        if (eventType.contains("win")) {
+        if (eventType.contains("Win")) {
             return new WinEvent(eventType);
         }
 	return new UnknownEvent(eventType);
