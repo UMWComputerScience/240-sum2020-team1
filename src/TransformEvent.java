@@ -5,9 +5,12 @@ class TransformEvent extends Event{
 	TransformEvent(String combinedName){
             int openParan = combinedName.indexOf("(");
 	    int closeParan = combinedName.indexOf(")");
-	    int beginning = combinedName.indexOf("");
-	    String firstItem = combinedName.substring(beginning,openParan);
+	    int colon = combinedName.indexOf(":");
+	    String firstItem = combinedName.substring(colon+1);
 	    this.itemName = firstItem;
+	    if(GameState.instance().getTest() == true){
+		    System.out.println(this.itemName);
+	    }
      	    String commandValue = combinedName.substring(openParan + 1,closeParan);
 	    this.itemTransformedName = commandValue;
 		if(GameState.instance().getTest()==true){
