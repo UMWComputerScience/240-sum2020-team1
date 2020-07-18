@@ -23,7 +23,7 @@ class DropCommand extends Command {
 	ArrayList<Item> playerInventory = GameState.instance().getInventory();
 	ArrayList<Item> itemsToDrop = new ArrayList<Item>();
 	GameState.instance().getInventory().forEach(i -> itemsToDrop.add(i));
-        System.out.println("Player inventoy size:"+GameState.instance().getInventory().size());
+        //System.out.println("Player inventoy size:"+GameState.instance().getInventory().size());
 	if (itemName == null || itemName.trim().length() == 0) {
             return "Drop what?\n";
         }
