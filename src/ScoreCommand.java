@@ -4,7 +4,7 @@
 
 class ScoreCommand extends Command {
 	//private int score;
-	private String [] ranks = {"noob","intermediate","experienced","master"};
+	private String [] ranks = {"noob","intermediate","experienced","master","Stephen-like"};
 	/**
 	 * The constructor generates a commant that will check the player's score.
 	 */
@@ -22,14 +22,16 @@ class ScoreCommand extends Command {
 	if (Score <= 5){
 		rank = ranks[0];
 	}
-	if (Score <= 10 && Score >= 6){
+	else if (Score <= 10 && Score >= 6){
 		rank = ranks[1];
 	}
-	if (Score <= 15 && Score >= 11){
+	else if (Score <= 15 && Score >= 11){
 		rank = ranks[2];
 	}
-	if (Score <= 20 && Score >= 16){
+	else if (Score <= 20 && Score >= 16){
 		rank = ranks[3];
+	}else { 
+		rank = ranks[4];
 	}
 	
 	String scoreString = "You have accumulated " + GameState.instance().getScore() + " points. This gives you a rank of " + rank + "." + "\n";
