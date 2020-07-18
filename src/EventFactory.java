@@ -20,7 +20,8 @@ class EventFactory {
 
     Event parse(String eventType, String item){
 
-	eventType = eventType.toLowerCase();
+//	eventType = eventType.toLowerCase();
+	eventType = eventType;
 	if(GameState.instance().getTest()==true){
 	System.out.println("Event type: "+eventType);
 }
@@ -34,9 +35,12 @@ class EventFactory {
             return new TeleportEvent(eventType);
         }
         if (eventType.contains("disappear")) {
+		String eventArgs = eventType+":"+item;
 		if(GameState.instance().getTest()==true){
-		System.out.println("Event "+eventType+" called");
-}		String eventArgs = eventType+":"+item;
+		System.out.println("Event- "+eventType+" called");
+		System.out.println("eventArgs:"+eventArgs);
+		}
+//}		String eventArgs = eventType+":"+item;
             return new DisappearEvent(eventArgs);
 	
         }
@@ -46,7 +50,8 @@ class EventFactory {
         if (eventType.contains("die")) {
             return new DieEvent(eventType);
         }
-        if (eventType.contains("transform")) {
+        if (eventType.contains("Transform")) {
+		System.out.println("Test line");
             return new TransformEvent(eventType);
         }
         if (eventType.contains("win")) {
