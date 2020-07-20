@@ -1,15 +1,7 @@
-added a line to test pushing
-things to address that were discovered in testing:
-we still get a "No such room" message when loading a new game.
-
-sitOn.... do we want to change it?
-on death, inventory should be removed and dropped in room. (Drei)
-transform event (with white dragon) does not transform or remove the egg.
-
-Still working on the teleport event. It is now causing 2 issues:
-1- it doesn't actually move you
-2- it says you can't throw an item when you can actually throw it
-	example: dragonglass
+Have an ItemSpeccificCommand triggered event to handle destroying an exit.
+- example: kick bomb
+	- triggers a itemSpeccificCommamd event.
+	- the event will then look at all Closable exits in the current room, and change their isDestroyed value to "true".
 
 idea: incorporate a 'help' command that gives players an overview of availible commands.
 	example:  help
@@ -19,7 +11,8 @@ idea: incorporate a 'help' command that gives players an overview of availible c
 		a room these will be listed out for you along with the description of the room:
 		Example: 
 			Winterfell
-			You stand within a huge castle complex spanning several acres, consisting of two massive walls and a village			    located just outside. Banners featuring the head of a direwold are flagging in the chilly breeze.
+			You stand within a huge castle complex spanning several acres, consisting of two massive walls and a village
+     		    located just outside. Banners featuring the head of a direwold are flagging in the chilly breeze.
 
 			You can go s to North Kingroad.
 			You can go n to The Wall.
@@ -121,22 +114,3 @@ idea: incorporate a 'help' command that gives players an overview of availible c
 			> the DrPepper weighs 10 pounds
 			> the DrPepper is also known by the following aliases:
 			> can, soda
-
-
-
-Apon death, item drop behavior has issues:
-	player inventory befor death:
-		dagger
-		dragonglass
-		saphirenecklace
-		dragonglass
-	player lights wildfire and dies
-	player inventory apon respawn at winterfall:
-		dragonglass
-		dragonglass
-	kings landing room inventory after death:
-		wildfire
-		iron throne
-		dagger
-		saphirenecklace
-	as you can see, the two dragonglasses remane in the player's inventory after death.

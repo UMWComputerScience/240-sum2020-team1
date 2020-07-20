@@ -26,7 +26,7 @@ public class Dungeon {
     public static String ROOMS_MARKER = "Rooms:";
     public static String EXITS_MARKER = "Exits:";
     public static String ITEMS_MARKER = "Items:";
-    
+    public static String NPC_MARKER = "NonPlayerCharacters:";
     // Variables relating to game state (.sav) storage.
     static String FILENAME_LEADER = "Dungeon file: ";
     static String ROOM_STATES_MARKER = "Room states:";
@@ -37,6 +37,7 @@ public class Dungeon {
     private Hashtable<String,Item> items;
     private String filename;
     private ArrayList<String> listOfRooms;
+    private Hashtable<String,NonPlayerCharacter> npcs;
 
     /**
      * Creates a Dungeon object and designates a room in that object as the 'entry' room.
@@ -48,6 +49,7 @@ public class Dungeon {
         this.entry = entry;
         Hashtable<String,Room> rooms = new Hashtable<String,Room>();
 	Hashtable<String,Item> craftableItems = new Hashtable<String, Item>();
+	Hashtable<String,NonPlayerCharacter> npcs = new Hashtable<String,NonPlayerCharacter>();
     }
 //	/** Exception to be thrown if an invalid or incompatible .zork file is detected
 //	* when loading a save game or starting a new game.
@@ -105,7 +107,16 @@ public class Dungeon {
                 add(new Item(s));
             }
         } catch (NoItemException e) {  /* end of items */ }
-
+	if(!s.nextLine().equals(NPC_MARKER)) {
+		throw new IllegalDungeonFormatException("No '"+NPC_MARKER+"' line where expected.");}
+	try{
+		while(true){
+		add(new NonPlayerCharacter(s));
+	if(GameState.instance().getTest()==true){
+	System.out.println("Added NPC");}
+		}
+	} catch (NoNonPlayerException n){}
+	
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
             throw new IllegalDungeonFormatException("No '" +
@@ -206,6 +217,8 @@ public class Dungeon {
     public void add(Room room) { rooms.put(room.getTitle(),room); }
 /**Adds an item to the dungon inventory.*/
     public void add(Item item) { items.put(item.getPrimaryName(),item); }
+/**Adds an NPC to the Dungeon Character list*/
+    public void add(NonPlayerCharacter n){ npcs.put(n.getName(),n);}
 
     /**
      * Returns a room whose name matches the supplied room title.

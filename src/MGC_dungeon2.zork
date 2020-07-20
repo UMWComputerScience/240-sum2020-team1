@@ -6,8 +6,8 @@ cake
 2
 (craftable)
 recipe:flour,milk
-examine: It's a birthday cake!... wait whose birthday is it?
-kick: The cake explodes in a mess across your boot. Nice job, dumbo.
+examine:It's a birthday cake!... wait whose birthday is it?
+kick:The cake explodes in a mess across your boot. Nice job, dumbo.
 eat[wounds(-2)]: Hmm that was a good cake.
 ---
 dragonglass,glass
@@ -135,7 +135,6 @@ wear[win]:All hail the conqueror!
 tapestry1
 6
 examine:A finely sewn tapestry showing the battle of Gro'kar pass.
-wear[win]:All hail the conqueror!
 ---
 ===
 NonPlayerCharacters:

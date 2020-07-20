@@ -1,12 +1,55 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Scanner;
 /**Characters that the player can interact with in the game. May have items in their inventory or provide
  *  useful information through dialogue.*/
 class NonPlayerCharacter {
 
-	String name;
-	Hashtable<String, String> messages;
-	ArrayList<Item> inventory;
+	private String name;
+	private Hashtable<String, String> messages;
+	private ArrayList<Item> inventory;
+	static int npcCount = 0;
+/**creates a NonPlayerCharacter object by reading tyhe contents of a Zork file. 
+* @throws a NoNonPlayerCharacterException if the .zork file does not list another
+* NonPlayerCharacter to be read in.
+*/
+
+	NonPlayerCharacter(Scanner s) throws NoNonPlayerException {
+	init();
+	String name = s.nextLine();
+	npcCount =npcCount+1;
+	//	while(!name.equals(Dungeon.SECOND_LEVEL_DELIM)){
+		while(!name.equals("---")){
+			if (name.equals(Dungeon.TOP_LEVEL_DELIM)){
+			throw new NoNonPlayerException();}
+			if(GameState.instance().getTest()==true){
+				System.out.println("name:"+name);
+				System.out.println("NPCs created:" + npcCount);	
+			}
+			String converseLine = s.nextLine();
+			if(GameState.instance().getTest()==true){
+				System.out.println("Conversation line:"+converseLine);
+			}
+			while(converseLine.contains(":") && !converseLine.equals(Dungeon.SECOND_LEVEL_DELIM)) {
+				if(converseLine.equals(Dungeon.TOP_LEVEL_DELIM)) {
+					throw new NoNonPlayerException();}
+				String[] messagePart = converseLine.split(":");
+				messages.put(messagePart[0],messagePart[1]);
+				converseLine = s.nextLine();
+				if(GameState.instance().getTest()==true){
+					System.out.println("SECOND_LEVEL_DELIM:"+Dungeon.SECOND_LEVEL_DELIM);
+					System.out.println("Current NPC Name:"+name);
+					System.out.println("Added topic["+messagePart[0]+"] to "
+					+name+"'s conversation table.");}
+				}
+			}	
+	}
+/** takes care of common initialization tasks for NonPlayerCharacter
+*/
+	void init(){
+	messages = new Hashtable<String, String>();
+	inventory = new ArrayList<Item>();
+	}
 /** main communication method for NPCs returns a message in response to a
 *  supplied topic.
 * @author Michael Cividanes
@@ -31,5 +74,8 @@ class NonPlayerCharacter {
 	public Item giveItem(){
 	    Item item = new Item();
 	    return item;
+	}
+	public String getName(){
+	return name;
 	}
 }

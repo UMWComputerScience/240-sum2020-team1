@@ -19,7 +19,8 @@ public class Item {
     private int weight;
     private Hashtable<String,ItemEvent> messages;
     private Set<String> aliases;
-
+    private boolean isCraftable;
+    private static String craftNote = "(craftable)";
     /**
      * Creates an Item object by reading the contents of a .zork file.
      * @throws NoItemException The .zork file does not have another Item to be read in.
@@ -58,7 +59,16 @@ public class Item {
                 throw new IllegalDungeonFormatException("No '" +
                     Dungeon.SECOND_LEVEL_DELIM + "' after item.");
             }
+	   else if(verbLine.equals(craftNote)){
+		if(GameState.instance().getTest()==true){
+		System.out.println("Craftable item found");}
+		isCraftable = true;
+		verbLine = s.nextLine();}
+	   
            String[] verbParts = verbLine.split(":");
+	 if(GameState.instance().getTest()==true){
+	System.out.println("Verbline:"+verbLine);
+	System.out.println("verbParts:"+verbParts[0]+"-"+verbParts[1]);}
 	   int istart = verbParts[0].indexOf("[");
 	   int iend = verbParts[0].indexOf("]");
 //	   System.out.println("Istart:"+istart);
