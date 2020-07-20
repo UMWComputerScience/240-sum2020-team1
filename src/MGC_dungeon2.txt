@@ -132,6 +132,47 @@ golden crown,crown
 examine:It is a finely wrought crown laced with gems and jewels. 
 wear[win]:All hail the conqueror!
 ---
+tapestry1
+6
+examine:A finely sewn tapestry showing the battle of Gro'kar pass.
+wear[win]:All hail the conqueror!
+---
+===
+NonPlayerCharacters:
+Old-man
+default:Yes, I am the old man. I've been around and seen a thing or two you young wipper snapper. I've been across the crystal mountains, and seen the burning sands. Even made some good trade deals. 
+crystal mountains:Beutiful those mountains are. Legends say the Soul gem, the largest diamond ever seen by human eyes is hidden on those snow capped mountains. I went looking for it as a kid myself. Nearly died due to the cold. Also the Ursa Polars almost got me.
+burning sands:The burning sands... horrible horrible place. Blinding sun, burning heat, practically no water to speak of, massive hoards of Fire Scorpions, detestable vulture wasps... bagh. If it weren't for the chances of recovering treasures from lost convoys I would never have ventured into those cursed lands. Never!
+soul gem:The Soul Gem? Oh my word, the legends on that. A Crystal diamond the size of a Vorrik helm and crystal clear. Hmmm, if the legends are true, it's worth a score of King's Ransoms!  
+fire scorpions: Horrible devil spawn those things. Individually they are a dangerous annoyance, but you'll never encounter a single fire scorpion. They always congregate in hoards of hundreds. Their stingers can pierce thin armor and their venom make you feel like you're on fire and while you're screaming and flailing in response to feeling your skin burn off, the gods cursed critters are crawling all over you cutting into your body, taking out hunks! If we could eliminate all of those creepy bars it would be godly work to do so!
+notknown:Huh? What? I don't know anything about that.
+---
+David
+default: greetings young traveler, I am David, I'm just an old Druid. Went out for a walk after breakfast and never came back. I've been out and about for most of my life. Been over the misty mountains a few times. Would love to get back to KalemZhad again. Such a trek would require crossing the ice creeks. That seems to be too dangerous a task for these days.
+druids:Druids are people of the Dwarf lands who do not live in caves but rather feel at home in the woods and grass lands.
+ice creeks: Far to the north are rivers that never run, solid as ice they are.
+kalemzhad:Oh my word... KalenZhad is an impressive sight. Cave ceilings a thousand hefts tall with walls that runs for a hundred fields. Lights as bright as day. It's a fortress the likes of which are not known otherwise.
+notknown:hmm.. yes... yes... that... is something I do not know.
+---
+Igor
+default: Hello my good fellow, wonderous day 'tis is it? I'm Igor. Butcher, Clerk, apothecary, tax accountant, I've done a bit of it all. Have ya any need of some rope or perhapes a good axe?
+butcher:Lad, when people bring a 200 pound razor back boar back they been trudging for hours hauling that thing. The last thing they want to do is spend hours carving and cutting up the carcass. So for a few coin and an evenings time, I do it for 'em. All told, I rather enjoy the work.
+clerk:Oh ya I've run a shop or two. Sold meats, vegs, rope, tools, weapons, all sorts of stuff.
+apothecary:Well not an 'Official' apothecary like I neva got the official document from the priesthood, but I can mix a mean martini if you know what I mean.
+tax accountant: What? Do you like filling out your TX-1092a and corralating it with your AE-4099b?
+notknown: Er... sorry lad, what was that?
+---
+Guard:
+Tim the guard
+default:I am the noble guard of this route, Tim!
+name:I am the noble guard of this route, Tim!
+tim:I am the noble guard of this route, Tim!
+route:I am the noble guard of this route, Tim!
+noble guard:The noble guards are charged with safe guarding the various routes in this realm, as a consequence of that we also have the keys to one or more exists.
+keys:Yes I, as the Noble guard of this route Tim, have the key to the exit in this room.
+nontknwon: um... I am the noble guard of this route, Tim!
+unlock:w
+---
 ===
 Rooms:
 main hall 1
@@ -178,6 +219,21 @@ medical room
 Contents: bone saw, 
 So... there is a table, some tools and a beer cask. I guess that's one way to approach medical practices.
 ---
+Side room
+Contents: 
+Huh, so it's an extra storage room. Empty racks line one wall and there's a work bench with a tapestry against the other. Guess the Dwarves never got around to putting anything in here worth anyway.
+---
+Kings Chamber
+Contents: 
+A private room reserved for the Dwarf kind. It's surprisingly sparse given that it was intended for a king. Only a single bed, some blankets, and a tapestry on the wall.
+---
+Training Room 1
+Contents: 
+The Dwarves take their training seriously. The walls are lined with various axes, mauls, swords and shields. The floor is pitted with nicks and divets, the results of decades of training and sparing sessions no doubt.
+---
+Observatory
+Contents:
+The room is a large dome. Along the inner surface of the dome are a pair of mechanical arms with circles with etched designs on them, representing the moon and sun. There is a raised dais in the center of the room with a pair of concentric dials that allow you to enter a day, month, and year.
 ===
 Exits:
 main hall 1
@@ -260,39 +316,33 @@ main hall 4
 s
 main hall 3
 ---
+Side room
+e
+medical room
+---
+Grog Room
+e
+Observatory
+---
+Observatory
+w
+Grog Room
+---
+Observatory
+n
+Kings Chamber
+---
+Kings Chamber
+s
+Observatory
+---
+Metal Working Room
+e
+Training Room 1
+---
+Training Room 1
+e
+Metal Working Room
+---
 ===
-NonPlayerCharacters:
-Old-man
-default:Yes, I am the old man. I've been around and seen a thing or two you young wipper snapper. I've been across the crystal mountains, and seen the burning sands. Even made some good trade deals. 
-crystal mountains:Beutiful those mountains are. Legends say the Soul gem, the largest diamond ever seen by human eyes is hidden on those snow capped mountains. I went looking for it as a kid myself. Nearly died due to the cold. Also the Ursa Polars almost got me.
-burning sands:The burning sands... horrible horrible place. Blinding sun, burning heat, practically no water to speak of, massive hoards of Fire Scorpions, detestable vulture wasps... bagh. If it weren't for the chances of recovering treasures from lost convoys I would never have ventured into those cursed lands. Never!
-soul gem:The Soul Gem? Oh my word, the legends on that. A Crystal diamond the size of a Vorrik helm and crystal clear. Hmmm, if the legends are true, it's worth a score of King's Ransoms!  
-fire scorpions: Horrible devil spawn those things. Individually they are a dangerous annoyance, but you'll never encounter a single fire scorpion. They always congregate in hoards of hundreds. Their stingers can pierce thin armor and their venom make you feel like you're on fire and while you're screaming and flailing in response to feeling your skin burn off, the gods cursed critters are crawling all over you cutting into your body, taking out hunks! If we could eliminate all of those creepy bars it would be godly work to do so!
-notknown:Huh? What? I don't know anything about that.
----
-David
-default: greetings young traveler, I am David, I'm just an old Druid. Went out for a walk after breakfast and never came back. I've been out and about for most of my life. Been over the misty mountains a few times. Would love to get back to KalemZhad again. Such a trek would require crossing the ice creeks. That seems to be too dangerous a task for these days.
-druids:Druids are people of the Dwarf lands who do not live in caves but rather feel at home in the woods and grass lands.
-ice creeks: Far to the north are rivers that never run, solid as ice they are.
-kalemzhad:Oh my word... KalenZhad is an impressive sight. Cave ceilings a thousand hefts tall with walls that runs for a hundred fields. Lights as bright as day. It's a fortress the likes of which are not known otherwise.
-notknown:hmm.. yes... yes... that... is something I do not know.
----
-Igor
-default: Hello my good fellow, wonderous day 'tis is it? I'm Igor. Butcher, Clerk, apothecary, tax accountant, I've done a bit of it all. Have ya any need of some rope or perhapes a good axe?
-butcher:Lad, when people bring a 200 pound razor back boar back they been trudging for hours hauling that thing. The last thing they want to do is spend hours carving and cutting up the carcass. So for a few coin and an evenings time, I do it for 'em. All told, I rather enjoy the work.
-clerk:Oh ya I've run a shop or two. Sold meats, vegs, rope, tools, weapons, all sorts of stuff.
-apothecary:Well not an 'Official' apothecary like I neva got the official document from the priesthood, but I can mix a mean martini if you know what I mean.
-tax accountant: What? Do you like filling out your TX-1092a and corralating it with your AE-4099b?
-notknown: Er... sorry lad, what was that?
----
-Guard:
-Tim the guard
-default:I am the noble guard of this route, Tim!
-name:I am the noble guard of this route, Tim!
-tim:I am the noble guard of this route, Tim!
-route:I am the noble guard of this route, Tim!
-noble guard:The noble guards are charged with safe guarding the various routes in this realm, as a consequence of that we also have the keys to one or more exists.
-keys:Yes I, as the Noble guard of this route Tim, have the key to the exit in this room.
-nontknwon: um... I am the noble guard of this route, Tim!
-unlock:w
-===
+
