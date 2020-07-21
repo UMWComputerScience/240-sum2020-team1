@@ -49,6 +49,11 @@ public class Exit {
         this.src = d.getRoom(srcTitle);
         this.dir = s.nextLine();
         this.dest = d.getRoom(s.nextLine());
+	if(GameState.instance().getTest()==true){
+	System.out.println("src:"+this.src.getTitle());
+	System.out.println("dir:"+this.dir);
+	System.out.println("dest:"+this.dest.getTitle());
+	}
 	//System.out.println(src.getTitle() + " " + dir + " " + dest.getTitle());
         
         // I'm an Exit object. Great. Add me as an exit to my source Room too,
@@ -57,6 +62,8 @@ public class Exit {
 
         // throw away delimiter
 	String nextLine = s.nextLine();
+	if(GameState.instance().getTest()==true){
+		System.out.println("NextLine: "+nextLine);}
 	String g = nextLine;
 	if(nextLine.contains("lockable")){
 		this.lockable = true;

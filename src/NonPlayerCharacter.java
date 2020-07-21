@@ -41,12 +41,15 @@ class NonPlayerCharacter {
 				}
 				else{}
 				if(GameState.instance().getTest()==true){
-					System.out.println("SECOND_LEVEL_DELIM:"+Dungeon.SECOND_LEVEL_DELIM);
+				//	System.out.println("SECOND_LEVEL_DELIM:"+Dungeon.SECOND_LEVEL_DELIM);
 					System.out.println("Current NPC Name:"+name);
 					System.out.println("Added topic["+messagePart[0]+"] to "
 					+name+"'s conversation table.");}
 				}
 			name = s.nextLine();
+		 	if(GameState.instance().getTest()==true){
+				System.out.println("NPC Created");
+			}
 			}
 		
 	}

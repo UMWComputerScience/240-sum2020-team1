@@ -77,7 +77,11 @@ public class Room {
 	    else {
 		    if(lineOfDesc.startsWith(NPC_STARTER)){
 			    String NPCList = lineOfDesc.substring(NPC_STARTER.length());
-			    String[] NPCNames = NPCList.split(",");
+			    if(GameState.instance().getTest()==true){
+				System.out.println("lineOfDesc: "+lineOfDesc);
+				System.out.println("adding NPCs to room:"+this.title);
+				}
+				String[] NPCNames = NPCList.split(",");
 			    for(String NPCName : NPCNames){
 				    try{
 					    if(initState){
@@ -99,6 +103,9 @@ public class Room {
             throw new IllegalDungeonFormatException("No '" +
                 Dungeon.SECOND_LEVEL_DELIM + "' after room.");
         }
+	if(GameState.instance().getTest()==true){
+		System.out.println("Room:"+this.getTitle()+" created.");	
+	}
     }
 
     /**

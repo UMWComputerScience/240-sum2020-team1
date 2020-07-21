@@ -208,19 +208,15 @@ Contents: bone saw,
 So... there is a table, some tools and a beer cask. I guess that's one way to approach medical practices.
 ---
 Side room
-Contents: 
 Huh, so it's an extra storage room. Empty racks line one wall and there's a work bench with a tapestry against the other. Guess the Dwarves never got around to putting anything in here worth anyway.
 ---
 Kings Chamber
-Contents: 
 A private room reserved for the Dwarf kind. It's surprisingly sparse given that it was intended for a king. Only a single bed, some blankets, and a tapestry on the wall.
 ---
 Training Room 1
-Contents: 
 The Dwarves take their training seriously. The walls are lined with various axes, mauls, swords and shields. The floor is pitted with nicks and divets, the results of decades of training and sparing sessions no doubt.
 ---
 Observatory
-Contents:
 The room is a large dome. Along the inner surface of the dome are a pair of mechanical arms with circles with etched designs on them, representing the moon and sun. There is a raised dais in the center of the room with a pair of concentric dials that allow you to enter a day, month, and year.
 ---
 ===
@@ -235,9 +231,9 @@ main hall 1
 ---
 main hall 2
 e
-Weapons Room
+Weapons room
 ---
-Weapons Room
+Weapons room
 w
 main hall 2
 ---
@@ -281,15 +277,15 @@ Grog Room
 w
 main hall 4
 ---
-Trophy room
+Trophy Room
 e
 main hall 3
 lockable
-isLocked
+true
 ---
 main hall 3
 w
-Trophy room
+Trophy Room
 lockable
 isLocked
 ---

@@ -38,6 +38,7 @@ public class Dungeon {
     private String filename;
     private ArrayList<String> listOfRooms;
     private Hashtable<String,NonPlayerCharacter> npcs;
+    private Hashtable<String,Item> craftableItems;
 
     /**
      * Creates a Dungeon object and designates a room in that object as the 'entry' room.
@@ -47,9 +48,9 @@ public class Dungeon {
         this.filename = null;    // null indicates not hydrated from file.
         this.name = name;
         this.entry = entry;
-        Hashtable<String,Room> rooms = new Hashtable<String,Room>();
-	Hashtable<String,Item> craftableItems = new Hashtable<String, Item>();
-	Hashtable<String,NonPlayerCharacter> npcs = new Hashtable<String,NonPlayerCharacter>();
+ //       Hashtable<String,Room> rooms = new Hashtable<String,Room>();
+//	Hashtable<String,Item> craftableItems = new Hashtable<String, Item>();
+//	Hashtable<String,NonPlayerCharacter> npcs = new Hashtable<String,NonPlayerCharacter>();
     }
 //	/** Exception to be thrown if an invalid or incompatible .zork file is detected
 //	* when loading a save game or starting a new game.
@@ -159,8 +160,8 @@ public class Dungeon {
     private void init() {
         rooms = new Hashtable<String,Room>();
         items = new Hashtable<String,Item>();
-	Hashtable<String,Item> craftableItems = new Hashtable<String, Item>();
-	Hashtable<String,NonPlayerCharacter> npcs = new Hashtable<String,NonPlayerCharacter>();
+	craftableItems = new Hashtable<String, Item>();
+	npcs = new Hashtable<String,NonPlayerCharacter>();
     }
 
     /**
