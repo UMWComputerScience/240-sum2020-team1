@@ -50,18 +50,18 @@ class NonPlayerCharacter {
 			}
 		
 	}
-	void NonPlayerCharacter(ArrayList d){
-		this.name = d[0];
+/*	void NonPlayerCharacter(ArrayList d){
+		this.name = d.get(0);
 		for (int i=1;i<d.length();i++){
-			String converseLine = d[i];
+			String converseLine = d.get(i);
 			String [] messagePart = converseLine.split(":");
-			this.messages.put(messagePart[0].messagePart[1]);
+			this.messages.put(messagePart[0],messagePart[1]);
 		}
 	}
-	
+*/	
 /** takes care of common initialization tasks for NonPlayerCharacter
 */
-	void init(){
+	private void init(){
 	messages = new Hashtable<String, String>();
 	inventory = new ArrayList<Item>();
 	}
