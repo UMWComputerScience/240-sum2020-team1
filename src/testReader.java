@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.util.Hashtable;
 import java.util.HashSet;
 import java.util.Set;
-
 public class testReader{
 
     public static String TOP_LEVEL_DELIM = "===";
@@ -25,12 +24,17 @@ public class testReader{
     Scanner s = new Scanner(new FileReader("test4.zork"));
 	String name = s.nextLine();
 	String testLine = s.nextLine();
-	while(!testLine.equals(Dungeon.SECOND_LEVEL_DELIM)){
-		if(testLine.equals(Dungeon.TOP_LEVEL_DELIM)){
-		throw new Exception ();
+	while(!testLine.equals("+++")){
+		System.out.println("testline:"+testLine);
+		if(testLine.equals("ThisIsANewLine")){
+		System.out.println("Yeah new line happy dance!");}
+		if(testLine.contains("ThisWillGiveAnumber(")){
+		int iStart = testLine.indexOf( "(");
+		int iEnd = testLine.indexOf(")");
+		int value = Integer.parseInt(testLine.substring(iStart+1,iEnd));
+		System.out.println("Number: "+value);
 		}
-	System.out.println("testline:"+testLine);
-	testLine = s.nextLine();
+		testLine = s.nextLine();
 	}
 
 	

@@ -1,0 +1,336 @@
+Garvin Hall
+Zork++
+===
+Items:
+cake
+2
+(craftable)
+recipe:flour,milk
+examine:It's a birthday cake!... wait whose birthday is it?
+kick:The cake explodes in a mess across your boot. Nice job, dumbo.
+eat[Wounds(-2)]: Hmm that was a good cake.
+---
+dragonglass,glass
+4
+break[Wound(1)]:Ouch! The glass cuts your hand.
+wield:There's no one here to wield it against.
+throw[Drop,Teleport]:You huck the dragonglass down to the ground, at which point it shatters and leaves you feeling disoriented.
+examine:It's a rough-hewn obsidian sliver, sharp as a needle.
+---
+BastardSword,sword
+25
+examine:This blade is forged from Valyrian steel, with a wolf's head pommel.
+swing:The sword is too heavy for a loser like you to swing.
+---
+milk
+1
+drink[Wound(-1)]: ahhh milk, it does a body good.
+---
+flour
+1
+throw[Disappear]:The packet of flour explods as it hits the wall, flinging the white powder all over.
+---
+dagger
+12
+examine:This sharp assassin's weapon has a dragonbone hilt.
+throw[Disappear]:The dagger clumsily hits the wall, and breaks to pieces.
+---
+SapphireNecklace,necklace
+4
+examine:This is a dainty jeweled necklace sparkling blue.
+wear[Score(1)]:Why, you look lovely!
+---
+wildfire
+2
+examine:This is a curious green liquid. You wonder what would happen if you tried to light it.
+light[Die]:The wildfire explodes in a dazzling mushroom cloud, killing you and everyone else in the world.
+---
+GreenDragonEgg,GreenEgg
+30
+examine:This beautiful egg is a deep green, with burnished bronze flecks that come and go depending on how you turn it.
+heat[Transform(BabyDragon)]:When warmed to great temperatures, the egg hatches and a cute little green dragon emerges! (*spoilers*) You name it "Rhaegal."
+---
+BabyDragon,dragon
+40
+examine:Not Baby Yoda, perhaps, but still pretty cute.
+free[Drop]:The dragon begins to fly on its little wings, and hovers above you approvingly.
+feed[Score(1)]:*Gulp*! The little guy chomps down a small mammal in one gulp.
+---
+WhiteDragonEgg,WhiteEgg
+30
+examine:This beautiful egg is pale cream, streaked with gold.
+heat[Transform(BabyDragon)]:When warmed to great temperatures, the egg hatches and a cute little green dragon emerges! (*spoilers*) You name it "Viserion."
+---
+BlackDragonEgg,BlackEgg
+40
+examine:This egg is as black as midnight sea, yet alive with scarlet ripples and swirls. 
+heat[Transform(BabyDragon)]:When warmed to great temperatures, the egg hatches and a cute little green dragon emerges! (*spoilers*) You name it "Drogon."
+---
+IronThrone,throne
+400000
+examine:The great metallic throne, forged from a thousand swords of imperial enemies, dominates the room and makes you feel considerably smaller. There are still sharp edges, so you are wary of touching it.
+touch[Wound(1)]:Ouch! Sharp steel opens a red line in your finger.
+---
+plate
+1
+examine:made of fired clay, the plate is off white in color with inlaid designs incorpoating Dwarvin runes.
+smash[disapper]:The plate shatters into a shower of fragments.
+lick:The plate has a salty taste.
+---
+beermug,flaggon,stein
+1
+examine:It has a body made out of carved wood. Like all examples of Dwarf artistry, it is covered in fine carvings, some depicting notable dwarf events, others being absract runes.
+slug:It's a cup not a weapon! Though it is a very large cup so I guess it could be used as a weapon.
+---
+turkey
+8
+examine:A stuffed roasted turkey.
+eat[Wound(-4)]:Hmm, boy do the dwarves know how to prepare a turkey!
+---
+ham
+6
+examine:a cured ham, still sizzling on the plate.
+eat[Wound(-3)]:Oh man, did that ham ever hit the right spot!
+---
+pizza
+3
+examine: It's... a pizza? Do... do dwarves know about Pizza? 
+throw[Disappear]:the pizza splats against the wall.
+eat[Wound(-3)]:You feel full... and maybe a bit gassy.
+---
+axe
+8
+examine: This is one BDA (Big Damn Axe)!
+throw[Disappear]: Hey dummy! you just broke a dwarf axe. Do you know what level of bad luck that is?!
+eat[Die]: You tried to eat and axe.... and you died. I'm sure you're parents are so very proud of you.
+---
+helmet
+4
+examine:and armored helmet.
+wear:You feel ready to take on the world with your magic helmet, now if you only had a spear.
+---
+aegis
+30
+examine:a finely wroute piece of dwarving battle armor with in laid gold filigree and find detail work.
+heat[Wound(1)]:You burned yourself.
+---
+Dark Blade of Glangriel,foehammer,sword,great sword
+12
+examine: a large finely crafted broad sword with a litany of battles etched into the hilt and along the pummel.
+wave:you can practically hear the sword singing as you sling it through the air.
+---
+Tower shield,shield
+30
+examine:a massive tower shield that can probably stand up to a war hammer strike.
+---
+bone saw,saw,bone cutter,
+1
+examine:a tool for cutting through bone during surgery.
+---
+golden crown,crown
+5
+examine:It is a finely wrought crown laced with gems and jewels. 
+wear[Win]:All hail the conqueror!
+---
+tapestry1
+6
+examine:A finely sewn tapestry showing the battle of Gro'kar pass.
+---
+===
+NonPlayerCharacters:
+Old-man
+default:Yes, I am the old man. I've been around and seen a thing or two you young wipper snapper. I've been across the crystal mountains, and seen the burning sands. Even made some good trade deals. 
+crystal mountains:Beutiful those mountains are. Legends say the Soul gem, the largest diamond ever seen by human eyes is hidden on those snow capped mountains. I went looking for it as a kid myself. Nearly died due to the cold. Also the Ursa Polars almost got me.
+burning sands:The burning sands... horrible horrible place. Blinding sun, burning heat, practically no water to speak of, massive hoards of Fire Scorpions, detestable vulture wasps... bagh. If it weren't for the chances of recovering treasures from lost convoys I would never have ventured into those cursed lands. Never!
+soul gem:The Soul Gem? Oh my word, the legends on that. A Crystal diamond the size of a Vorrik helm and crystal clear. Hmmm, if the legends are true, it's worth a score of King's Ransoms!  
+fire scorpions: Horrible devil spawn those things. Individually they are a dangerous annoyance, but you'll never encounter a single fire scorpion. They always congregate in hoards of hundreds. Their stingers can pierce thin armor and their venom make you feel like you're on fire and while you're screaming and flailing in response to feeling your skin burn off, the gods cursed critters are crawling all over you cutting into your body, taking out hunks! If we could eliminate all of those creepy bars it would be godly work to do so!
+notknown:Huh? What? I don't know anything about that.
+---
+David
+default: greetings young traveler, I am David, I'm just an old Druid. Went out for a walk after breakfast and never came back. I've been out and about for most of my life. Been over the misty mountains a few times. Would love to get back to KalemZhad again. Such a trek would require crossing the ice creeks. That seems to be too dangerous a task for these days.
+druids:Druids are people of the Dwarf lands who do not live in caves but rather feel at home in the woods and grass lands.
+ice creeks: Far to the north are rivers that never run, solid as ice they are.
+kalemzhad:Oh my word... KalenZhad is an impressive sight. Cave ceilings a thousand hefts tall with walls that runs for a hundred fields. Lights as bright as day. It's a fortress the likes of which are not known otherwise.
+notknown:hmm.. yes... yes... that... is something I do not know.
+---
+Igor
+default: Hello my good fellow, wonderous day 'tis is it? I'm Igor. Butcher, Clerk, apothecary, tax accountant, I've done a bit of it all. Have ya any need of some rope or perhapes a good axe?
+butcher:Lad, when people bring a 200 pound razor back boar back they been trudging for hours hauling that thing. The last thing they want to do is spend hours carving and cutting up the carcass. So for a few coin and an evenings time, I do it for 'em. All told, I rather enjoy the work.
+clerk:Oh ya I've run a shop or two. Sold meats, vegs, rope, tools, weapons, all sorts of stuff.
+apothecary:Well not an 'Official' apothecary like I neva got the official document from the priesthood, but I can mix a mean martini if you know what I mean.
+tax accountant: What? Do you like filling out your TX-1092a and corralating it with your AE-4099b?
+notknown: Er... sorry lad, what was that?
+---
+===
+Rooms:
+main hall 1
+Contents: dagger
+NPC: David,Igor
+You stand at the head of the dwarv's great hall. While it's a a bit shorter then a human hall of similar function, it is grandly furnished and elaboratly designed with large pillers covered in intricate detailed carvings depicting dwarf history. 
+---
+main hall 2
+NPC: Old-man
+Contents: dragonglass,plate,beermug
+Walking further in to the main hall, you are flanked by a pair of large feasting tables, covered with various foods, plates, drinks, cups and cuttlery. There is a dwarven axe embedded in one table. It looks to be embedded too deeply for you to dislodge.
+---
+main hall 3
+Contents:ham,turkey
+NPC: Tim the guard
+Walking further in to the main hall, you are flanked by a pair of large feasting tables, covered with various foods, plates, drinks, cups and cuttlery.
+---
+main hall 4
+Contents: pizza,milk,flour
+Walking further in to the main hall, you are flanked by a pair of large feasting tables, covered with various foods, plates, drinks, cups and cuttlery.
+---
+King's Hall
+Contents: IronThrone
+The head of the main hall, it's dominating detail is a large intricately detailed iron thrown.
+---
+Grog Room
+The walls are obscured by large casks filled with grog, mead, rye, gin, and beer.
+---
+Metal Working Room
+A workshop where the Dwarves work metals. The wall to your left is covered by various tools, the wall to your right covered in weapons, armor, shields and helmets. There is a large furnace at the far end opposite the door.
+---
+Weapons room
+Contents: BastardSword,axe,Tower shield
+A storage room with racks of weapons on both sides of it. 
+---
+Leather Working Room
+The room smells odd, the scents of variouys tanning and curring solutions and leather in different states of work. The shelves are covered in belts and tunics and boots and gloves of various forms.
+---
+Trophy Room
+Contents: Dark Blade of Glangriel,aegis,golden crown
+Ah the trophy room! Signs of the Dwarf clans' various victories, conquests and plunders. Enemy weapons, great jems and jewels, gold crowns and ruby encrusted necklaces aplenty.
+---
+medical room
+Contents: bone saw, 
+So... there is a table, some tools and a beer cask. I guess that's one way to approach medical practices.
+---
+Side room
+Contents: 
+Huh, so it's an extra storage room. Empty racks line one wall and there's a work bench with a tapestry against the other. Guess the Dwarves never got around to putting anything in here worth anyway.
+---
+Kings Chamber
+Contents: 
+A private room reserved for the Dwarf kind. It's surprisingly sparse given that it was intended for a king. Only a single bed, some blankets, and a tapestry on the wall.
+---
+Training Room 1
+Contents: 
+The Dwarves take their training seriously. The walls are lined with various axes, mauls, swords and shields. The floor is pitted with nicks and divets, the results of decades of training and sparing sessions no doubt.
+---
+Observatory
+Contents:
+The room is a large dome. Along the inner surface of the dome are a pair of mechanical arms with circles with etched designs on them, representing the moon and sun. There is a raised dais in the center of the room with a pair of concentric dials that allow you to enter a day, month, and year.
+===
+Exits:
+main hall 1
+n
+main hall 2
+---
+main hall 2
+s
+main hall 1
+---
+main hall 2
+e
+Weapons Room
+---
+Weapons Room
+w
+main hall 2
+---
+main hall 2
+w
+Leather Working Room
+---
+Leather Working Room
+e
+main hall 2
+---
+main hall 2
+n
+main hall 3
+---
+main hall 3
+s
+main hall 2
+---
+main hall 3
+e
+Metal Working Room
+---
+main hall 3
+n
+main hall 4
+---
+main hall 4
+w
+medical room
+---
+medical room
+e
+main hall 4
+---
+main hall 4
+e
+Grog Room
+---
+Grog Room
+w
+main hall 4
+---
+Trophy room
+e
+main hall 3
+lockable
+isLocked
+---
+main hall 3
+w
+Trophy room
+lockable
+isLocked
+---
+main hall 4
+n
+King's Hall
+---
+King's Hall
+s
+main hall 4
+---
+main hall 4
+s
+main hall 3
+---
+Side room
+e
+medical room
+---
+Grog Room
+e
+Observatory
+---
+Observatory
+w
+Grog Room
+---
+Observatory
+n
+Kings Chamber
+---
+Kings Chamber
+s
+Observatory
+---
+Metal Working Room
+e
+Training Room 1
+---
+Training Room 1
+e
+Metal Working Room
+---
+===
+

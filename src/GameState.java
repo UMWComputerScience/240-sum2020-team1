@@ -258,6 +258,7 @@ public class GameState {
     ArrayList<Item> getInventory(){
 		return this.inventory;
 	}
+
     void returnToStart(){
 	System.out.println("********************************************************************");
 	System.out.println(" You kinda stopped living.");
