@@ -160,6 +160,7 @@ public class Dungeon {
         rooms = new Hashtable<String,Room>();
         items = new Hashtable<String,Item>();
 	Hashtable<String,Item> craftableItems = new Hashtable<String, Item>();
+	Hashtable<String,NonPlayerCharacter> npcs = new Hashtable<String,NonPlayerCharacter>();
     }
 
     /**
@@ -240,6 +241,16 @@ public class Dungeon {
        catch(NoItemException e){
        }
        return items.get(primaryItemName);
+    }
+    public NonPlayerCharacter getNPC(String NPCName) throws NoNonPlayerException {
+	try{
+		if(npcs.get(NPCName) == null){
+			throw new NoNonPlayerException();
+		}
+	}
+	catch(NoNonPlayerException n){
+	}
+	return npcs.get(NPCName);
     }
     public Hashtable<String,Room> getRoomsList(){
 	    return rooms;

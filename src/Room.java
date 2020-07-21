@@ -12,12 +12,14 @@ public class Room {
 //    class NoRoomException extends Exception {}
 
     static String CONTENTS_STARTER = "Contents: ";
+    static String NPC_STARTER = "NPC: ";
 
     private String title;
     private String desc;
     private boolean beenHere;
     private ArrayList<Item> contents;
     private ArrayList<Exit> exits;
+    private ArrayList<NonPlayerCharacter> NPCs;
     /**Constructor that creates a single Room with a provided title.
     **/
     Room(String title) {
@@ -71,7 +73,22 @@ public class Room {
                             "No such item '" + itemName + "'");
                     }
                 }
-            } else {
+            }
+	    else {
+		    if(lineOfDesc.startsWith(NPC_STARTER)){
+			    String NPCList = lineOfDesc.substring(NPC_STARTER.length());
+			    String[] NPCNames = NPCList.split(",");
+			    for(String NPCName : NPCNames){
+				    try{
+					    if(initState){
+						addNPC(d.getNPC(NPCName));
+					    }
+				    }
+				    catch(NoNonPlayerException n){
+					    throw new IllegalDungeonFormatException("No such NPC '" + NPCName + "'");
+				    }
+			    }
+		    }
                 desc += lineOfDesc + "\n";
             }
             lineOfDesc = s.nextLine();
@@ -90,6 +107,7 @@ public class Room {
     private void init() {
         contents = new ArrayList<Item>();
         exits = new ArrayList<Exit>();
+	NPCs = new ArrayList<NonPlayerCharacter>();
         beenHere = false;
     }
     /**Returns the title of the Room.
@@ -195,6 +213,9 @@ public class Room {
      */
     void addExit(Exit exit) {
         exits.add(exit);
+    }
+    void addNPC(NonPlayerCharacter NPC){
+	    NPCs.add(NPC);
     }
 	/**
 	 * Adds an item to this room's inventory.

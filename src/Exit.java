@@ -46,20 +46,40 @@ public class Exit {
         if (srcTitle.equals(Dungeon.TOP_LEVEL_DELIM)) {
             throw new NoExitException();
         }
-        src = d.getRoom(srcTitle);
-        dir = s.nextLine();
-        dest = d.getRoom(s.nextLine());
+        this.src = d.getRoom(srcTitle);
+        this.dir = s.nextLine();
+        this.dest = d.getRoom(s.nextLine());
+	//System.out.println(src.getTitle() + " " + dir + " " + dest.getTitle());
         
         // I'm an Exit object. Great. Add me as an exit to my source Room too,
         // though.
         src.addExit(this);
 
         // throw away delimiter
-        if (!s.nextLine().equals(Dungeon.SECOND_LEVEL_DELIM)) {
+	String nextLine = s.nextLine();
+	String g = nextLine;
+	if(nextLine.contains("lockable")){
+		this.lockable = true;
+		g = s.nextLine();
+		if(nextLine.contains("true")){
+			this.isLocked = true;
+		}
+		else if(nextLine.contains("false")){
+			this.isLocked = false;
+		}
+		g = s.nextLine();
+	}
+	else{
+		lockable = false;
+		isLocked = false;
+	
+	if (!nextLine.equals(Dungeon.SECOND_LEVEL_DELIM)) {
             throw new IllegalDungeonFormatException("No '" +
                 Dungeon.SECOND_LEVEL_DELIM + "' after exit.");
         }
+	//}
     }
+}
 
     /**
      * Handles common initialization
