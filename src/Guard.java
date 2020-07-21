@@ -7,7 +7,7 @@ class Guard extends NonPlayerCharacter {
 	
 		
 	Guard(Scanner s) {
-		String [] data = new ArrayList<String>();
+		ArrayList<String> data = new ArrayList<String>();
 		data[0] = s.nextLine();
 		int i = 1;
 		String testLine = s.nextLine();
