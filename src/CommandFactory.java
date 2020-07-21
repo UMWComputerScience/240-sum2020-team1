@@ -59,7 +59,12 @@ public class CommandFactory {
 		int smirnoff = s1.nextInt();
 		return new WoundCommand(smirnoff);
 	}
+	if(verb.equals("wound")){
+		int woundCount =Integer.parseInt("1");
+		return new WoundCommand(woundCount);
+	}
         if (MOVEMENT_COMMANDS.contains(verb)) {
+	    GameState.instance().minusHunger();
             return new MovementCommand(verb);
         }
 	if(verb.equals("rooms")){

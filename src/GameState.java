@@ -260,7 +260,7 @@ public class GameState {
     ArrayList<Item> getInventory(){
 		return this.inventory;
 	}
-    void minusHunger(){
+   void minusHunger(){
 	if(this.hungerCount==4){
 	 	this.hungerCount = 0;
 		this.hungerScore = this.hungerScore -1;}
