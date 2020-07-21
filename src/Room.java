@@ -254,4 +254,6 @@ public class Room {
     ArrayList<Item> getContents() {
         return contents;
     }
+   ArrayList<NonPlayerCharacter> getNPCsInRoom(){
+	return this.NPCs;}
 }

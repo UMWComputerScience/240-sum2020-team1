@@ -256,6 +256,23 @@ public class Dungeon {
     public Hashtable<String,Room> getRoomsList(){
 	    return rooms;
     }
+    public String getNpcList(){
+	String npcList ="";
+	if(GameState.instance().getTest()==true){
+		System.out.println("Dungeon's getNpcList() called.");
+	}
+	Enumeration npcKeysList =this.npcs.keys();
+	if(GameState.instance().getTest()==true){
+		System.out.println("Enumeration list created");
+	}
+	while(npcKeysList.hasMoreElements()){
+	if(GameState.instance().getTest()==true){
+		System.out.println("Current npcList: "+npcKeysList);
+	}
+	npcList = npcList+":"+npcKeysList.nextElement();	
+	}
+	return npcList;
+	}
     public String[] getRoomList(){
 	String[] listOfRooms = new String[getRoomsList().size()];
 	ArrayList<String> tempRoomNames = new ArrayList<String>();

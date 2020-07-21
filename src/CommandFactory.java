@@ -27,6 +27,10 @@ public class CommandFactory {
         String parts[] = command.split(" ");
         String verb = parts[0];
         String noun = parts.length >= 2 ? parts[1] : "";
+	if(GameState.instance().getTest()==true){
+	for(int i = 0; i<parts.length;i++){
+		System.out.println("parts["+i+"]:"+parts[i]);}
+	}
         if (verb.equals("look")) {
             return new LookCommand();
         }
@@ -72,7 +76,18 @@ public class CommandFactory {
 			System.out.println("Executing rooms command");
 		}
 		return new RoomListCommand(GameState.instance().getDungeon().getRoomList());
-}
+} 
+	if(verb.toLowerCase().contains("talk")){
+		if(GameState.instance().getTest()==true){
+		System.out.println("Executing talk command");
+		}
+		String target="";
+		for(int i =0; i<parts.length;i++){
+			target = target+parts[i]+":";
+		}
+		return new TalkCommand(target);
+		
+		}
         if (parts.length == 2) {
             return new ItemSpecificCommand(verb, noun);
         }
