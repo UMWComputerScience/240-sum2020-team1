@@ -46,6 +46,7 @@ class NonPlayerCharacter {
 				}
 			}	
 	}
+	}
 /** takes care of common initialization tasks for NonPlayerCharacter
 */
 	void init(){
