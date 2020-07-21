@@ -16,35 +16,41 @@ class NonPlayerCharacter {
 
 	NonPlayerCharacter(Scanner s) throws NoNonPlayerException {
 	init();
-	String name = s.nextLine();
+	this.name = s.nextLine();
 	npcCount =npcCount+1;
 	//	while(!name.equals(Dungeon.SECOND_LEVEL_DELIM)){
 		while(!name.equals("---")){
 			if (name.equals(Dungeon.TOP_LEVEL_DELIM)){
-			throw new NoNonPlayerException();}
+			throw new NoNonPlayerException();
+			}
 			if(GameState.instance().getTest()==true){
-				System.out.println("name:"+name);
-				System.out.println("NPCs created:" + npcCount);	
+				System.out.println("name:"+this.name);
+				System.out.println("NPCs created:" + this.npcCount);	
 			}
 			String converseLine = s.nextLine();
 			if(GameState.instance().getTest()==true){
 				System.out.println("Conversation line:"+converseLine);
 			}
-			while(converseLine.contains(":") && !converseLine.equals(Dungeon.SECOND_LEVEL_DELIM)) {
+			while(converseLine.contains(":")){// && !converseLine.equals(Dungeon.SECOND_LEVEL_DELIM)) {
 				if(converseLine.equals(Dungeon.TOP_LEVEL_DELIM)) {
 					throw new NoNonPlayerException();}
 				String[] messagePart = converseLine.split(":");
 				messages.put(messagePart[0],messagePart[1]);
+				if(!converseLine.equals(Dungeon.SECOND_LEVEL_DELIM)){
 				converseLine = s.nextLine();
+				}
+				else{}
 				if(GameState.instance().getTest()==true){
 					System.out.println("SECOND_LEVEL_DELIM:"+Dungeon.SECOND_LEVEL_DELIM);
 					System.out.println("Current NPC Name:"+name);
 					System.out.println("Added topic["+messagePart[0]+"] to "
 					+name+"'s conversation table.");}
 				}
-			}	
+			name = s.nextLine();
+			}
+		
 	}
-	}
+	
 /** takes care of common initialization tasks for NonPlayerCharacter
 */
 	void init(){
