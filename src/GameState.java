@@ -37,6 +37,8 @@ public class GameState {
     private Room adventurersCurrentRoom;
     private int health = 12;
     private int score = 0;
+    private int hungerScore = 12;
+    private int hungerCount =0;
     /**
      * Singleton that instantiates one instance of GameState theInstance.*/
     static synchronized GameState instance() {
@@ -257,6 +259,17 @@ public class GameState {
     }
     ArrayList<Item> getInventory(){
 		return this.inventory;
+	}
+    void minusHunger(){
+	if(this.hungerCount==4){
+	 	this.hungerCount = 0;
+		this.hungerScore = this.hungerScore -1;}
+	else if(this.hungerCount < 4&& this.hungerScore>0){
+	this.hungerScore = this.hungerScore -1;
+	this.hungerCount = this.hungerCount +1;
+		}
+	else{
+		this.health= this.health -1;}
 	}
     void returnToStart(){
 	System.out.println("********************************************************************");

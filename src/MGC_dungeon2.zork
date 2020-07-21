@@ -8,7 +8,7 @@ cake
 recipe:flour,milk
 examine:It's a birthday cake!... wait whose birthday is it?
 kick:The cake explodes in a mess across your boot. Nice job, dumbo.
-eat[wounds(-2)]: Hmm that was a good cake.
+eat[Wounds(-2)]: Hmm that was a good cake.
 ---
 dragonglass,glass
 4
@@ -24,11 +24,11 @@ swing:The sword is too heavy for a loser like you to swing.
 ---
 milk
 1
-drink[wound(-1)]: ahhh milk, it does a body good.
+drink[Wound(-1)]: ahhh milk, it does a body good.
 ---
 flour
 1
-throw[disappear]:The packet of flour explods as it hits the wall, flinging the white powder all over.
+throw[Disappear]:The packet of flour explods as it hits the wall, flinging the white powder all over.
 ---
 dagger
 12
@@ -85,24 +85,24 @@ slug:It's a cup not a weapon! Though it is a very large cup so I guess it could 
 turkey
 8
 examine:A stuffed roasted turkey.
-eat[wound(-4)]:Hmm, boy do the dwarves know how to prepare a turkey!
+eat[Wound(-4)]:Hmm, boy do the dwarves know how to prepare a turkey!
 ---
 ham
 6
 examine:a cured ham, still sizzling on the plate.
-eat[wound(-3)]:Oh man, did that ham ever hit the right spot!
+eat[Wound(-3)]:Oh man, did that ham ever hit the right spot!
 ---
 pizza
 3
 examine: It's... a pizza? Do... do dwarves know about Pizza? 
-throw[disappear]:the pizza splats against the wall.
-eat[wound(-3)]:You feel full... and maybe a bit gassy.
+throw[Disappear]:the pizza splats against the wall.
+eat[Wound(-3)]:You feel full... and maybe a bit gassy.
 ---
 axe
 8
 examine: This is one BDA (Big Damn Axe)!
-throw[disappear]: Hey dummy! you just broke a dwarf axe. Do you know what level of bad luck that is?!
-eat[die]: You tried to eat and axe.... and you died. I'm sure you're parents are so very proud of you.
+throw[Disappear]: Hey dummy! you just broke a dwarf axe. Do you know what level of bad luck that is?!
+eat[Die]: You tried to eat and axe.... and you died. I'm sure you're parents are so very proud of you.
 ---
 helmet
 4
@@ -112,7 +112,7 @@ wear:You feel ready to take on the world with your magic helmet, now if you only
 aegis
 30
 examine:a finely wroute piece of dwarving battle armor with in laid gold filigree and find detail work.
-heat[wound(1)]:You burned yourself.
+heat[Wound(1)]:You burned yourself.
 ---
 Dark Blade of Glangriel,foehammer,sword,great sword
 12
@@ -130,7 +130,7 @@ examine:a tool for cutting through bone during surgery.
 golden crown,crown
 5
 examine:It is a finely wrought crown laced with gems and jewels. 
-wear[win]:All hail the conqueror!
+wear[Win]:All hail the conqueror!
 ---
 tapestry1
 6
