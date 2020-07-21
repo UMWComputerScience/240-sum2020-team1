@@ -194,6 +194,10 @@ public class Room {
          description += "\nThere is a " + item.getPrimaryName() + " here.";
 //	 description += "\nthere is a something or other here.";
         }
+	for(NonPlayerCharacter npc : NPCs){
+//	description += "\nyou see "+npc.getName()+" standing in the room.";
+	description += "\nNPC Test line\n";
+	}
         if (contents.size() > 0) { description += "\n"; }
         if (!beenHere || fullDesc) {
             for (Exit exit : exits) {
