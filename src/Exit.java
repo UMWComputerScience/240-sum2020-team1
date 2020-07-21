@@ -13,6 +13,8 @@ public class Exit {
 
     private String dir;
     private Room src, dest;
+    private boolean lockable;
+    private boolean isLocked;
 /** constructor for instantianting exits manually. Needs to know the direction that the player can pass through the exit in, what room they are passing from, and what room they are passing to.
 * @param dir direction of travel for the exit.
 * @param src the source room for the individual exit
@@ -23,6 +25,7 @@ public class Exit {
         this.dir = dir;
         this.src = src;
         this.dest = dest;
+	
         src.addExit(this);
     }
 
