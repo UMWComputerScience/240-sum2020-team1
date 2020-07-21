@@ -19,11 +19,9 @@ class NonPlayerCharacter {
 	String name = s.nextLine();
 	npcCount =npcCount+1;
 	//	while(!name.equals(Dungeon.SECOND_LEVEL_DELIM)){
-		while(!s.nextLine().equals("---")){
+		while(!name.equals("---")){
 			if (name.equals(Dungeon.TOP_LEVEL_DELIM)){
-		if(name.equals(Dungeon.SECOND_LEVEL_DELIM)){
-		throw new NoNonPlayerException();}
-//			throw new NoNonPlayerException();}
+			throw new NoNonPlayerException();}
 			if(GameState.instance().getTest()==true){
 				System.out.println("name:"+name);
 				System.out.println("NPCs created:" + npcCount);	
