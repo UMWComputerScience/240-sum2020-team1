@@ -37,6 +37,9 @@ public class GameState {
     private Room adventurersCurrentRoom;
     private int health = 12;
     private int score = 0;
+    private int hunger = 12;
+    private int hungerCount=0;
+    private int hungerInc = 2;
     /**
      * Singleton that instantiates one instance of GameState theInstance.*/
     static synchronized GameState instance() {
@@ -75,7 +78,7 @@ public class GameState {
 	 * If the supplied file does not end in '.zork', throws 
 	 * Dungeon.IllegalDungeonFormatException.*/
     void restore(String filename) throws FileNotFoundException,
-        IllegalSaveFormatException, IllegalDungeonFormatException, NoRoomException {
+        IllegalSaveFormatException, IllegalDungeonFormatException, NoRoomException, maxLoadException{
 
         Scanner s = new Scanner(new FileReader(filename));
 
@@ -178,8 +181,12 @@ public class GameState {
     }
 	/**
 	 * Adds an Item to the player's inventory.*/
-    void addToInventory(Item item) /* throws TooHeavyException */ {
-        inventory.add(item);
+    void addToInventory(Item item) throws maxLoadException  /* throws TooHeavyException */ {
+	if(item.getWeight()+getAdventurersCurrentWeight()>GameState.instance().getStrength()){
+		throw new maxLoadException();}
+	else{
+	      inventory.add(item);
+	}
     }
 	/**
 	 * Removes an Item from the player's inventory.*/
@@ -271,4 +278,28 @@ public class GameState {
 	System.out.println(GameState.instance().getAdventurersCurrentRoom().describe(true));
 	
     }  
+/** changes the character HungerCount increments of hunterInc */
+    void hungerCountChange(){
+	if(hungerCount<hungerInc){
+		hungerCount+=1;
+		}
+	else if(hungerCount==hungerInc){
+		hunger = 0;
+		
+		}
+	}
+/** changes the characters hunger score by the value passed */
+    void hungerDecrease(int v){
+	if(hunger <= 0){
+		health -= v;
+	}
+	else{
+		hunger -= v;
+		}
+	}
+/** determines the player's carrying capacity by taking the score, dividing it by 5 and adding 40 to that.*/
+	int getStrength(){
+		int testValue = (int)(score/5);
+		return testValue;
+	}
 }

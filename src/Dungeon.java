@@ -112,10 +112,14 @@ public class Dungeon {
 		throw new IllegalDungeonFormatException("No '"+NPC_MARKER+"' line where expected.");}
 	try{
 		while(true){
-		add(new NonPlayerCharacter(s));
-	if(GameState.instance().getTest()==true){
-	System.out.println("Added NPC");}
-		}
+			NonPlayerCharacter n = new NonPlayerCharacter(s);
+			if(GameState.instance().getTest()==true){
+				System.out.println("NPC:"+n.getName()+" Created");
+			}
+			add(n);
+			if(GameState.instance().getTest()==true){
+				System.out.println("Added NPC");}
+			}
 	} catch (NoNonPlayerException n){}
 	
         // Throw away Rooms starter.

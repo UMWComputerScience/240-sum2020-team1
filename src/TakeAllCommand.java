@@ -15,22 +15,28 @@ class TakeAllCommand extends Command {
         return tot;
     }
 
-    public String execute() {
+    public String execute(){
         Room currentRoom = 
             GameState.instance().getAdventurersCurrentRoom();
         ArrayList<Item> contents = currentRoom.getContents();
-        if (contents.size() == 0) {
-            return "There's nothing here to take.\n";
-        }
-        if (GameState.instance().getAdventurersCurrentWeight() +
-                totalWeight(contents) > 40) {
-            return "Your load is too heavy to take all that stuff.\n";
-        }
-        String retVal = "";
-        for (Item item: new ArrayList<Item>(contents)) {
-            GameState.instance().addToInventory(item);
-            currentRoom.remove(item);
-            retVal += item.getPrimaryName() + " taken.\n";
+	try{
+	        if (contents.size() == 0) {
+        	    return "There's nothing here to take.\n";
+	        }
+        	if (GameState.instance().getAdventurersCurrentWeight() +
+                	totalWeight(contents) > GameState.instance().getStrength()) {
+      		    throw new maxLoadException(
+		//	return "Your load is too heavy to take all that stuff.\n";
+		Sytem.out.println("Your load is too heavy to take all that stuff.\n");
+			);
+        	}
+	}
+	catch (maxLoadException e){}
+	        String retVal = "";
+	        for (Item item: new ArrayList<Item>(contents)) {
+        	    GameState.instance().addToInventory(item);
+	            currentRoom.remove(item);
+        	    retVal += item.getPrimaryName() + " taken.\n";
         }
         return retVal;
     }
