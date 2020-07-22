@@ -16,10 +16,13 @@ class NonPlayerCharacter {
 
 	NonPlayerCharacter(Scanner s) throws NoNonPlayerException {
 	init();
+	if(name != null && name.equals(Dungeon.TOP_LEVEL_DELIM)){
+		throw new NoNonPlayerException();
+	}
 	this.name = s.nextLine();
 	npcCount =npcCount+1;
 	//	while(!name.equals(Dungeon.SECOND_LEVEL_DELIM)){
-		while(!name.equals("---")){
+		
 			if (name.equals(Dungeon.TOP_LEVEL_DELIM)){
 			throw new NoNonPlayerException();
 			}
@@ -35,6 +38,7 @@ class NonPlayerCharacter {
 				if(converseLine.equals(Dungeon.TOP_LEVEL_DELIM)) {
 					throw new NoNonPlayerException();}
 				String[] messagePart = converseLine.split(":");
+				System.out.println(messagePart[0]);
 				messages.put(messagePart[0],messagePart[1]);
 				if(!converseLine.equals(Dungeon.SECOND_LEVEL_DELIM)){
 				converseLine = s.nextLine();
@@ -46,11 +50,11 @@ class NonPlayerCharacter {
 					System.out.println("Added topic["+messagePart[0]+"] to "
 					+name+"'s conversation table.");}
 				}
-			name = s.nextLine();
+			//name = s.nextLine();
 		 	if(GameState.instance().getTest()==true){
 				System.out.println("NPC Created");
 			}
-			}
+			
 		
 	}
 /*	void NonPlayerCharacter(ArrayList d){
