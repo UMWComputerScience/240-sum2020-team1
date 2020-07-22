@@ -8,12 +8,14 @@ class TalkCommand extends Command {
 	private String npc;
 	private String topic;
 	private ArrayList<NonPlayerCharacter> npcs;
+	private String say;
 
 
 /** Creates a comman that allows the player to talk to an NPC.
 */
 	TalkCommand(String talkCommand) {
 		String nosay = "What? Say that again. I didn't understand that.:default";
+		say = "";
 		npcs = GameState.instance().getAdventurersCurrentRoom().getNPCsInRoom();
 		if(GameState.instance().getTest()==true){
 		System.out.println(npcs);
@@ -57,13 +59,16 @@ class TalkCommand extends Command {
 		String[] command = talkString.split(":");
 		String npcName = command[0];
 		topic = command[1]; 
-		NonPlayerCharacter n = GameState.instance().getDungeon().getNPC(npcName);
-		String say;
-		if(true)
-			if(n.getName() null){
-			throw new NoNonPlayerException(){};
-			} 
-		return say;
+		NonPlayerCharacter n;
+		try{
+			n = GameState.instance().getDungeon().getNPC(npcName);
+			if(GameState.instance().getTest()==true){
+			System.out.println("NPC Name:"+n.getName());}
+			return n.say(topic);
+			}
+		catch(NoNonPlayerException npc){}
+//		say = n.say(topic);
+		return "";
 	}
 
 }
