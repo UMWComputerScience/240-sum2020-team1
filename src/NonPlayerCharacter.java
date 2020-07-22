@@ -77,7 +77,8 @@ class NonPlayerCharacter {
 * @author Michael Cividanes
 */
 	public String say(String topic){
-	    return topic;
+	    String respond = "This is the return message for the say command.";
+	    return respond;
 	}
 /** removes an item from the player inventory and places it in the NPC's inventory.
 * @throws NoItemException is item if not found in player inventory.
