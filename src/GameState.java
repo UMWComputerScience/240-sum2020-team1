@@ -299,7 +299,7 @@ public class GameState {
 	}
 /** determines the player's carrying capacity by taking the score, dividing it by 5 and adding 40 to that.*/
 	int getStrength(){
-		int testValue = (int)(score/5);
+		int testValue = (int)(score/5)+40;
 		return testValue;
 	}
 }

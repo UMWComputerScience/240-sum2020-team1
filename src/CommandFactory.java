@@ -88,6 +88,15 @@ public class CommandFactory {
 		return new TalkCommand(target);
 		
 		}
+	if(verb.toLowerCase().equals("carry")){
+		return new CarryCommand(verb);
+		}
+	if(verb.toLowerCase().equals("setscore")){
+                System.out.println("What should score be set to?\n");
+                Scanner s1 = new Scanner(System.in);
+                int smirnoff = s1.nextInt();
+		return new SetScoreCommand(smirnoff);
+		}
         if (parts.length == 2) {
             return new ItemSpecificCommand(verb, noun);
         }
