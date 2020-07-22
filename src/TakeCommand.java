@@ -27,11 +27,14 @@ class TakeCommand extends Command {
 	else if(itemName.equals("all")){
 		ArrayList<Item> allItem = new ArrayList<Item>();
 		Collections.copy(allItem,GameState.instance().getAdventurersCurrentRoom().getContents());
+		try{
 		for(Item i:allItem){
 //			System.out.println(i.getPrimaryName());
 			GameState.instance().getAdventurersCurrentRoom().remove(i);
 			GameState.instance().addToInventory(i);
 		}
+		}
+		catch(maxLoadException e){}
 		GameState.instance().increaseScore(2);
 		return "You picked up everything in the room.\n";
 	}
@@ -44,7 +47,10 @@ class TakeCommand extends Command {
                 GameState.instance().getAdventurersCurrentWeight() > 40) {
                 return "Your load is too heavy.\n";
             }
+	    try{
             GameState.instance().addToInventory(theItem);
+	    }
+	    catch(maxLoadException e){}
             currentRoom.remove(theItem);
             return theItem.getPrimaryName() + " taken.\n";
         } catch (NoItemException e) {

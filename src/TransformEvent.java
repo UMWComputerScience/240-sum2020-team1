@@ -26,8 +26,11 @@ class TransformEvent extends Event{
 	   GameState.instance().removeFromInventory(state.getItemFromInventoryNamed(itemName));
 		if(GameState.instance().getTest()==true){
 		System.out.println("Item to remove from GameState inventory: "+itemName);}
+		try{
 	    state.addToInventory(state.getDungeon().getItemList().get(itemTransformedName));
-		if(GameState.instance().getTest()==true){
+		}
+	catch(maxLoadException e){}	
+	    if(GameState.instance().getTest()==true){
 		System.out.println("Item to add to gameState inventory: "+itemTransformedName);
 		}
 	    }

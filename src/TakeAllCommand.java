@@ -25,19 +25,21 @@ class TakeAllCommand extends Command {
 	        }
         	if (GameState.instance().getAdventurersCurrentWeight() +
                 	totalWeight(contents) > GameState.instance().getStrength()) {
-      		    throw new maxLoadException(
-		//	return "Your load is too heavy to take all that stuff.\n";
-		Sytem.out.println("Your load is too heavy to take all that stuff.\n");
-			);
+      		    throw new maxLoadException();
         	}
 	}
-	catch (maxLoadException e){}
+	catch (maxLoadException e){
+		System.out.println("Your load is too heavy to take all that stuff.\n");
+	}
 	        String retVal = "";
+		try{
 	        for (Item item: new ArrayList<Item>(contents)) {
         	    GameState.instance().addToInventory(item);
 	            currentRoom.remove(item);
         	    retVal += item.getPrimaryName() + " taken.\n";
-        }
+		}
+		}
+		catch(maxLoadException e){}
         return retVal;
     }
 }
