@@ -76,8 +76,8 @@ class NonPlayerCharacter {
 *  supplied topic.
 * @author Michael Cividanes
 */
-	public String say(){
-	    return null;
+	public String say(String topic){
+	    return topic;
 	}
 /** removes an item from the player inventory and places it in the NPC's inventory.
 * @throws NoItemException is item if not found in player inventory.

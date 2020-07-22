@@ -58,10 +58,13 @@ public class CommandFactory {
 		return new ScoreCommand();
 	}
 	if(verb.equals("wound")){
+		if(GameState.instance().getTest()==true){
 		System.out.println("How bad should I hurt you?\n");
 		Scanner s1 = new Scanner(System.in);
 		int smirnoff = s1.nextInt();
 		return new WoundCommand(smirnoff);
+		}
+		else{ return new UnknownCommand(command);}
 	}
 //	if(verb.equals("wound")){
 //		int woundCount =Integer.parseInt("1");
