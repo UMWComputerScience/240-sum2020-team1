@@ -247,6 +247,7 @@ public class Dungeon {
        }
        return items.get(primaryItemName);
     }
+/**returns a NonPlayerCharacter from the Dungeons hashtable. */
     public NonPlayerCharacter getNPC(String NPCName) throws NoNonPlayerException {
 	try{
 		if(npcs.get(NPCName) == null){
