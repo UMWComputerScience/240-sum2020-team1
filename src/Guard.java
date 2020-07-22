@@ -12,24 +12,7 @@ class Guard/* extends NonPlayerCharacter*/ {
 	private Hashtable<String, String> messages;
 		
 	Guard(Scanner s) {
-		//init();
-		messages = new Hashtable<String, String>();
-		this.name = s.nextLine();
-		String converseLine = s.nextLine();
-		while(converseLine.contains(":")&&!converseLine.contains("unlock")){
-			String [] messagePart = converseLine.split(":");
-				messages.put(messagePart[0],messagePart[1]);
-				if(!converseLine.equals(Dungeon.SECOND_LEVEL_DELIM)){
-				converseLine = s.nextLine();
-				}
-				else{}
-			}
-		String unlockLine = s.nextLine();
-		String [] unlockArr = unlockLine.split(":");
-		String unlockDirr = unlockArr[1];
-		this.exitKey = unlockDirr;
-		}
-		/*
+		init();
 		ArrayList<String> data = new ArrayList<String>();
 		data.add(s.nextLine());
 		String testLine = s.nextLine();
@@ -49,17 +32,17 @@ class Guard/* extends NonPlayerCharacter*/ {
 		String [] unlockArr = unlock.split(":");
 		String unlockDirr = unlockArr[1];
 		this.exitKey = unlockDirr;
-		*/
+		}
 
-	/*private void init(){
+	private void init(){
 		messages = new Hashtable<String, String>();
-	}*/
+	}
 		
 	/**
 	 * Unlocks a locked exit. Note that there is no return type as a Guard can 
 	 * unlock only one specific exit.
 	 */
 	public void unlockExit(){
-		//LockableExit.unlockExit;
+
 	}
 }
