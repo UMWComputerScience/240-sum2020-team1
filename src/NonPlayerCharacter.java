@@ -28,7 +28,7 @@ class NonPlayerCharacter {
 			}
 			if(GameState.instance().getTest()==true){
 				System.out.println("name:"+this.name);
-				System.out.println("NPCs created:" + this.npcCount);	
+			//	System.out.println("NPCs created:" + this.npcCount);	
 			}
 			String converseLine = s.nextLine();
 			if(GameState.instance().getTest()==true){
