@@ -38,7 +38,9 @@ class NonPlayerCharacter {
 				if(converseLine.equals(Dungeon.TOP_LEVEL_DELIM)) {
 					throw new NoNonPlayerException();}
 				String[] messagePart = converseLine.split(":");
+				if(GameState.instance().getTest()==true){
 				System.out.println(messagePart[0]);
+				}
 				messages.put(messagePart[0],messagePart[1]);
 				if(!converseLine.equals(Dungeon.SECOND_LEVEL_DELIM)){
 				converseLine = s.nextLine();
