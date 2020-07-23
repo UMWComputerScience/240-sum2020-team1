@@ -27,6 +27,7 @@ public class Dungeon {
     public static String EXITS_MARKER = "Exits:";
     public static String ITEMS_MARKER = "Items:";
     public static String NPC_MARKER = "NonPlayerCharacters:";
+    public static String GUARD_MARKER = "Guards:";
     // Variables relating to game state (.sav) storage.
     static String FILENAME_LEADER = "Dungeon file: ";
     static String ROOM_STATES_MARKER = "Room states:";
@@ -38,6 +39,7 @@ public class Dungeon {
     private String filename;
     private ArrayList<String> listOfRooms;
     private Hashtable<String,NonPlayerCharacter> npcs;
+    private Hashtable<String,Guard> guards;
     private Hashtable<String,Item> craftableItems;
 
     /**
@@ -114,14 +116,24 @@ public class Dungeon {
 		while(true){
 			NonPlayerCharacter n = new NonPlayerCharacter(s);
 			if(GameState.instance().getTest()==true){
-				System.out.println("NPC:"+n.getName()+" Created");
-			}
+				System.out.println("NPC:"+n.getName()+" Created");}
 			add(n);
 			if(GameState.instance().getTest()==true){
 				System.out.println("Added NPC");}
 			}
 	} catch (NoNonPlayerException n){}
-	
+//	if(!s.nextLine().equals(GUARD_MARKER)){
+//		throw new IllegalDungeonFormatException("No '"+GUARD_MARKER+"' line where expected.");}
+//	try {
+//		while(true){
+//			Guard g = new Guard(s);
+//			if(GameState.instance().getTest()==true){
+//				System.out.println("Guard: "+g.getName()+" Created");}
+//			add(g);
+//			if(GameState.instance().getTest()==true){
+//				System.out.println("Added Guard");}
+//		}
+//	} catch (Exception n){}
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
             throw new IllegalDungeonFormatException("No '" +
@@ -166,6 +178,7 @@ public class Dungeon {
         items = new Hashtable<String,Item>();
 	craftableItems = new Hashtable<String, Item>();
 	npcs = new Hashtable<String,NonPlayerCharacter>();
+	guards = new Hashtable<String,Guard>();
     }
 
     /**
@@ -225,6 +238,8 @@ public class Dungeon {
     public void add(Item item) { items.put(item.getPrimaryName(),item); }
 /**Adds an NPC to the Dungeon Character list*/
     public void add(NonPlayerCharacter n){ npcs.put(n.getName(),n);}
+/**Adds a guard to the guards list */
+    public void add(Guard g){ guards.put(g.getName(),g);}
 
     /**
      * Returns a room whose name matches the supplied room title.
