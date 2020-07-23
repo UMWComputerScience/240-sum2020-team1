@@ -8,7 +8,7 @@ class NonPlayerCharacter {
 	private String name;
 	private Hashtable<String, String> messages;
 	private ArrayList<Item> inventory;
-	static int npcCount = 0;
+//	static int npcCount = 0;
 /**creates a NonPlayerCharacter object by reading tyhe contents of a Zork file. 
 * @throws a NoNonPlayerCharacterException if the .zork file does not list another
 * NonPlayerCharacter to be read in.
@@ -20,7 +20,7 @@ class NonPlayerCharacter {
 		throw new NoNonPlayerException();
 	}
 	this.name = s.nextLine();
-	npcCount =npcCount+1;
+	//npcCount =npcCount+1;
 	//	while(!name.equals(Dungeon.SECOND_LEVEL_DELIM)){
 		
 			if (name.equals(Dungeon.TOP_LEVEL_DELIM)){
