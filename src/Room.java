@@ -93,7 +93,8 @@ public class Room {
 				    }
 			    }
 		    }
-                desc += lineOfDesc + "\n";
+                if(!lineOfDesc.startsWith(NPC_STARTER))
+			desc += lineOfDesc + "\n";
             }
             lineOfDesc = s.nextLine();
         }
