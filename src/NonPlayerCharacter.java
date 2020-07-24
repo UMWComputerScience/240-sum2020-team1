@@ -79,7 +79,15 @@ class NonPlayerCharacter {
 * @author Michael Cividanes
 */
 	public String say(String topic){
-	    String respond = "This is the return message for the say command.";
+		String respond = "";
+	    if(messages.containsKey(topic)){
+		respond =messages.get(topic);
+		}
+	else{ 
+		respond = "What? Say that again, I didn't understand what you said.";
+		}
+	    
+	
 	    return respond;
 	}
 /** removes an item from the player inventory and places it in the NPC's inventory.

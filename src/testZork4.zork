@@ -5,7 +5,7 @@ Items:
 cake
 2
 (craftable)
-recipe:flour,milk
+recipe:flour-milk
 examine:It's a birthday cake!... wait whose birthday is it?
 kick:The cake explodes in a mess across your boot. Nice job, dumbo.
 eat[Wounds(-2)]: Hmm that was a good cake.
@@ -139,7 +139,7 @@ examine:A finely sewn tapestry showing the battle of Gro'kar pass.
 ===
 NonPlayerCharacters:
 Old-man
-default:Yes, I am the old man. I've been around and seen a thing or two you young wipper snapper. I've been across the [crystal mountains], and seen the[burning sands]. Even made some good trade deals. 
+default:Yes, I am the old man. I've been around and seen a thing or two you young wipper snapper. I've been across the [crystal-mountains], and seen the[burning-sands]. Even made some good trade deals. 
 crystal-mountains:Beutiful those mountains are. Legends say the Soul gem, the largest diamond ever seen by human eyes is hidden on those snow capped mountains. I went looking for it as a kid myself. Nearly died due to the cold. Also the Ursa Polars almost got me.
 burning-sands:The burning sands... horrible horrible place. Blinding sun, burning heat, practically no water to speak of, massive hoards of Fire Scorpions, detestable vulture wasps... bagh. If it weren't for the chances of recovering treasures from lost convoys I would never have ventured into those cursed lands. Never!
 soul-gem:The Soul Gem? Oh my word, the legends on that. A Crystal diamond the size of a Vorrik helm and crystal clear. Hmmm, if the legends are true, it's worth a score of King's Ransoms!  

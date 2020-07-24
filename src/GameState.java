@@ -302,4 +302,15 @@ public class GameState {
 		int testValue = (int)(score/5)+40;
 		return testValue;
 	}
+	
+/**checks if an item is in the players inventory*/
+	boolean checkInv(String itemName){
+		boolean check = false;
+		
+		try{Item checked = GameState.instance().getItemFromInventoryNamed(itemName);
+		     check= true;}
+		catch(NoItemException n){
+		}
+	return check;
+	}
 }
