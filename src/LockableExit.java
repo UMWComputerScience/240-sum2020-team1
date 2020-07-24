@@ -42,4 +42,8 @@ class LockableExit extends Exit{
 	public void destroyExit(){
 		this.isDestroyed = true;
 	}
+
+	public boolean isLockable(){
+		return true;
+	}
 }

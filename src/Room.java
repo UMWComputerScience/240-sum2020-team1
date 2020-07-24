@@ -146,6 +146,7 @@ public class Room {
 	    catch(NullPointerException n){
 	    }
 	}
+	w.println(checkLockable());
         w.println(Dungeon.SECOND_LEVEL_DELIM);
     }
 	/**
@@ -268,4 +269,17 @@ public class Room {
     }
    ArrayList<NonPlayerCharacter> getNPCsInRoom(){
 	return this.NPCs;}
+   String checkLockable(){
+   	for(Exit exit : exits){
+		if(exit.isLockable()){
+			boolean lockVal = exit.getStatus();
+			String exitDirr = exit.getDir();
+			String checkLockable = lockVal + ":" + exitDirr;
+			return checkLockable;
+		}
+		else{
+			return exit.getDir();
+		}
+	}
+   }
 }
