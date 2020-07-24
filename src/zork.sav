@@ -40,11 +40,12 @@ beenHere=false
 Contents: bone saw
 ---
 main hall 2:
-beenHere=true
-Contents: dragonglass,beermug
+beenHere=false
+Contents: dragonglass,plate,beermug
 ---
 main hall 1:
 beenHere=true
+Contents: dagger
 ---
 Trophy Room:
 beenHere=false
@@ -55,9 +56,8 @@ beenHere=false
 ---
 ===
 Adventurer:
-Current room: main hall 2
-Inventory: dagger,plate
+Current room: main hall 1
 health:12
 hunger:12
 hungerCount:0
-score: 1
+score: 0

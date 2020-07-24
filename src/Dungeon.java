@@ -219,7 +219,7 @@ public class Dungeon {
 	        while (!roomName.equals(TOP_LEVEL_DELIM)){
 			try{
 	       	    	getRoom(roomName.substring(0,roomName.length()-1)).restoreState(s, this);
-			System.out.println(roomName);
+			//System.out.println(roomName);
  	            roomName = s.nextLine();
 			}
 			catch(IllegalSaveFormatException e){}
