@@ -100,6 +100,7 @@ public class CommandFactory {
                 int smirnoff = s1.nextInt();
 		return new SetScoreCommand(smirnoff);
 		}
+	if(verb.equals("hunger")){return new HungerCommand();}
 	if(verb.equals("craft")){
 		return new craftCommand(noun);
 		}

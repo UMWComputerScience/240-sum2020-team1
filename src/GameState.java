@@ -258,23 +258,20 @@ public class GameState {
     }
     void wound(int w){
 	this.health = this.health - w;
+	if(health > 12){}
+	health = 12;
 	}
-
-	int getHunger(){
+    int getHunger(){
 		return this.hunger;
 	}
-
-	int getHungerCount(){
+    int getHungerCount(){
 		return this.hungerCount;
 	}
-	
-	void setHunger(int num){
+
+    void setHunger(int num){
 		this.hunger = num;
 	}
-	
-	void setHungerCount(int num){
-		this.hungerCount = num;
-	}
+    void setHungerCount(int num){this.hungerCount = num;}
 
     int getHealth(){
 	    return this.health;
@@ -314,19 +311,12 @@ public class GameState {
 		}
 	else if(hungerCount==hungerInc){
 		hunger = 0;
-		
 		}
 	}
-/** changes the characters hunger score by the value passed */
-    void hungerDecrease(int v){
-	if(hunger <= 0){
-		health -= v;
-	}
-	else{
-		hunger -= v;
-		}
-	}
-/** determines the player's carrying capacity by taking the score, dividing it by 5 and adding 40 to that.*/
+
+/**resets hunger to 0 */
+    void resetHunger(){hunger = 0;}
+/**determines the player's carrying capacity by taking the score, dividing it by 5 and adding 40 to that.*/
 	int getStrength(){
 		int testValue = (int)(score/5)+40;
 		return testValue;
@@ -341,5 +331,34 @@ public class GameState {
 		catch(NoItemException n){
 		}
 	return check;
+	}
+/** returns hunger*/
+	int getCheck(){return hunger;}
+/**returns hungerCount*/
+	int hungerCountCheck(){return hungerCount;}
+/**returns hunger incriment*/
+	int hungerIncCheck(){return hungerInc;}
+
+/** checks if the hungerCount is 0, returns true if it is. */
+boolean checkHunger(){
+	if(hunger != 0){return false;}
+	else{return true;}}
+
+void checkHungerCount(){
+	if(hungerCount<hungerInc){
+		hungerCount += 1;
+	}
+	else{
+		if(checkHunger()==false){
+			hunger = hunger-1;
+			hungerCount = 0;
+			}
+		else{
+			if(hungerCount==4){
+				wound(1);
+			}
+			hungerCount = 0;
+			}
+		}
 	}
 }

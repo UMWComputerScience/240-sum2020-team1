@@ -24,7 +24,15 @@ class HealthCommand extends Command {
 */
 
 	public String execute() {
-	return healthMessages[this.health] + "\n";	
+	String returnString = "";
+	if(GameState.instance().getTest()==true){
+		returnString = "Current health: "+this.health+"\n"+healthMessages[this.health]+"\n";
+		}
+	else{
+		returnString = healthMessages[this.health];
+	}
+
+	return returnString;	
 	}
 }
 	

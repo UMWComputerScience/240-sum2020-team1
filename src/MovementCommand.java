@@ -9,8 +9,6 @@ class MovementCommand extends Command {
 	**/
     MovementCommand(String dir) {
         this.dir = dir;
-	/*Given a String resembling a direction, generates a command that is meant to attempt to move the player in that direction to a new Room.
-	**/
     }
 
     public String execute() {
@@ -19,6 +17,14 @@ class MovementCommand extends Command {
         if (nextRoom != null) {  // could try/catch here.
             GameState.instance().setAdventurersCurrentRoom(nextRoom);
             GameState.instance().increaseScore(1);
+            GameState.instance().checkHungerCount();
+		if(GameState.instance().getTest()==true){
+		int hungerCount = GameState.instance().getCheck();
+		int hungerCountCheck = GameState.instance().hungerCountCheck();
+		System.out.println("movement command");
+		System.out.println("Hunger:"+hungerCount);
+		System.out.println("Hunger Count:"+hungerCountCheck+"\n");
+			}
             return "\n" + nextRoom.describe() + "\n";
 	    
         } else {
