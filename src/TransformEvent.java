@@ -14,20 +14,21 @@ class TransformEvent extends Event{
      	    String commandValue = combinedName.substring(openParan + 1,closeParan);
 	    this.itemTransformedName = commandValue;
 		if(GameState.instance().getTest()==true){
+		System.out.println("CombinedName:"+combinedName);
 		System.out.println("Transform event created");
 		System.out.println("Command Value:"+commandValue);
 		}
 	}
 	String callEvent(){
-	    GameState state = GameState.instance();
+	 //   GameState state = GameState.instance();
 	if(GameState.instance().getTest()==true){
 		System.out.println("CallEvent called-"+itemTransformedName);}    
 	try{
-	   GameState.instance().removeFromInventory(state.getItemFromInventoryNamed(itemName));
+	   GameState.instance().removeFromInventory(GameState.instance().getItemFromInventoryNamed(itemName));
 		if(GameState.instance().getTest()==true){
 		System.out.println("Item to remove from GameState inventory: "+itemName);}
 		try{
-	    state.addToInventory(state.getDungeon().getItemList().get(itemTransformedName));
+	   GameState.instance().addToInventory(GameState.instance().getDungeon().getItemList().get(itemTransformedName));
 		}
 	catch(maxLoadException e){}	
 	    if(GameState.instance().getTest()==true){

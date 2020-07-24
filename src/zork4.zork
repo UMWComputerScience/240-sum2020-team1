@@ -59,6 +59,12 @@ sit[Win]:Hail to the Queen!
 sitOn[Win]:Hail to the Queen!
 ---
 ===
+NonPlayerCharacters:
+mike
+default:nothing
+notknown:nothing
+---
+===
 Rooms:
 Winterfell
 Contents: dagger,WhiteDragonEgg,dragonglass

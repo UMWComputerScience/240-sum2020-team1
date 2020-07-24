@@ -46,6 +46,9 @@ class TalkCommand extends Command {
 			talkString = parts[2]+":"+parts[3];
 			}
 		}
+		else if(parts.length == 5){
+		talkString = parts[2]+":"+parts[4];
+		}
 		else{talkString = nosay;}
 		}
 	
@@ -59,14 +62,19 @@ class TalkCommand extends Command {
 		String[] command = talkString.split(":");
 		String npcName = command[0];
 		topic = command[1]; 
+		if(GameState.instance().getTest()==true){
+		System.out.println("Topic:"+command[1]);}
 		NonPlayerCharacter n;
 		try{
-			n = GameState.instance().getDungeon().getNPC(npcName);
+			n  = GameState.instance().getDungeon().getNPC(npcName);
 			if(GameState.instance().getTest()==true){
-			System.out.println("NPC Name:"+n.getName());}
-			return n.say(topic);
+			
+		//	System.out.println("NPC Name:"+n.getName());
+			System.out.println("Topic:"+topic);
 			}
-		catch(NoNonPlayerException npc){}
+			String response =n.getName()+": "+ n.say(topic)+"\n";
+			return response;}
+				catch(NoNonPlayerException npc){}
 //		say = n.say(topic);
 		return "";
 	}

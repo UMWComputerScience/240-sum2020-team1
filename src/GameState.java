@@ -132,6 +132,17 @@ public class GameState {
 		int healthValue = Integer.parseInt(healthLine[1]);
 		GameState.instance().setHealth(healthValue);
 		}
+		if(nextLineCheck.contains("hunger:")){
+			String [] hungerLine = nextLineCheck.split(":");
+			int hungerValue = Integer.parseInt(hungerLine[1]);
+			GameState.instance().setHunger(hungerValue);
+		}
+		if(nextLineCheck.contains("hungerCount:")){
+			String [] hungerCountLine = nextLineCheck.split(":");
+			int hungerCountValue = Integer.parseInt(hungerCountLine[1]);
+			GameState.instance().setHungerCount(hungerCountValue);
+		}
+		//TEMP[add hunger and hungercount sets here]
 		if( nextLineCheck.contains("score: ")){
 			String[] scoreLine = nextLineCheck.split(": ");
 			int scoreValue = Integer.parseInt(scoreLine[1]);
@@ -161,6 +172,8 @@ public class GameState {
             w.println(inventory.get(inventory.size()-1).getPrimaryName());
         }
 	w.println("health:"+GameState.instance().getHealth());
+	w.println("hunger:"+GameState.instance().getHunger());
+	w.println("hungerCount:"+GameState.instance().getHungerCount());
 	w.println("score: "+GameState.instance().getScore());
         w.close();
     }
@@ -247,6 +260,22 @@ public class GameState {
 	this.health = this.health - w;
 	}
 
+	int getHunger(){
+		return this.hunger;
+	}
+
+	int getHungerCount(){
+		return this.hungerCount;
+	}
+	
+	void setHunger(int num){
+		this.hunger = num;
+	}
+	
+	void setHungerCount(int num){
+		this.hungerCount = num;
+	}
+
     int getHealth(){
 	    return this.health;
 	}
@@ -301,5 +330,16 @@ public class GameState {
 	int getStrength(){
 		int testValue = (int)(score/5)+40;
 		return testValue;
+	}
+	
+/**checks if an item is in the players inventory*/
+	boolean checkInv(String itemName){
+		boolean check = false;
+		
+		try{Item checked = GameState.instance().getItemFromInventoryNamed(itemName);
+		     check= true;}
+		catch(NoItemException n){
+		}
+	return check;
 	}
 }

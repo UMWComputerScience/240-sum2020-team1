@@ -28,8 +28,8 @@ public class CommandFactory {
         String verb = parts[0];
         String noun = parts.length >= 2 ? parts[1] : "";
 	if(GameState.instance().getTest()==true){
-	for(int i = 0; i<parts.length;i++){
-		System.out.println("parts["+i+"]:"+parts[i]);}
+		for(int i = 0; i<parts.length;i++){
+			System.out.println("parts["+i+"]:"+parts[i]);}
 	}
         if (verb.equals("look")) {
             return new LookCommand();
@@ -99,6 +99,9 @@ public class CommandFactory {
                 Scanner s1 = new Scanner(System.in);
                 int smirnoff = s1.nextInt();
 		return new SetScoreCommand(smirnoff);
+		}
+	if(verb.equals("craft")){
+		return new craftCommand(noun);
 		}
         if (parts.length == 2) {
             return new ItemSpecificCommand(verb, noun);

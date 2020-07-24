@@ -45,4 +45,9 @@ class Guard/* extends NonPlayerCharacter*/ {
 	public void unlockExit(){
 
 	}
+	/**returns the name of the guard */
+	public String getName(){
+		return name;
+	}
+
 }
