@@ -1,0 +1,63 @@
+Zork III save data
+Dungeon file: testZork4.zork
+Room states:
+Weapons room:
+beenHere=false
+Contents: BastardSword,axe,Tower shield
+---
+Kings Chamber:
+beenHere=false
+---
+King's Hall:
+beenHere=false
+Contents: IronThrone
+---
+Metal Working Room:
+beenHere=false
+---
+Side room:
+beenHere=false
+---
+Observatory:
+beenHere=false
+---
+Training Room 1:
+beenHere=false
+---
+main hall 4:
+beenHere=false
+Contents: pizza,milk,flour
+---
+main hall 3:
+beenHere=false
+Contents: ham,turkey
+---
+Grog Room:
+beenHere=false
+---
+medical room:
+beenHere=false
+Contents: bone saw
+---
+main hall 2:
+beenHere=true
+Contents: dragonglass,beermug
+---
+main hall 1:
+beenHere=true
+---
+Trophy Room:
+beenHere=false
+Contents: Dark Blade of Glangriel,aegis,golden crown
+---
+Leather Working Room:
+beenHere=false
+---
+===
+Adventurer:
+Current room: main hall 2
+Inventory: dagger,plate
+health:12
+hunger:12
+hungerCount:0
+score: 1

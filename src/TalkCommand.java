@@ -25,7 +25,7 @@ class TalkCommand extends Command {
 			for(int i = 0; i<parts.length;i++){
 				System.out.println("parts["+i+"]:"+parts[i]);
 			}
-			System.out.println("Availible NPCS in this room:");
+			System.out.println("Available NPCS in this room:");
 			for(int i = 0; i<npcs.size();i++){
 				System.out.println(i+":"+npcs.get(i).getName());
 			}
@@ -72,7 +72,13 @@ class TalkCommand extends Command {
 		//	System.out.println("NPC Name:"+n.getName());
 			System.out.println("Topic:"+topic);
 			}
-			String response =n.getName()+": "+ n.say(topic)+"\n";
+			String response = "";
+			try{
+			response =n.getName()+": "+ n.say(topic)+"\n";
+			}
+			catch(NullPointerException e){
+			response = "There's nobody here by the name of " + command[0] + "." + "\n";
+			}
 			return response;}
 				catch(NoNonPlayerException npc){}
 //		say = n.say(topic);

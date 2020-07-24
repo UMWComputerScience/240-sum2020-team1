@@ -134,10 +134,17 @@ public class Room {
         if (contents.size() > 0) {
             w.print(CONTENTS_STARTER);
             for (int i=0; i<contents.size()-1; i++) {
-                w.print(contents.get(i).getPrimaryName() + ",");
+		if(contents.get(i).getPrimaryName().equals("---")){
+			w.println();
+		}
+		w.print(contents.get(i).getPrimaryName() + ",");
             }
+	    try{
             w.println(contents.get(contents.size()-1).getPrimaryName());
-        }
+	    }
+	    catch(NullPointerException n){
+	    }
+	}
         w.println(Dungeon.SECOND_LEVEL_DELIM);
     }
 	/**
