@@ -257,8 +257,9 @@ public class GameState {
     }
     void wound(int w){
 	this.health = this.health - w;
-	if(health > 12){}
-	health = 12;
+	if(this.health > 12){
+		this.health = 12;
+		}
 	}
     int getHunger(){
 		return this.hunger;
@@ -353,7 +354,7 @@ void checkHungerCount(){
 			hungerCount = 0;
 			}
 		else{
-			if(hungerCount==4){
+			if(hungerCount==hungerInc){
 				wound(1);
 			}
 			hungerCount = 0;
