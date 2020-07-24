@@ -142,7 +142,6 @@ public class GameState {
 			int hungerCountValue = Integer.parseInt(hungerCountLine[1]);
 			GameState.instance().setHungerCount(hungerCountValue);
 		}
-		//TEMP[add hunger and hungercount sets here]
 		if( nextLineCheck.contains("score: ")){
 			String[] scoreLine = nextLineCheck.split(": ");
 			int scoreValue = Integer.parseInt(scoreLine[1]);
