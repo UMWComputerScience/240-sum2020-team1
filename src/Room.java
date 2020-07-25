@@ -229,6 +229,9 @@ public class Room {
     public Room leaveBy(String dir) throws LockedExitException {
         for (Exit exit : exits) {
             if (exit.getDir().equals(dir)) {
+		    if(exit.checkLocked()){
+			throw new LockedExitException();
+		    }
                 return exit.getDest();
             }
         }
