@@ -24,6 +24,7 @@ class DisappearEvent extends Event{
 	try{
 	    state.getAdventurersCurrentRoom().remove(state.getItemInVicinityNamed(itemName));
 	  if(GameState.instance().getTest()==true){
+		System.out.println("Item to be removed:"+state.getItemInVicinityNamed(itemName));
                 System.out.println("removed item from Game State");
                 }
 
