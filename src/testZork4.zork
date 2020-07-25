@@ -277,16 +277,12 @@ w
 main hall 4
 ---
 Trophy Room
-e
+e:true
 main hall 3
-lockable
-true
 ---
 main hall 3
-w
+w:true
 Trophy Room
-lockable
-isLocked
 ---
 main hall 4
 n

@@ -20,6 +20,7 @@ public class Room {
     private ArrayList<Item> contents;
     private ArrayList<Exit> exits;
     private ArrayList<NonPlayerCharacter> NPCs;
+    private boolean isLockable;
     /**Constructor that creates a single Room with a provided title.
     **/
     Room(String title) {
@@ -117,6 +118,7 @@ public class Room {
         exits = new ArrayList<Exit>();
 	NPCs = new ArrayList<NonPlayerCharacter>();
         beenHere = false;
+	isLockable = false;
     }
     /**Returns the title of the Room.
     **/
@@ -146,7 +148,12 @@ public class Room {
 	    catch(NullPointerException n){
 	    }
 	}
-	w.println(checkLockable());
+//	String exitCheck = checkLockable();
+	for(Exit e: exits){
+		if(e.checkLockable()){
+		String exitCheck = e.getSrc()+"\n"+e.getDir()+":"+e.checkLockable()+"\n"+e.getDest();
+			w.println(exitCheck);}
+	}
         w.println(Dungeon.SECOND_LEVEL_DELIM);
     }
 	/**
@@ -269,17 +276,20 @@ public class Room {
     }
    ArrayList<NonPlayerCharacter> getNPCsInRoom(){
 	return this.NPCs;}
-   String checkLockable(){
-   	for(Exit exit : exits){
-		if(exit.isLockable()){
-			boolean lockVal = exit.getStatus();
-			String exitDirr = exit.getDir();
-			String checkLockable = lockVal + ":" + exitDirr;
-			return checkLockable;
-		}
-		else{
-			return exit.getDir();
-		}
-	}
-   }
+   boolean isLockable(){
+	return false;}
+   String getStatus(){
+	return "getStatusString";}
+//   String checkLockable(Exit e){
+//	String checkLockable = "";
+ //  		if(e.isLockable()){
+//			boolean lockVal = e.getStatus();
+//			String exitDirr = e.getDir();
+//			 checkLockable = lockVal + ":" + exitDirr;
+//			}
+//		else{
+//			//return exit.getDir();
+//		}
+//	return checkLockable;
+//  }
 }

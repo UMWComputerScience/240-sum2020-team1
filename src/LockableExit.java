@@ -8,7 +8,11 @@
 class LockableExit extends Exit{
 	public boolean isLocked;
 	public boolean isDestroyed;
+
+	LockableExit(){
+//	super.exit();
 	
+	}	
 	/**
 	 * Checks the status of an exit to see of it can be
 	 * currently used.

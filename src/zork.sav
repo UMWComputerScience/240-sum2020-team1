@@ -31,6 +31,9 @@ Contents: pizza,milk,flour
 main hall 3:
 beenHere=false
 Contents: ham,turkey
+Room@74a14482
+w:true
+Room@1540e19d
 ---
 Grog Room:
 beenHere=false

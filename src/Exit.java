@@ -47,8 +47,17 @@ public class Exit {
             throw new NoExitException();
         }
         this.src = d.getRoom(srcTitle);
-        this.dir = s.nextLine();
-        this.dest = d.getRoom(s.nextLine());
+	String dirLine = s.nextLine();
+	if(dirLine.contains(":")){
+		String[] exitParts = dirLine.split(":");
+	        this.dir = exitParts[0];
+		this.lockable = true;
+		this.isLocked = Boolean.parseBoolean(exitParts[1]);}
+	else{
+	this.dir = dirLine;
+	this.lockable = false;
+	}
+	this.dest = d.getRoom(s.nextLine());
 	if(GameState.instance().getTest()==true){
 	System.out.println("src:"+this.src.getTitle());
 	System.out.println("dir:"+this.dir);
@@ -114,4 +123,11 @@ public class Exit {
      * after using THIS exit.
      */
     Room getDest() { return dest; }
+   boolean checkLocked(){
+	if(isLocked == true){return true;}
+	else{return false;}
+	}
+   boolean checkLockable(){
+	return this.lockable;
+	}
 }
