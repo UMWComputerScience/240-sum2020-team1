@@ -3,12 +3,14 @@
 class MovementCommand extends Command {
 
     private String dir;
+    private static String autosaveFileName;
                        
 
 	/**Given a String resembling a direction, generates a command that is meant to attempt to move the player in that direction to a new Room.
 	**/
     MovementCommand(String dir) {
         this.dir = dir;
+	String autosaveFileName = "autosave";
     }
 
     public String execute() {
@@ -25,6 +27,12 @@ class MovementCommand extends Command {
             GameState.instance().setAdventurersCurrentRoom(nextRoom);
             GameState.instance().increaseScore(1);
             GameState.instance().checkHungerCount();
+		try{
+		    GameState.instance().store("autosave");
+		}
+		catch(Exception e) {
+		System.out.println("Error with Autosave. Could not write to autosave.sav.");
+		}
 		if(GameState.instance().getTest()==true){
 		int hungerCount = GameState.instance().getCheck();
 		int hungerCountCheck = GameState.instance().hungerCountCheck();
