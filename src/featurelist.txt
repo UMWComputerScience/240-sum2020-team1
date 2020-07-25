@@ -1,0 +1,38 @@
+1. trouble shooting flag:
+	 We built a system that allows us to turn on and turn off certain print statements that we used for trouble shooting. these print statements allowed us to check the values of various instance variables as they were being created, called, or modified and allowed us to back logic problems that wouldn't show up as game problems.
+
+	You can use this feature by append a 't' to the end of your command line when you launch the game:
+example:  java Interpreter zorkFile.zork t
+	  
+	Warning: this does output quit a bit of information during gameplay and it will make the game significantly more difficult to actually play. But it is useful for determining why something isn't working.
+
+2. Non-player Characters:
+	 A system of communicating information to the player. Non-player Characters are listed in a room description much like items. You can either 'talk to' a given character, or talk to a given character about a particular subject. When you talk to a character (IE: >talk to Igor) this will be the characters default introduction text. Any subjects they have additional information about will be displayed with [ ] around it.
+
+	example:
+		> talk to David
+
+		David:  greetings young traveler, I am David, I'm just an old [druid]. Went out for a walk after breakfast and never came back. I've been out and about for most of my life. Been over the [misty-mountains] a few times. Would love to get back to [kalemzhad] again. Such a trek would require crossing the [ice-creeks]. That seems to be too dangerous a task for these days.
+
+		> talk to David about druid
+David: Druids are people of the Dwarf lands who do not live in caves but rather feel at home in the woods and grass lands.
+
+3. locking exits:
+	Some exits can be locked to bar passage from one room to another room, or unlocked to allow passage. When you attempt to go through an exit that is locked, you will receive a message stating that your path is blocked by a locked door!. You can unlock a locked door/lock an unlocked door by using an UnlockCommand, followed by the direction of the exit.
+
+	example:
+		
+		> w
+                Your path is blocked by a locked door!
+
+		>unlock w
+		There is a loud 'klunk chunk' as you trun the key in the door, indicating that the lock has closed and the door is now locked shut.
+		> w
+		
+4. Craftable items:
+	Some items can not be found and must be crafted by the player. In order to craft an item, the player must have certain items in their inventory. Player find out what is needed to craft a given item by talking to a NonPlayerCharacter. To craft he item, the player uses a craft command, followed by the name of the item they intend to craft.
+
+	example:
+		> craft cake
+		you craft one cake
+
