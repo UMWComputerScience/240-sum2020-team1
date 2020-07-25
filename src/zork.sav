@@ -13,7 +13,7 @@ beenHere=false
 Contents: IronThrone
 ---
 Metal Working Room:
-beenHere=true
+beenHere=false
 ---
 Side room:
 beenHere=false
@@ -29,9 +29,9 @@ beenHere=false
 Contents: pizza,milk,flour
 ---
 main hall 3:
-beenHere=true
+beenHere=false
 Contents: ham,turkey
-w:false
+w:true
 ---
 Grog Room:
 beenHere=false
@@ -41,7 +41,7 @@ beenHere=false
 Contents: bone saw
 ---
 main hall 2:
-beenHere=true
+beenHere=false
 Contents: dragonglass,plate,beermug
 ---
 main hall 1:
@@ -49,17 +49,17 @@ beenHere=true
 Contents: dagger
 ---
 Trophy Room:
-beenHere=true
+beenHere=false
 Contents: Dark Blade of Glangriel,aegis,golden crown
-e:false
+e:true
 ---
 Leather Working Room:
 beenHere=false
 ---
 ===
 Adventurer:
-Current room: Metal Working Room
+Current room: main hall 1
 health:12
-hunger:9
+hunger:12
 hungerCount:0
-score: 9
+score: 0

@@ -85,9 +85,9 @@ public class Room {
 				String[] NPCNames = NPCList.split(",");
 			    for(String NPCName : NPCNames){
 				    try{
-					    if(initState){
+					    //if(initState){
 						addNPC(d.getNPC(NPCName));
-					    }
+					    //}
 				    }
 				    catch(NoNonPlayerException n){
 					    throw new IllegalDungeonFormatException("No such NPC '" + NPCName + "'");

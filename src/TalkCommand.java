@@ -38,16 +38,24 @@ class TalkCommand extends Command {
 			talkString = parts[2]+":default";
 			}
 			else{
-			talkString = nosay;
+			talkString = "that:default";
 			}
 		}
 		else if(parts.length == 4){
 			if(parts[1].equals("to")){
 			talkString = parts[2]+":"+parts[3];
 			}
+			else{
+				talkString = "that:default";
+			}
 		}
-		else if(parts.length == 5){
-		talkString = parts[2]+":"+parts[4];
+		else if(parts.length >= 5){
+			if(parts[1].equals("to")){
+				talkString = parts[2]+":"+parts[4];
+			}
+			else{
+				talkString = "that:default";
+			}
 		}
 		else{talkString = nosay;}
 		}
