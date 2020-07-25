@@ -17,9 +17,9 @@ class UnlockCommand extends Command {
 	if(exit.checkLockable()){
 		exit.changeLock();
 		if(exit.checkLockable()==true){
-		returnString = "There is a loud 'klunk chunk' as you trun the key in the door, indicating that the lock has closed and the door is now locked shut.";}
+		returnString = "There is a loud 'klunk chunk' as you trun the key in the door, indicating that the lock has closed and the door is now locked shut.\n";}
 		else{
-		returnString = "With a lound 'thunk' the mechanism of the door lock turns over and the door is unlocked.";
+		returnString = "With a lound 'thunk' the mechanism of the door lock turns over and the door is unlocked.\n";
 	}}
 	else{returnString = "That exit is not lockable.\n";}
 	return returnString;

@@ -18,7 +18,7 @@ class MovementCommand extends Command {
         nextRoom = currentRoom.leaveBy(dir);
 	}
 	catch(LockedExitException l){
-		System.out.println("Your path is blocked!");
+	System.out.println("Your path is blocked by a locked door!\n");
 		return "";
 	}
         if (nextRoom != null) {  // could try/catch here.

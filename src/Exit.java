@@ -82,19 +82,19 @@ public class Exit {
 	if(GameState.instance().getTest()==true){
 		System.out.println("NextLine: "+nextLine);}
 	String g = nextLine;
-	if(nextLine.contains("lockable")){
-		this.lockable = true;
-		g = s.nextLine();
-		if(nextLine.contains("true")){
-			this.isLocked = true;
-		}
-		else// if(nextLine.contains("false"))
-		{this.isLocked = false;	}
-		g = s.nextLine();
-	}
-	else{
-		lockable = false;
-		isLocked = false;
+//	if(nextLine.contains("lockable")){
+//		this.lockable = true;
+//		g = s.nextLine();
+//		if(nextLine.contains("true")){
+//			this.isLocked = true;
+//		}
+//		else// if(nextLine.contains("false"))
+//		{this.isLocked = false;	}
+//		g = s.nextLine();
+//	}
+//	else{
+//		lockable = false;
+//		isLocked = false;
 	
 	if (!nextLine.equals(Dungeon.SECOND_LEVEL_DELIM)) {
             throw new IllegalDungeonFormatException("No '" +
@@ -102,7 +102,7 @@ public class Exit {
         }
 	//}
     }
-}
+
 
     /**
      * Handles common initialization
