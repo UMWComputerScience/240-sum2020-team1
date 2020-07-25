@@ -143,6 +143,10 @@ public class Exit {
     void setIsLocked(){
 	this.isLocked = true;
     }
+
+    void setIsUnlocked(){
+    	this.isLocked = false;
+    }
     void changeLock(){
 	if(isLocked == true){isLocked = false;}
 	else{isLocked = true;}

@@ -151,7 +151,8 @@ public class Room {
 //	String exitCheck = checkLockable();
 	for(Exit e: exits){
 		if(e.checkLockable()){
-		String exitCheck = e.getSrc()+"\n"+e.getDir()+":"+e.checkLockable()+"\n"+e.getDest();
+		//String exitCheck = e.getSrc()+"\n"+e.getDir()+":"+e.checkLockable()+"\n"+e.getDest();
+		String exitCheck = e.getDir() + ":" + e.checkLocked();
 			w.println(exitCheck);}
 	}
         w.println(Dungeon.SECOND_LEVEL_DELIM);
@@ -186,7 +187,33 @@ public class Room {
                     System.out.println("No such item " + itemName + ".");
 		}
 	    }
-            s.nextLine();  // Consume "---".
+
+           // s.nextLine();  // Consume "---".
+	}
+	if(!line.equals("---")){
+	String str = s.nextLine();
+	while(str.contains(":")){
+
+		if(GameState.instance().getTest()==true){
+		System.out.println(str);
+		}
+	    	String lockableExit = str;
+		String [] parsedLockable = lockableExit.split(":");
+		String lockDirr = parsedLockable[0];
+		String lockState = parsedLockable[1];
+		boolean b = Boolean.valueOf(lockState);
+		for(Exit e : exits){
+			if(e.getDir().equals(lockDirr)){
+				if(b==true){
+					e.setIsLocked();
+				}
+				else{
+					e.setIsUnlocked();
+				}
+			}
+		}
+		str = s.nextLine();
+	}
 	}
 	}
     /**Sets a false flag for other describe() method use.
