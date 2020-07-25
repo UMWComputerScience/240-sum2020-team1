@@ -226,7 +226,7 @@ public class Room {
     /**
      * Allows the player to leave their current Room and enter another Room which is joined by an Exit.
      */
-    public Room leaveBy(String dir) {
+    public Room leaveBy(String dir) throws LockedExitException {
         for (Exit exit : exits) {
             if (exit.getDir().equals(dir)) {
                 return exit.getDest();
@@ -234,6 +234,14 @@ public class Room {
         }
         return null;
     }
+/**returns the exit that corrosponds to a direction */
+public Exit getExit(String dir){
+	for (Exit exit : exits) {
+		if(exit.getDir().equals(dir)) {
+			return exit;}
+		}
+	return null;
+	}
 
     /**
      * Adds an exit to this room.
