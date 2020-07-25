@@ -25,7 +25,13 @@ class craftCommand extends Command {
 	}
 /**Allows the player to combine two ingredients to create a craftable item.*/
 	public String execute() {
-		String itemCheck = neededItems(itemToCraft);
+		String itemCheck = "";
+		try{
+		itemCheck = neededItems(itemToCraft);
+		}
+		catch(NullPointerException e){
+			return "Sorry, you cannot craft " + itemToCraft + "\n" + ".";
+		}
 		String[] itemsNeeded = itemCheck.split("-");
 		if(GameState.instance().getTest()==true){
 			System.out.println("Execute command in craftCommand");
@@ -54,8 +60,9 @@ class craftCommand extends Command {
 			GameState.instance().removeFromInventory(itemToRemove);}
 			GameState.instance().getAdventurersCurrentRoom().add(GameState.instance().getDungeon().getItem(itemToCraft));
 		}
+		
 		catch (NoItemException n){}
-			}
+		}	
 		String returnString ="you craft one "+itemToCraft+"\n";
 	
 		
