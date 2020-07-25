@@ -35,3 +35,6 @@ David: Druids are people of the Dwarf lands who do not live in caves but rather 
 	example:
 		> craft cake
 		you craft one cake
+
+5. autosave:
+	the game automatically saves play progress each time they enter a room.

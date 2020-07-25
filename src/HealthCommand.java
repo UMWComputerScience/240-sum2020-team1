@@ -29,7 +29,7 @@ class HealthCommand extends Command {
 		returnString = "Current health: "+this.health+"\n"+healthMessages[this.health]+"\n";
 		}
 	else{
-		returnString = healthMessages[this.health];
+		returnString = healthMessages[this.health]+"\n";
 	}
 
 	return returnString;	
