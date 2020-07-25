@@ -1,5 +1,5 @@
 Zork III save data
-Dungeon file: testZork4.zork
+Dungeon file: MGC_dungeon2.zork
 Room states:
 Weapons room:
 beenHere=false
@@ -25,12 +25,11 @@ Training Room 1:
 beenHere=false
 ---
 main hall 4:
-beenHere=false
+beenHere=true
 Contents: pizza,milk,flour
 ---
 main hall 3:
-beenHere=false
-Contents: ham,turkey
+beenHere=true
 Room@74a14482
 w:true
 Room@1540e19d
@@ -43,7 +42,7 @@ beenHere=false
 Contents: bone saw
 ---
 main hall 2:
-beenHere=false
+beenHere=true
 Contents: dragonglass,plate,beermug
 ---
 main hall 1:
@@ -53,14 +52,17 @@ Contents: dagger
 Trophy Room:
 beenHere=false
 Contents: Dark Blade of Glangriel,aegis,golden crown
+Room@1540e19d
+e:true
+Room@74a14482
 ---
 Leather Working Room:
 beenHere=false
 ---
 ===
 Adventurer:
-Current room: main hall 1
-health:12
-hunger:12
-hungerCount:0
-score: 0
+Current room: main hall 4
+health:11
+hunger:11
+hungerCount:2
+score: 5

@@ -102,7 +102,12 @@ public class CommandFactory {
 		}
 	if(verb.equals("hunger")){return new HungerCommand();}
 	if(verb.equals("craft")){return new craftCommand(noun);}
-	if(verb.equals("unlock")){return new UnlockCommand(noun);}
+	if(verb.equals("unlock")){
+		if(MOVEMENT_COMMANDS.contains(noun)){ return new UnlockCommand(noun);}
+		else{
+		String command2 = verb+" "+noun;
+		return new UnknownCommand(command2);}
+	}
         if (parts.length == 2) {
             return new ItemSpecificCommand(verb, noun);
         }

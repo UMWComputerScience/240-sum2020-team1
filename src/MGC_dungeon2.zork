@@ -5,10 +5,10 @@ Items:
 cake
 2
 (craftable)
-recipe:flour,milk
+recipe:flour-milk
 examine:It's a birthday cake!... wait whose birthday is it?
 kick:The cake explodes in a mess across your boot. Nice job, dumbo.
-eat[wounds(-2)]: Hmm that was a good cake.
+eat[Wounds(-2)]: Hmm that was a good cake.
 ---
 dragonglass,glass
 4
@@ -24,11 +24,11 @@ swing:The sword is too heavy for a loser like you to swing.
 ---
 milk
 1
-drink[wound(-1)]: ahhh milk, it does a body good.
+drink[Wound(-1)]: ahhh milk, it does a body good.
 ---
 flour
 1
-throw[disappear]:The packet of flour explods as it hits the wall, flinging the white powder all over.
+throw[Disappear]:The packet of flour explods as it hits the wall, flinging the white powder all over.
 ---
 dagger
 12
@@ -85,24 +85,24 @@ slug:It's a cup not a weapon! Though it is a very large cup so I guess it could 
 turkey
 8
 examine:A stuffed roasted turkey.
-eat[wound(-4)]:Hmm, boy do the dwarves know how to prepare a turkey!
+eat[Wound(-4)]:Hmm, boy do the dwarves know how to prepare a turkey!
 ---
 ham
 6
 examine:a cured ham, still sizzling on the plate.
-eat[wound(-3)]:Oh man, did that ham ever hit the right spot!
+eat[Wound(-3)]:Oh man, did that ham ever hit the right spot!
 ---
 pizza
 3
 examine: It's... a pizza? Do... do dwarves know about Pizza? 
-throw[disappear]:the pizza splats against the wall.
-eat[wound(-3)]:You feel full... and maybe a bit gassy.
+throw[Disappear]:the pizza splats against the wall.
+eat[Wound(-3)]:You feel full... and maybe a bit gassy.
 ---
 axe
 8
 examine: This is one BDA (Big Damn Axe)!
-throw[disappear]: Hey dummy! you just broke a dwarf axe. Do you know what level of bad luck that is?!
-eat[die]: You tried to eat and axe.... and you died. I'm sure you're parents are so very proud of you.
+throw[Disappear]: Hey dummy! you just broke a dwarf axe. Do you know what level of bad luck that is?!
+eat[Die]: You tried to eat and axe.... and you died. I'm sure you're parents are so very proud of you.
 ---
 helmet
 4
@@ -112,7 +112,7 @@ wear:You feel ready to take on the world with your magic helmet, now if you only
 aegis
 30
 examine:a finely wroute piece of dwarving battle armor with in laid gold filigree and find detail work.
-heat[wound(1)]:You burned yourself.
+heat[Wound(1)]:You burned yourself.
 ---
 Dark Blade of Glangriel,foehammer,sword,great sword
 12
@@ -130,7 +130,7 @@ examine:a tool for cutting through bone during surgery.
 golden crown,crown
 5
 examine:It is a finely wrought crown laced with gems and jewels. 
-wear[win]:All hail the conqueror!
+wear[Win]:All hail the conqueror!
 ---
 tapestry1
 6
@@ -139,17 +139,17 @@ examine:A finely sewn tapestry showing the battle of Gro'kar pass.
 ===
 NonPlayerCharacters:
 Old-man
-default:Yes, I am the old man. I've been around and seen a thing or two you young wipper snapper. I've been across the crystal mountains, and seen the burning sands. Even made some good trade deals. 
-crystal mountains:Beutiful those mountains are. Legends say the Soul gem, the largest diamond ever seen by human eyes is hidden on those snow capped mountains. I went looking for it as a kid myself. Nearly died due to the cold. Also the Ursa Polars almost got me.
-burning sands:The burning sands... horrible horrible place. Blinding sun, burning heat, practically no water to speak of, massive hoards of Fire Scorpions, detestable vulture wasps... bagh. If it weren't for the chances of recovering treasures from lost convoys I would never have ventured into those cursed lands. Never!
-soul gem:The Soul Gem? Oh my word, the legends on that. A Crystal diamond the size of a Vorrik helm and crystal clear. Hmmm, if the legends are true, it's worth a score of King's Ransoms!  
-fire scorpions: Horrible devil spawn those things. Individually they are a dangerous annoyance, but you'll never encounter a single fire scorpion. They always congregate in hoards of hundreds. Their stingers can pierce thin armor and their venom make you feel like you're on fire and while you're screaming and flailing in response to feeling your skin burn off, the gods cursed critters are crawling all over you cutting into your body, taking out hunks! If we could eliminate all of those creepy bars it would be godly work to do so!
+default:Yes, I am the old man. I've been around and seen a thing or two you young wipper snapper. I've been across the [crystal-mountains], and seen the[burning-sands]. Even made some good trade deals. 
+crystal-mountains:Beutiful those mountains are. Legends say the Soul gem, the largest diamond ever seen by human eyes is hidden on those snow capped mountains. I went looking for it as a kid myself. Nearly died due to the cold. Also the Ursa Polars almost got me.
+burning-sands:The burning sands... horrible horrible place. Blinding sun, burning heat, practically no water to speak of, massive hoards of Fire Scorpions, detestable vulture wasps... bagh. If it weren't for the chances of recovering treasures from lost convoys I would never have ventured into those cursed lands. Never!
+soul-gem:The Soul Gem? Oh my word, the legends on that. A Crystal diamond the size of a Vorrik helm and crystal clear. Hmmm, if the legends are true, it's worth a score of King's Ransoms!  
+fire-scorpions: Horrible devil spawn those things. Individually they are a dangerous annoyance, but you'll never encounter a single fire scorpion. They always congregate in hoards of hundreds. Their stingers can pierce thin armor and their venom make you feel like you're on fire and while you're screaming and flailing in response to feeling your skin burn off, the gods cursed critters are crawling all over you cutting into your body, taking out hunks! If we could eliminate all of those creepy bars it would be godly work to do so!
 notknown:Huh? What? I don't know anything about that.
 ---
 David
 default: greetings young traveler, I am David, I'm just an old Druid. Went out for a walk after breakfast and never came back. I've been out and about for most of my life. Been over the misty mountains a few times. Would love to get back to KalemZhad again. Such a trek would require crossing the ice creeks. That seems to be too dangerous a task for these days.
 druids:Druids are people of the Dwarf lands who do not live in caves but rather feel at home in the woods and grass lands.
-ice creeks: Far to the north are rivers that never run, solid as ice they are.
+ice-creeks: Far to the north are rivers that never run, solid as ice they are.
 kalemzhad:Oh my word... KalenZhad is an impressive sight. Cave ceilings a thousand hefts tall with walls that runs for a hundred fields. Lights as bright as day. It's a fortress the likes of which are not known otherwise.
 notknown:hmm.. yes... yes... that... is something I do not know.
 ---
@@ -158,20 +158,8 @@ default: Hello my good fellow, wonderous day 'tis is it? I'm Igor. Butcher, Cler
 butcher:Lad, when people bring a 200 pound razor back boar back they been trudging for hours hauling that thing. The last thing they want to do is spend hours carving and cutting up the carcass. So for a few coin and an evenings time, I do it for 'em. All told, I rather enjoy the work.
 clerk:Oh ya I've run a shop or two. Sold meats, vegs, rope, tools, weapons, all sorts of stuff.
 apothecary:Well not an 'Official' apothecary like I neva got the official document from the priesthood, but I can mix a mean martini if you know what I mean.
-tax accountant: What? Do you like filling out your TX-1092a and corralating it with your AE-4099b?
+tax-accountant: What? Do you like filling out your TX-1092a and corralating it with your AE-4099b?
 notknown: Er... sorry lad, what was that?
----
-===
-Guards:
-Tim the guard
-default:I am the noble guard of this route, Tim!
-name:I am the noble guard of this route, Tim!
-tim:I am the noble guard of this route, Tim!
-route:I am the noble guard of this route, Tim!
-noble guard:The noble guards are charged with safe guarding the various routes in this realm, as a consequence of that we also have the keys to one or more exists.
-keys:Yes I, as the Noble guard of this route Tim, have the key to the exit in this room.
-nontknwon: um... I am the noble guard of this route, Tim!
-unlock:w
 ---
 ===
 Rooms:
@@ -186,8 +174,7 @@ Contents: dragonglass,plate,beermug
 Walking further in to the main hall, you are flanked by a pair of large feasting tables, covered with various foods, plates, drinks, cups and cuttlery. There is a dwarven axe embedded in one table. It looks to be embedded too deeply for you to dislodge.
 ---
 main hall 3
-Contents:ham,turkey
-NPC: Tim the guard
+Contents: ham,turkey
 Walking further in to the main hall, you are flanked by a pair of large feasting tables, covered with various foods, plates, drinks, cups and cuttlery.
 ---
 main hall 4
@@ -216,24 +203,21 @@ Contents: Dark Blade of Glangriel,aegis,golden crown
 Ah the trophy room! Signs of the Dwarf clans' various victories, conquests and plunders. Enemy weapons, great jems and jewels, gold crowns and ruby encrusted necklaces aplenty.
 ---
 medical room
-Contents: bone saw, 
+Contents: bone saw
 So... there is a table, some tools and a beer cask. I guess that's one way to approach medical practices.
 ---
 Side room
-Contents: 
 Huh, so it's an extra storage room. Empty racks line one wall and there's a work bench with a tapestry against the other. Guess the Dwarves never got around to putting anything in here worth anyway.
 ---
 Kings Chamber
-Contents: 
 A private room reserved for the Dwarf kind. It's surprisingly sparse given that it was intended for a king. Only a single bed, some blankets, and a tapestry on the wall.
 ---
 Training Room 1
-Contents: 
 The Dwarves take their training seriously. The walls are lined with various axes, mauls, swords and shields. The floor is pitted with nicks and divets, the results of decades of training and sparing sessions no doubt.
 ---
 Observatory
-Contents:
 The room is a large dome. Along the inner surface of the dome are a pair of mechanical arms with circles with etched designs on them, representing the moon and sun. There is a raised dais in the center of the room with a pair of concentric dials that allow you to enter a day, month, and year.
+---
 ===
 Exits:
 main hall 1
@@ -246,9 +230,9 @@ main hall 1
 ---
 main hall 2
 e
-Weapons Room
+Weapons room
 ---
-Weapons Room
+Weapons room
 w
 main hall 2
 ---
@@ -292,17 +276,13 @@ Grog Room
 w
 main hall 4
 ---
-Trophy room
-e
+Trophy Room
+e:true
 main hall 3
-lockable
-isLocked
 ---
 main hall 3
-w
-Trophy room
-lockable
-isLocked
+w:true
+Trophy Room
 ---
 main hall 4
 n
@@ -341,7 +321,7 @@ e
 Training Room 1
 ---
 Training Room 1
-e
+w
 Metal Working Room
 ---
 ===
