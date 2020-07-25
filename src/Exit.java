@@ -123,11 +123,17 @@ public class Exit {
      * after using THIS exit.
      */
     Room getDest() { return dest; }
-   boolean checkLocked(){
+    boolean checkLocked(){
 	if(isLocked == true){return true;}
 	else{return false;}
 	}
-   boolean checkLockable(){
+    boolean checkLockable(){
 	return this.lockable;
 	}
+    boolean getIsLocked(Exit exit){
+	return exit.checkLocked();
+    }
+    void setIsLocked(Exit exit){
+	isLocked = true;
+    }
 }
