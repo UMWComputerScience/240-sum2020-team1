@@ -38,3 +38,9 @@ David: Druids are people of the Dwarf lands who do not live in caves but rather 
 
 5. autosave:
 	the game automatically saves play progress each time they enter a room.
+
+6. Hunger:
+	the player starts with 12 points of "hunger" that will be decreased by 2 every 4 moves they make. When they reach 0 hunger, they will loose 1 point of health every 2 moves they make. "eat" ing an item such as a cake, pizza, or other food item replenishes your hunger.
+
+7. Character strength:
+	The player starts the game with a flat 40 carry capacity. For every 5 points they gain 1 additional carry capacity. There is no upper limit.

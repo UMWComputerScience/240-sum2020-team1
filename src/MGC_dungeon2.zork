@@ -74,7 +74,7 @@ touch[Wound(1)]:Ouch! Sharp steel opens a red line in your finger.
 plate
 1
 examine:made of fired clay, the plate is off white in color with inlaid designs incorpoating Dwarvin runes.
-smash[disapper]:The plate shatters into a shower of fragments.
+smash[Disappear]:The plate shatters into a shower of fragments.
 lick:The plate has a salty taste.
 ---
 beermug,flaggon,stein
@@ -186,9 +186,11 @@ Contents: IronThrone
 The head of the main hall, it's dominating detail is a large intricately detailed iron thrown.
 ---
 Grog Room
+Contents: helmet,aegis
 The walls are obscured by large casks filled with grog, mead, rye, gin, and beer.
 ---
 Metal Working Room
+Contents: axe
 A workshop where the Dwarves work metals. The wall to your left is covered by various tools, the wall to your right covered in weapons, armor, shields and helmets. There is a large furnace at the far end opposite the door.
 ---
 Weapons room
@@ -203,13 +205,14 @@ Contents: Dark Blade of Glangriel,aegis,golden crown
 Ah the trophy room! Signs of the Dwarf clans' various victories, conquests and plunders. Enemy weapons, great jems and jewels, gold crowns and ruby encrusted necklaces aplenty.
 ---
 medical room
-Contents: bone saw
+Contents:beermug
 So... there is a table, some tools and a beer cask. I guess that's one way to approach medical practices.
 ---
 Side room
 Huh, so it's an extra storage room. Empty racks line one wall and there's a work bench with a tapestry against the other. Guess the Dwarves never got around to putting anything in here worth anyway.
 ---
 Kings Chamber
+Contents: tapestry1
 A private room reserved for the Dwarf kind. It's surprisingly sparse given that it was intended for a king. Only a single bed, some blankets, and a tapestry on the wall.
 ---
 Training Room 1
@@ -317,12 +320,20 @@ s
 Observatory
 ---
 Metal Working Room
+w
+main hall 3
+---
+Metal Working Room
 e
 Training Room 1
 ---
 Training Room 1
 w
 Metal Working Room
+---
+medical room
+w
+Side room
 ---
 ===
 
