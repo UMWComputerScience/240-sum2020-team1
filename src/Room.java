@@ -229,10 +229,12 @@ public class Room {
     public Room leaveBy(String dir) throws LockedExitException {
         for (Exit exit : exits) {
             if (exit.getDir().equals(dir)) {
+		    Room r = exit.getDest();
 		    if(exit.checkLocked()){
+			    r = GameState.instance().getAdventurersCurrentRoom();
 			throw new LockedExitException();
 		    }
-                return exit.getDest();
+                return r;
             }
         }
         return null;

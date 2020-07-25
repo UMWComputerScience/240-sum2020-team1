@@ -52,7 +52,9 @@ public class Exit {
 		String[] exitParts = dirLine.split(":");
 	        this.dir = exitParts[0];
 		this.lockable = true;
-		this.isLocked = Boolean.parseBoolean(exitParts[1]);}
+		this.isLocked = Boolean.parseBoolean(exitParts[1]);
+	}
+	//System.out.println(isLocked.toString());
 	else{
 	this.dir = dirLine;
 	this.lockable = false;
@@ -130,10 +132,10 @@ public class Exit {
     boolean checkLockable(){
 	return this.lockable;
 	}
-    boolean getIsLocked(Exit exit){
-	return exit.checkLocked();
+    boolean getIsLocked(){
+	return checkLocked();
     }
-    void setIsLocked(Exit exit){
-	isLocked = true;
+    void setIsLocked(){
+	this.isLocked = true;
     }
 }
