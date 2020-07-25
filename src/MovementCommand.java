@@ -13,8 +13,14 @@ class MovementCommand extends Command {
 
     public String execute() {
         Room currentRoom = GameState.instance().getAdventurersCurrentRoom();
+	Room nextRoom = currentRoom;
 	try{
-        Room nextRoom = currentRoom.leaveBy(dir);
+        nextRoom = currentRoom.leaveBy(dir);
+	}
+	catch(LockedExitException l){
+		System.out.println("Your path is blocked!");
+		return "";
+	}
         if (nextRoom != null) {  // could try/catch here.
             GameState.instance().setAdventurersCurrentRoom(nextRoom);
             GameState.instance().increaseScore(1);
@@ -30,12 +36,8 @@ class MovementCommand extends Command {
 	}   
         else {
             return "You can't go " + dir + ".\n";
-        }
 	}
-	catch(LockedExitException l){
-		System.out.println("Your path is blocked!");
-	}
-	return "";
+	//return "";
 	/**Attempts to move the player in a given direction to a new Room.
 	 * @throws NoExitException There is no Exit in the current Room from the given direction.*/
     }
