@@ -35,4 +35,3 @@ David: Druids are people of the Dwarf lands who do not live in caves but rather 
 	example:
 		> craft cake
 		you craft one cake
-
