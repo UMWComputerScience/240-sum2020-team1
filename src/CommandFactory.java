@@ -101,9 +101,8 @@ public class CommandFactory {
 		return new SetScoreCommand(smirnoff);
 		}
 	if(verb.equals("hunger")){return new HungerCommand();}
-	if(verb.equals("craft")){
-		return new craftCommand(noun);
-		}
+	if(verb.equals("craft")){return new craftCommand(noun);}
+	if(verb.equals("unlock")){return new UnlockCommand(noun);}
         if (parts.length == 2) {
             return new ItemSpecificCommand(verb, noun);
         }
