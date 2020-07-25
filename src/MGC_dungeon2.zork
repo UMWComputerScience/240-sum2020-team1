@@ -8,7 +8,7 @@ cake
 recipe:flour-milk
 examine:It's a birthday cake!... wait whose birthday is it?
 kick:The cake explodes in a mess across your boot. Nice job, dumbo.
-eat[Wounds(-2)]: Hmm that was a good cake.
+eat[Wound(-2)]: Hmm that was a good cake.
 ---
 dragonglass,glass
 4
