@@ -1,5 +1,10 @@
 1. trouble shooting flag:
-	 We built a system that allows us to turn on and turn off certain print statements that we used for trouble shooting. these print statements allowed us to check the values of various instance variables as they were being created, called, or modified and allowed us to back logic problems that wouldn't show up as game problems.
+	 We built a system that allows us to turn on and turn off certain print statements that we used for trouble shooting. these print statements allowed us to check the values of various instance variables as they were being created, called, or modified and allowed us to back logic problems that wouldn't show up as game problems. It also gives you access to several debug tools in game. You simply type the commands as you would any other in-game command. These include the following:
+	wound - allows you to decrease your health by a given value. Command will ask you how much to wound your player by.
+	setScore - allows you to set you score for testing purposes
+	carry - allows you to see your current carry capacity and your current total carry weight.
+	rooms - allows you to see a list of rooms in the dungeon
+	hunger - allows you to see your current hunger score.
 
 	You can use this feature by append a 't' to the end of your command line when you launch the game:
 example:  java Interpreter zorkFile.zork t
