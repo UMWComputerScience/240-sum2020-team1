@@ -49,6 +49,8 @@ public class Exit {
         this.src = d.getRoom(srcTitle);
 	String dirLine = s.nextLine();
 	if(dirLine.contains(":")){
+		if(GameState.instance().getTest()==true){
+		System.out.println("Lockable exit");}
 		String[] exitParts = dirLine.split(":");
 	        this.dir = exitParts[0];
 		this.lockable = true;
@@ -56,6 +58,9 @@ public class Exit {
 	}
 	//System.out.println(isLocked.toString());
 	else{
+		if(GameState.instance().getTest()==true){
+		System.out.println("Non lockable Exit");
+		}
 	this.dir = dirLine;
 	this.lockable = false;
 	}
@@ -83,9 +88,8 @@ public class Exit {
 		if(nextLine.contains("true")){
 			this.isLocked = true;
 		}
-		else if(nextLine.contains("false")){
-			this.isLocked = false;
-		}
+		else// if(nextLine.contains("false"))
+		{this.isLocked = false;	}
 		g = s.nextLine();
 	}
 	else{

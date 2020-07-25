@@ -10,6 +10,10 @@ class UnlockCommand extends Command {
 	public String execute() {
 	Exit exit = GameState.instance().getAdventurersCurrentRoom().getExit(dir);
 	String returnString = "";
+	if(GameState.instance().getTest()==true){
+		System.out.println("Lockable:"+exit.checkLockable());
+		System.out.println("Lock Status:"+exit.getIsLocked());
+		}
 	if(exit.checkLockable()){
 		exit.changeLock();
 		if(exit.checkLockable()==true){
@@ -17,7 +21,7 @@ class UnlockCommand extends Command {
 		else{
 		returnString = "With a lound 'thunk' the mechanism of the door lock turns over and the door is unlocked.";
 	}}
-	else{returnString = "That exit is not lockable.";}
+	else{returnString = "That exit is not lockable.\n";}
 	return returnString;
 	}	
 }
