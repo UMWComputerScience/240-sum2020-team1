@@ -229,6 +229,8 @@ public class Room {
     public Room leaveBy(String dir) throws LockedExitException {
         for (Exit exit : exits) {
             if (exit.getDir().equals(dir)) {
+		if(GameState.instance().getTest()==true){
+		System.out.println("Exit status:"+exit.checkLocked());}
 		    if(exit.checkLocked()){
 			throw new LockedExitException();
 		    }

@@ -62,6 +62,7 @@ public class Exit {
 	System.out.println("src:"+this.src.getTitle());
 	System.out.println("dir:"+this.dir);
 	System.out.println("dest:"+this.dest.getTitle());
+	System.out.println("Locked:"+this.isLocked);
 	}
 	//System.out.println(src.getTitle() + " " + dir + " " + dest.getTitle());
         
@@ -130,10 +131,14 @@ public class Exit {
     boolean checkLockable(){
 	return this.lockable;
 	}
-    boolean getIsLocked(Exit exit){
-	return exit.checkLocked();
+    boolean getIsLocked(){
+	return checkLocked();
     }
-    void setIsLocked(Exit exit){
-	isLocked = true;
+    void setIsLocked(boolean lock){
+	isLocked = lock;
     }
+    void changeLock(){
+	if(isLocked == true){isLocked = false;}
+	else{isLocked = true;}
+	}
 }
