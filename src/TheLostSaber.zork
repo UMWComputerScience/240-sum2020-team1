@@ -10,7 +10,7 @@ open[Disappear,Score(15)]:The cube levitates out of your hand, opening your mind
 dark-side-holocron
 20
 examine:The glowing red cube feels cold to the touch, almost freezing. It's heavier than you expected. A sense of dread overwhelms you.
-open[Die]:The cube levitates out of your hand, opening your mind to it's agony. You see a man with a blue lightsaber slaughtering youngling, white troopers firing apon old jedi. A hooded figure laughs as lightning expells from his fingers, shocking you to death.
+open[Die]:The cube levitates out of your hand, opening your mind to it's agony. You see a man with a blue lightsaber slaughtering younglings, white troopers firing apon old jedi. A hooded figure laughs as lightning expells from his fingers, shocking you to death.
 ---
 ewok
 30
