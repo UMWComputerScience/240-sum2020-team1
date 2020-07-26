@@ -1,0 +1,247 @@
+Luke's Lost Saber
+Zork++
+===
+Items:
+light-side-holocron
+2
+examine:The glowing blue cube feels warm and light in your hand, lighter than expected.
+open[Disappear,Score(15)]:The cube levitates out of your hand, opening your mind. You can hear voices of past jedi enscribing all of their knowledge into your brain. In an instant the voices are gone and so is the holocron.
+---
+dark-side-holocron
+20
+examine:The glowing red cube feels cold to the touch, almost freezing. It's heavier than you expected. A sense of dread overwhelms you.
+open[Die]:The cube levitates out of your hand, opening your mind to it's agony. You see a man with a blue lightsaber slaughtering youngling, white troopers firing apon old jedi. A hooded figure laughs as lightning expells from his fingers, shocking you to death.
+---
+ewok
+30
+examine:It's face looks up at you as you cradle it, you seem to form a bond.
+pet[Score(5)]:As you enjoy your time with the creature, you feel your connection to the living force increasing.
+kick[Wound(6),Drop]:You evoke flurry of scratches and growls from the ewok before it runs away.
+---
+kyberCrystal,crystal
+2
+examine:The blue crystal changes color as light refracts through it at different angles.
+---
+hilt
+5
+examine:You've seen this hilt before, it reminds you of an old friend.
+---
+blueLightsaber,blueSaber
+7
+(craftable)
+recipe:hilt-kyberCrystal
+examine:The saber should be in working order.
+ignite[Score(5)]:As you ignite the old sword, the blue beam echos a familiar voice "use the force Luke".
+---
+blueMilk,milk
+10
+examine:You think to yourself "Man, I could drink this all day!".
+eat:The taste reminds you of Owen and Beru.
+---
+sithHilt
+5
+examine:As you hold the evil artifact, you sense a great amount of pain from it's past.
+---
+sithLightsaber,sithSaber
+7
+(craftable)
+recipe:sithHilt-kyberCrystal
+examine:Now a usable weapon, it strikes fear in you.
+ignite[Die]:You have fallen to the dark side...
+throw[Score(15),Disappear]:The saber dissapears in the heavy underbrush. You feel your connection with the light side growing stronger.
+---
+familiarLightsaber,familiarSaber
+7
+examine:You've found it! Did it break when you dropped it in the crash?
+ignite[Win]:As the brilliant green glow emerges, you hear Han's voice over your transceiver as the familiar shape of the Millennium Falcon flys above. You use the bright green saber to flag him down. Congradulations, you have escaped the uncharted sector of Endor.
+---
+===
+NonPlayerCharacters:
+Force-Ghost-Yoda
+default: Lost are you, young Skywalker? Leave this place, many people do not. Uncharted sector, this is.
+uncharted-sector:Hm, a way of contacting someone you need. Your lightsaber you need, visible from the air, it is.
+lightsaber:Strong with the force, this place is. Use the skills Obi-Wan has taught you, you must.
+unknown:What you are saying, I do not understand.
+---
+Force-Ghost-Obi-Wan
+default:Hello there! It seems that this old jedi temple is locked. Only a force user may enter. You must channel the light side to unlock the doors ahead of you.
+unknown:What? Did you hit your head in the crash?
+---
+Elder-Ewok
+default:The Ewok's stance is strong and proud like. It seems to be speaking to you, but you do not understant what it is saying.
+unknown:The Ewok grunts in confusion.
+---
+===
+Rooms:
+Crashed X-Wing
+Welcome to: The Search for the Lost Saber! In an alternate timeline, Luke attacks the Death Star in his X-Wing, only to be shot down over Endor. Your lightsaber is jettisoned from your ship during the crash. You must help Luke find his saber so he can get back to saving the galaxy!
+---
+Forest Clearing
+NPC: Force-Ghost-Yoda
+Smoke billowing from the wreck, you see that your crash site is a calm clearing. A familiar presence chuckles at the foot of a tree. To the West, you notice that the underbrush thickens. You hear running water to the East.
+---
+Stream
+The water is flowing clear, downhill towards the South.
+---
+Fork in the Stream
+As the water runs South, a branch diverges to the East. You hear the road of falling water to the East
+---
+Lake
+Contents: blueMilk
+The stream flows into a still shimmering lake. You see Ewoks in the distance milking some sort of animals.
+---
+Waterfall
+Contents: hilt
+The water flows down a mighty drop. You notice some sort of old ruins peaking over the trees to the East.
+---
+Thick Brush
+Contents: ewok
+NPC: Elder-Ewok
+Sounds of small, scurrying creatures echo through the forest. One of them stands there, looking at you with an elaborate headdress.
+---
+Jedi Temple Entrance
+NPC: Force-Ghost-Obi-Wan
+The pyramid shape of an old ruin stands before you. You feel something calling to you from inside the stone walls.
+---
+Temple Hall
+Contents: kyberCrystal
+The dark chamber is illuminated by a hole in the ceiling. You hear dark whispers echoing in the shadows. You know you are alone.
+---
+Crashed Tie Fighter
+Contents: sithHilt
+The far fall of this room is caved in. You see half of a tie fighter peaking through the rubble. It looks like the crash happened ages ago.
+---
+Holocron Room
+The room has no windows, yet hundreds geometric glowing cubes illuminate the area from the ceiling.A doorway glows to the West and there us a hole in the South wall.
+---
+Knowledge of Good Room
+Contents: light-side-holocron
+A peaceful room, empty except for a pillar with unual, yet recognisable marking.
+---
+Knowledge of Evil Room
+Contents: dark-side-holocron
+The silence in almost deafening. The empty room is filled with erie markings scratched on each wall.
+---
+Forest Path
+Something seems to be drawing you to follow the path south. You see a giant old tree ahead of you. It seems sacred and almost aware of your presence.
+---
+Tall Elder Tree
+Contents: familiarLightsaber
+Looking over miles of forest, you see nothing, not even the temple. You don't remember how you climbed up here, so you cannot climb down.
+---
+===
+Exits:
+Crashed X-Wing
+u
+Forest Clearing
+---
+Forest Clearing
+w
+Stream
+---
+Stream
+e
+Forst Clearing
+---
+Forest Clearing
+e
+Thick Brush
+---
+Thick Brush
+w
+Forest Clearing
+---
+Stream
+s
+Fork in the Stream
+---
+Fork in the Stream
+n
+Stream
+---
+Fork in the Stream
+e
+Waterfall
+---
+Waterfall
+w
+Fork in the Stream
+---
+Fork in the Stream
+s
+Lake
+---
+Lake
+n
+Fork in the Stram
+---
+Thick Brush
+s
+Jedi Temple
+---
+Jedi Temple
+n
+Thick Brush
+---
+Waterfall
+e
+Jedi Temple
+---
+Jedi Temple
+w
+WaterFall
+---
+Jedi Temple
+s:true
+Temple Hall
+---
+Temple Hall
+n
+Jedi Temple
+---
+Temple Hall
+w
+Crashed Tie Fighter
+---
+Crashed Tie Fighter
+e
+Temple Hall
+---
+Temple Hall
+s:true
+Holocron Room
+---
+Holocron Room
+n
+Temple Hall
+---
+Holocron Room
+s
+Forest Path
+---
+Forest Path
+n
+Holocron Room
+---
+Forest Path
+u
+Tall Elder Tree
+---
+Holocron Room
+w:true
+Knowledge of Good Room
+---
+Knowledge of Good Room
+e
+Holocron Room
+---
+Knowledge of Good Room
+w:true
+Knowledge of Evil Room
+---
+Knowledge of Evil Room
+e
+Knowledge of Good Room
+---
+===
+
