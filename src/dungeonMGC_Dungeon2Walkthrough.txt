@@ -1,0 +1,6 @@
+Walkthrough to complete Garvin Hall 
+1- from the begining of the dungeon in room main hall 1, head north to main hall 2.
+2- from main hall 2 head north to main hall 3
+3- from main hall 3 you will will be given the option to go n,s,e, or w. the s, e, and n exits are all unlocked and freely usable. the west exit is locked. Use the unlock command on that exit to unlock it.
+4- go w into the trophy room where you will find the golden crown.
+5- wear the crown.
