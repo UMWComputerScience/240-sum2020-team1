@@ -1,0 +1,16 @@
+This is the walkthrough for the DarkSouls.zork dungeon.
+To start, you begin in Firelink Shrine. You can talk to the FireKeeper to determine your win condition - to craft the strongest weapon and swing it.
+After that, you must go north to Undead Burg. Pick up the BrokenStraightSword by typing 'take BrokenStraightSword' or 'take sword'.
+Go west to the Blacksmith. The description of the room tells you what you must craft to make your way up the weapon tree.
+You may also explore past the blacksmith for armor pieces.
+From the Blacksmith, go back east to Undead Burg.
+Go east again to the Undead Asylum and type 'take TitaniteShard' or 'take shard' to pick up the titanite, which is your upgrade material.
+At this point, you can type 'craft Estoc', since you saw the Estoc was the next weapon in the upgrade tree.
+Once you craft it, pick it back up by typing 'take Estoc'.
+Go south to the Graveyard and down to the Catacombs. You can then go east to the Sun Shrine and north to Lothric Castle Grounds. Any other rooms on the way are optional.
+Go east to the Poison Forest and 'take TitaniteChunk' or 'take chunk'.
+Following the upgrade tree, type 'craft Greatsword'. It's case sensitive.
+Type 'take Greatsword' or 'take sword'. Go back west to Lothric Castle Grounds.
+Go north to Lothric Castle and type 'take TitaniteSlab' or 'take slab'.
+Lastly, type 'craft SmoughsHammer'. Type 'take SmoughsHammer' or 'take hammer'.
+To end the game, type 'swing SmoughsHammer' or 'swing hammer' and the game will end. Congratulations!

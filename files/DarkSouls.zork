@@ -1,0 +1,269 @@
+Dark Souls
+Zork++
+===
+Items:
+BrokenStraightSword,sword
+5
+examine:This sword is the worst sword you've ever seen. It makes you wish you had just given up a long time ago.
+swing[Wound(3)]:Your terrible swing almost chops your own head off, since the sword is so unwieldy and you have no sword skills whatsoever.
+---
+TitaniteShard,shard,titanite
+1
+examine:This pure metal will help you upgrade one weapon.
+---
+MagicEssence
+0
+examine:This essence will repair your teleportation bone.
+---
+BrokenTeleportationBone,bone
+3
+examine:This bone can teleport you to any random room, but it looks broken right now.
+use[Wound(2)]:A flash of light appears, but nothing appeared to happen. Looks like it's broken.
+---
+TeleportationBone,bone
+3
+(craftable)
+recipe:BrokenTeleportationBone-MagicEssence
+examine:This bone can teleport you to any random place.
+use[Teleport]:You feel disoriented but wake up in a new place in a daze.
+---
+EstusFlask,flask
+2
+examine:This gooey yellow drink heals your HP.
+drink[Wound(-6),Disappear]:You healed 6 HP from your flask.
+---
+CalamityRing,ring
+2
+examine:This ring seems to be a bad omen. I wouldn't wear it if I were you.
+wear[Die]:The ring, unlike in the actual Dark Souls, killed you instantly. It did warn you not to wear it, did it not?
+---
+LordThrone,throne
+400000
+examine:The great throne of Lothric. Perhaps one day, it can be yours, after Lothric has been stopped and the Flame dealt with.
+SitOn[Die]:The throne immediately burst into flames and locked you into place. By sitting on the king's throne, your heresy led to your death.
+touch[Wound(6)]:The throne burns your hand, wounding you very badly.
+---
+KnightHelmet,helmet
+5
+examine:An armored helmet the old knights of Gwyn used to wear.
+wear[Score(3),Wound(1)]:Your armor rating increased as you put on the helmet, but it doesn't exactly fit.
+---
+KnightArmor,armor
+10
+examine:A very tough piece of armor. Heavy but could be worth keeping for the protection.
+wear[Score(5),Wound(3)]:Your armor rating increased as you put on the armor, but this definitely doesn't fit. It hurts you putting it on.
+---
+KnightLegs,legs
+5
+examine:An armored leg piece worn by the old knights.
+wear[Score(3),Wound(1)]:Your armor rating increased as you put on the legs, but they don't exactly fit.
+---
+KnightBoots,boots
+5
+examine:An armored set of boots worn by knights of Gwyn.
+wear[Score(3),Wound(1)]:Your armor rating increased as you put on the boots, but they don't exactly fit.
+---
+TitaniteChunk,chunk
+2
+examine:This piece of pure metal will allow you to upgrade an advanced weapon.
+---
+Estoc
+5
+(craftable)
+recipe:BrokenStraightSword-TitaniteShard
+examine:An advanced weapon that will do a moderate amount of damage.
+swing:At least you didn't hurt yourself this time! You can swing this sword and your skills are improving.
+---
+TitaniteSlab,slab
+8
+examine:This slab of pure metal will allow you to upgrade an elite weapon.
+---
+Greatsword,sword
+10
+(craftable)
+recipe:Estoc-TitaniteChunk
+examine:An elite weapon that can surely mow down most enemies in your way.
+swing:You have greatly improved since you began. You confidently swing your sword to demolish your enemies.
+---
+SmoughsHammer,hammer
+30
+(craftable)
+recipe:Greatsword-TitaniteSlab
+examine:A super weapon that is surely overkill. This hammer is bigger than you, and weighs just as much.
+swing[Win]:You are now a master warrior and you can use any weapon proficiently.  You swing the hammer and even Smough himself would be impressed. You've won the game!
+---
+===
+NonPlayerCharacters:
+FireKeeper
+default:Hello, ashen one. If you wish to survive in this world, you must [strength]en yourself and obtain great [weapons].  If you craft the strongest weapon in existence, you will win possession of this world and do with it as you will.
+strength:Your strength will increase as you progress throughout your journey.  The more you explore this world, the more you will be able to carry along with you.
+weapons:Your weapons can be upgraded with a pure metal found in this world called [titanite]. Finding titanite will allow you to craft stronger weapons and reach your goal.
+titanite:Titanite is a pure metal used for upgrading your weapons. It can be found naturally in the world, and you will surely need it for your quest.
+notknown:I apologize, ashen one, I am unsure what you mean.
+---
+Hawkwood
+default:Oh, it's you. You're new here, I see. New people don't usually last long. The [Abyss] Watchers make sure of that, handling anything [Dark] that comes their way. Gives me conniptions.
+Abyss:You don't know about the Abyss? Where have you been? It's the home of the Dark, where warriors of flame goes to die. I assume you've never heard of [Artorias], either? You must've come from under a rock.
+Dark:The Dark is an evil force deadset on taking this world. The flame that fuels this world is running out of time, and all we can do is sit and wait for it to happen.  Oh well.
+Artorias:Knight Artorias? Only one to ever be able to traverse the Abyss without falling into its endlessness? How are you this unaware? Sometimes, newcomers like you just upset me.
+notknown:Speak English, man. You aren't making any sense.
+---
+Patches
+default:Oh, hello! I see you're a fellow adventurer, like me! I wonder if you would check this next room for me for some [treasure] I've heard of. I'll let you keep it if you do.. heh. Here's a key so you can unlock the door.
+treasure:Oh yeah, I heard there was some legendary ring around here that gives you a huge magic attack! It seems like a great item for any adventurer to have in their arsenal. Look for it.. if you want.. heh.
+CalamityRing:Oh, so you found it, huh? Why not put it on? I've always been curious about what the magic power looks like.. heh.
+notknown:What are you talking about, friend? I can't understand you!
+---
+===
+Rooms:
+Firelink Shrine
+Contents: EstusFlask,LordThrone
+NPC: FireKeeper,Hawkwood
+You wake up in Firelink Shrine, where the Lords used to rule this flaming world. Lothric's massive throne resides in the middle, and it menacingly arches over you. You see a man and a woman standing in the central area, wondering who you are.
+---
+Undead Burg
+Contents: BrokenStraightSword,KnightLegs
+You proceed to the Undead Burg, where there are plenty of unsavory monsters and Undead to deal with. You see a broken sword on the ground along with a nice looking piece of armor.
+---
+Undead Asylum
+Contents: EstusFlask,TitaniteShard,BrokenTeleportationBone
+You make your way to the Undead Asylum, where a previous adventurer first began. This place is full of history. On the ground, you see another flask along with a strange piece of metal and some kind of strange bone.
+---
+Treasure Room
+Contents: CalamityRing
+You walk in to this deathtrap of a room, avoiding various spikes and spears protruding from the walls. You carefully make your way to the center of the room, where you see a shining ring.
+---
+Blacksmith
+Contents: KnightHelmet
+This room is abandoned, but you see a carefully crafted helmet lying on the ground. There is also a note on the floor labeled "Weapon Upgrade Tree." It reads BrokenStraightSword, Estoc, Greatsword, and SmoughsHammer.
+---
+Catacombs
+Contents: EstusFlask
+NPC: Patches
+You can see that this room has not been used in a long time, and it now is just used as a secret passage. It seems that there may even have been a civilization down here at one point, but it is now just their remains.
+---
+Lothric Castle Grounds
+Contents: EstusFlask,MagicEssence
+You make your way up towards the castle. As you view the way up, you see enemies all the way around you. You may want to at least have your greatsword before you come any further.  On the ground, you see another flask and some floating blue substance.
+---
+Lothric Castle
+Contents: TitaniteSlab
+You finally reach the castle, after all that hard work. You see a large piece of pure metal on the ground, and it's the largest you've ever seen. With your greatsword, you can finally put an end to your journey.
+---
+Hidden Room
+Contents: KnightArmor
+You make your way to a hidden room, where you see a massive suit of armor hung up along the wall. It would surely provide a great amount of defense, but it weighs a ton.
+---
+Poison Forest
+Contents: TitaniteChunk
+You find yourself in a hidden forest full of poison. It may be better described as a swamp rather than a forest. On the ground you see a chunk of pure metal that would surely be valuable to your quest.
+---
+Graveyard
+Contents: EstusFlask
+You work your way into a graveyard full of evil skeletons. They surround you and try their hardest to kill you. You barely make it back to the entrance of the graveyard, but what will you do now?
+---
+Sun Shrine
+You come across the ancient debris of a shrine of the Warriors of Sunlight. You remember what it's like to fight for the sun and you wonder what it would be like to be so grossly incandescent.
+---
+Hall of Souls
+Contents: KnightBoots
+This hallway is riddled with lost souls trying to make their way back to their bodies. They have never known peace after their death and it does not seem like they ever will. On the ground you see a brightly shining set of boots.
+---
+Oceiros' Ruin
+You find an ancient library that seems to have once been used by a scientist. Most of these books are about transmutation and the study of dragons. You wonder what happened to the old man.
+---
+Oceiros' Secret Room
+Contents: EstusFlask
+This room is full of information. You discover the old man, Oceiros, turned himself into a dragon because he was so obsessed with them. He even protected his invisible child, which he calls Ocelot.
+---
+===
+Exits:
+Firelink Shrine
+n
+Undead Burg
+---
+Undead Burg
+s
+Firelink Shrine
+---
+Undead Burg
+e
+Undead Asylum
+---
+Undead Burg
+w
+Blacksmith
+---
+Blacksmith
+e
+Undead Burg
+---
+Undead Asylum
+w
+Undead Burg
+---
+Blacksmith
+d
+Hidden Room
+---
+Hidden Room
+u
+Blacksmith
+---
+Undead Asylum
+s
+Graveyard
+---
+Graveyard
+n
+Undead Asylum
+---
+Graveyard
+d
+Catacombs
+---
+Catacombs
+u
+Graveyard
+---
+Catacombs
+e
+Sun Shrine
+---
+Sun Shrine
+w
+Catacombs
+---
+Sun Shrine
+n
+Lothric Castle Grounds
+---
+Lothric Castle Grounds
+s
+Sun Shrine
+---
+Lothric Castle Grounds
+e
+Poison Forest
+---
+Poison Forest
+w
+Lothric Castle Grounds
+---
+Lothric Castle Grounds
+n
+Lothric Castle
+---
+Lothric Castle
+s
+Lothric Castle Grounds
+---
+Catacombs
+w:true
+Treasure Room
+---
+Treasure Room
+e
+Catacombs
+---
+===
