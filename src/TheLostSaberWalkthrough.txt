@@ -1,0 +1,11 @@
+To win TheLostSaber.zork, the following commands must be input in the following exact order:
+u
+e
+s
+unlock s
+s
+unlock s
+s
+s
+u
+ignite familiarLightsaber
