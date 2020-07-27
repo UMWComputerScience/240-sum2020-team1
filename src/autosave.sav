@@ -1,0 +1,69 @@
+Zork III save data
+Dungeon file: DarkSouls.zork
+Room states:
+Poison Forest:
+beenHere=true
+---
+Sun Shrine:
+beenHere=true
+---
+Catacombs:
+beenHere=true
+Contents: EstusFlask
+w:true
+---
+Oceiros' Secret Room:
+beenHere=false
+Contents: EstusFlask
+---
+Hall of Souls:
+beenHere=false
+Contents: KnightBoots
+---
+Blacksmith:
+beenHere=false
+Contents: KnightHelmet
+---
+Lothric Castle:
+beenHere=false
+Contents: TitaniteSlab
+---
+Treasure Room:
+beenHere=false
+Contents: CalamityRing
+---
+Lothric Castle Grounds:
+beenHere=true
+Contents: EstusFlask,MagicEssence
+---
+Hidden Room:
+beenHere=false
+Contents: KnightArmor
+---
+Undead Burg:
+beenHere=true
+Contents: KnightLegs
+---
+Graveyard:
+beenHere=true
+Contents: EstusFlask
+---
+Oceiros' Ruin:
+beenHere=false
+---
+Undead Asylum:
+beenHere=true
+Contents: EstusFlask,BrokenTeleportationBone
+---
+Firelink Shrine:
+beenHere=true
+Contents: EstusFlask,LordThrone
+---
+===
+Adventurer:
+Current room: Lothric Castle
+Inventory: Greatsword
+health:12
+hunger:9
+hungerCount:0
+score: 9
